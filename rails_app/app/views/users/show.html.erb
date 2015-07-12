@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Start Date:</strong>
+  <%= @user.start_date %>
+</p>
+
+<p>
+  <strong>Opening Hours:</strong>
+  <%= @user.opening_hours %>
+</p>
+
+<p>
+  <strong>Tabs Available:</strong>
+  <%= @user.number_of_tabs %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
