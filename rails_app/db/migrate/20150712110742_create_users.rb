@@ -6,13 +6,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string :address, null: false, limit: 128
       t.string :email, null: false, limit: 128
       t.datetime :start_date, null: false
-      t.string :opening_hours, null: false, limit: 128
+      t.datetime :opening_time, null: false
+      t.datetime :closing_time, null: false
       t.string :number_of_tabs, null: false, limit: 128
 
       t.timestamps null: false
     end
     
-  create_table :bookings do |t|
+  create_table :customers do |t|
       t.belongs_to :users, index: true
       t.string :name, null: false, limit: 100
       t.string :phone, null: false, limit: 10

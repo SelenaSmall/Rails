@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150712110742) do
 
-  create_table "bookings", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.integer  "users_id",   limit: 4
     t.string   "name",       limit: 100, null: false
     t.string   "phone",      limit: 10,  null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "bookings", ["users_id"], name: "index_bookings_on_users_id", using: :btree
+  add_index "customers", ["users_id"], name: "index_customers_on_users_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",           limit: 128, null: false
@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 20150712110742) do
     t.string   "address",        limit: 128, null: false
     t.string   "email",          limit: 128, null: false
     t.datetime "start_date",                 null: false
-    t.string   "opening_hours",  limit: 128, null: false
+    t.datetime "opening_time",               null: false
+    t.datetime "closing_time",               null: false
     t.string   "number_of_tabs", limit: 128, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false

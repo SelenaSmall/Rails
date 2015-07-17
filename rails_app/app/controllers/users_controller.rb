@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :view_reservations]
+
+#  def index
+#    @grid = UsersGrid.new(params[:users_grid]) do |scope|
+#      scope.page(params[:page])
+#    end
+#  end
+
+before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
@@ -7,6 +14,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def bookings
+    @users = User.all
+  end
+  
   # GET /tabs/1
   # GET /tabs/1.json
   def show
@@ -14,29 +25,21 @@ class UsersController < ApplicationController
 
   # GET /tabs/new
   def new
-    @user = User.new
+    @user = user.new
   end
 
   # GET /tabs/1/edit
   def edit
   end
 
-#  def view
-#    @user.view_reservations
-#    respond_to do |format|
-#     format.html { redirect_to bookings_url, notice: 'Bookings for user.' }
-#      format.json { head :no_content }
-#    end
-#  end
-
   # POST /tabs
   # POST /tabs.json
   def create
-    @user = User.new(user_params)
+    @user = user.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'user was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -50,7 +53,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'user was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -64,7 +67,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to user_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to user_url, notice: 'user was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -72,11 +75,13 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = user.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :address, :email, :start_date, :opening_hours, :number_of_tabs)
+      params.require(:user).permit(:name, :phone, :email, :tab_name, :start_time, :user_id)
     end
 end
+
+
