@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
-
-#  def index
-#    @grid = UsersGrid.new(params[:users_grid]) do |scope|
-#      scope.page(params[:page])
-#    end
-#  end
-
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
@@ -17,7 +10,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   def bookings
     @users = User.all
   end
-  
+
   # GET /tabs/1
   # GET /tabs/1.json
   def show
@@ -25,7 +18,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs/new
   def new
-    @user = user.new
+    @user = User.new
   end
 
   # GET /tabs/1/edit
@@ -35,7 +28,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   # POST /tabs
   # POST /tabs.json
   def create
-    @user = user.new(user_params)
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
@@ -75,12 +68,12 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = user.find(params[:id])
+      @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :email, :tab_name, :start_time, :user_id)
+      params.require(:user).permit(:name, :phone, :address, :email, :number_of_tabs)
     end
 end
 

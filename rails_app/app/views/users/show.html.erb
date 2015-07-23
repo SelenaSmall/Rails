@@ -21,24 +21,9 @@
 </p>
 
 <p>
-  <strong>Start Date:</strong>
-  <%= @user.start_date %>
-</p>
-
-<p>
-  <strong>Opening Time:</strong>
-  <%= @user.opening_time %>
-</p>
-
-<p>
-  <strong>Closing Time:</strong>
-  <%= @user.closing_time %>
-</p>
-
-<p>
   <strong>Tabs Available:</strong>
   <%= @user.number_of_tabs %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Show All Users', users_path %>

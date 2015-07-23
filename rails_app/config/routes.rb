@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+
   get 'users/bookings'
   get 'users/customers'
 
-  resources :users
-  resources :customers
+  get 'users/venues/bookings'
+  get 'users/venues/customers'
+
+
+  resources :users do
+    resources :venues do
+      resources :bookings
+      resources :customers
+    end
+  end
+
+  resources :customers  do
+    resources :bookings
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

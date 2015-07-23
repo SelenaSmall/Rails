@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1>CUSTOMERS</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Tab</th>
-      <th>Time</th>
       <th>Name</th>
       <th>Phone</th>
       <th>Email</th>
@@ -17,20 +15,22 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.tab_name %></td>
-        <td><%= customer.start_time %></td>
         <td><%= customer.name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@user, @venue, @customer]%></td>
+        <td><%= link_to 'Edit', edit_user_venue_customer_path(@user, @venue, customer) %></td>
+        <td><%= link_to 'Destroy', [@user, @venue, @customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+
+<%= link_to 'New Customer', new_user_venue_customer_path %>
+<%= link_to 'Back to Venues', user_venues_path %>
+
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
-<%= link_to 'Back to Bookings', users_bookings_path %>
+<%= link_to 'BOOKINGS'  %>

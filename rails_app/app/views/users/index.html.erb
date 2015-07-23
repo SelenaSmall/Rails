@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>users</h1>
+<h1>USERS</h1>
 
 <table>
   <thead>
@@ -9,9 +9,6 @@
       <th>Phone</th>
       <th>Address</th>
       <th>Email</th>
-      <th>Start Date</th>
-      <th>Opening Time</th>
-      <th>Closing Time</th>
       <th>Number of Tabs</th>
       <th colspan="3"></th>
     </tr>
@@ -24,14 +21,11 @@
         <td><%= user.phone %></td>
         <td><%= user.address %></td>
         <td><%= user.email %></td>
-        <td><%= user.start_date %></td>
-        <td><%= user.opening_time %></td>
-        <td><%= user.closing_time %></td>
         <td><%= user.number_of_tabs %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'View Bookings', users_bookings_path %></td>
+        <td><%= link_to 'View Venues', user_venues_path(1) %></td>
       </tr>
     <% end %>
   </tbody>

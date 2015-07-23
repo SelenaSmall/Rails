@@ -1,16 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Tab:</strong>
-  <%= @customer.tab_name %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @customer.start_time %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @customer.name %>
 </p>
@@ -26,4 +16,4 @@
 </p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Show All Customers', user_venue_customers_path %>

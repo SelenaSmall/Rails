@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Show', [@user, @venue, @customer] %> |
+<%= link_to 'Show All Customers', user_venue_customers_path(@venue, @customer) %>

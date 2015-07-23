@@ -1,0 +1,6 @@
+<h1>Editing Booking</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@user, @venue, @booking] %> |
+<%= link_to 'Show All Bookings', user_venue_bookings_path(@venue, @booking) %>

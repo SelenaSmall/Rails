@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @booking.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @booking.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @booking.email %>
+</p>
+
+<p>
+  <strong>start_time:</strong>
+  <%= @booking.start_time %>
+</p>
+
+<p>
+  <strong>tab_name:</strong>
+  <%= @booking.tab_name %>
+</p>
+
+
+<%= link_to 'Show All Bookings', user_venue_bookings_path %>
