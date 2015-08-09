@@ -2,7 +2,9 @@ class VenuesController < ApplicationController
   before_action :set_organisation
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_hour
-
+  before_action :set_cover
+  before_action :set_note
+  
   # GET /tabs
   # GET /tabs.json
   def index
@@ -17,10 +19,16 @@ class VenuesController < ApplicationController
   # GET /tabs/1
   # GET /tabs/1.json
   def show
-    @hours = @venue.hours.all
+  # @hours = @venue.hours.all
   end
 
   def opening_hours
+  end
+
+  def covers
+  end
+
+  def notes
   end
 
   # GET /tabs/new
@@ -93,6 +101,14 @@ class VenuesController < ApplicationController
 
     def set_hour
       @hour #= Hour.find(params[:id])
+    end
+
+    def set_cover
+      @cover #= Hour.find(params[:id])
+    end
+
+    def set_note
+      @note #= Hour.find(params[:id])
     end
 
     #def hour_params

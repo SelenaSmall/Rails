@@ -1,5 +1,49 @@
 <p id="notice"><%= notice %></p>
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Details/Home</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Reports</a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+
+      <class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/OUT <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">List </a></li>
+              <li><a href="#">of </a></li>
+              <li><a href="#">Users</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Create New User</a></li>
+            </ul>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body>
+<h1>DETAILS</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @organisation.name %>
@@ -25,5 +69,35 @@
   <%= @organisation.number_of_tabs %>
 </p>
 
-<%= link_to 'Edit', edit_organisation_path(@organisation) %> |
-<%= link_to 'Back to All Organisations', organisations_path %>
+
+<%= link_to 'Edit Details', edit_organisation_path(@organisation) %>
+
+<h1>VENUES</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organisation.venues.each do |venue| %>
+      <tr>
+        <td><%= venue.name %></td>
+        <td><%= venue.phone %></td>
+        <td><%= venue.email %></td>
+        <td><%= venue.address %></td>
+        <td><%= link_to 'Details', [@organisation, venue] %></td>
+        <td><%= link_to 'Delete', [@organisation, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div><%= link_to 'All Organisations', organisations_path %></div>
+
+</body>

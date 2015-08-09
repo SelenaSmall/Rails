@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'bookings/index'
+  get 'covers/index'
 
   get 'organisations/bookings'
   get 'organisations/customers'
@@ -7,13 +8,25 @@ Rails.application.routes.draw do
   get 'organisations/venues/bookings'
   get 'organisations/venues/customers'
   get 'organisations/venues/hours'
+  get 'organisations/venues/covers'
 
 
   resources :organisations do
     resources :venues do
+      get 'edit_all'
+      resources :details
       resources :bookings
       resources :customers
       resources :hours do
+        get 'edit_all', on: :collection
+      end
+      resources :covers do
+        get 'edit_all', on: :collection
+      end
+      resources :tables do
+        get 'edit_all', on: :collection
+      end
+      resources :notes do
         get 'edit_all', on: :collection
       end
     end

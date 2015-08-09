@@ -1,33 +1,108 @@
 <p id="notice"><%= notice %></p>
 
-<h1>VENUE DETAILS</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-<p>
-  <strong>Name:</strong>
-  <%= @venue.name %>
-</p>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Details</a></li>
+            <li><%= link_to 'Bookings RunSheet', organisation_venue_bookings_path(@venue, @organisation) %></li>
+            <li><%= link_to 'Customers', organisation_venue_customers_path(@venue, @organisation) %></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Reports</a></li>
+                  <%= link_to edit_all_organisation_venue_covers_path(@organisation, @venue, @covers), 
+                  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Notes
+                  <%end%>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Organisation', organisation_path %></li>
+          </ul>
+        </li>
+      </ul>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @venue.phone %>
-</p>
+      <class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default navbar-btn">Grid View</button>
+      <button type="button" class="btn btn-default navbar-btn">Floor Plan</button>
+      <button type="button" class="btn btn-default navbar-btn">Date Selector to go Here</button>
 
-<p>
-  <strong>Email:</strong>
-  <%= @venue.email %>
-</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USERS <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">List </a></li>
+              <li><a href="#">of </a></li>
+              <li><a href="#">Users</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Create New User</a></li>
+            </ul>
+      </ul>
 
-<p>
-  <strong>Address:</strong>
-  <%= @venue.address %>
-</p>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-<p><%= link_to 'Edit Details', edit_organisation_venue_path(@organisation, @venue) %></p>
+<body>
+<!-- Venue Details Views -->
+<h1> VENUE DETAILS </h1>
 
-<h2>Opening Hours</h2>
+<p><strong>Name:</strong>
+  <%= @venue.name %></p>
+
+<p><strong>Phone:</strong>
+  <%= @venue.phone %></p>
+
+<p><strong>Email:</strong>
+  <%= @venue.email %></p>
+
+<p><strong>Address:</strong>
+  <%= @venue.address %></p>
+
+<%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Details
+<%end%>
+<!-- Venue Details Views -->
+
+<!-- Covers Views -->
+<h2> COVERS </h2>
+
+<p><strong>Interval between covers:</strong></p>
+<p><strong>Max covers per interval:</strong></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Covers</th>
+      <th>Group</th>
+      <th>Turn Time</th>
+     </tr>
+  </thead>
+    <tbody>
+      <% @venue.covers.each do |covers| %>
+      <tr>
+        <div id="covers"></div>
+          <td><%= covers.covers %></td>
+          <td><%= covers.covers_group %></td>
+          <td><%= covers.turn_time %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_cover_path(@organisation, @venue, covers) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_covers_path(@organisation, @venue, @covers), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Covers
+<%end%>
+
+<%= link_to 'New Cover', new_organisation_venue_cover_path(@organisation, @venue) %>
+<!-- Covers Views -->
 
 
-
+<!-- Opening Hours Views -->
+<h2> OPENING HOURS </h2>
 
 <table class="table">
   <thead>
@@ -40,47 +115,74 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+
   <tbody>
-    <tr>
-    	<td>Monday</td>
-      <td><div id="opening-hours">
-      <% @venue.hours.each do |hours| %>
-      <%= hours.day %>
-      <% end %></td>
-    </tr>	
-    <tr>
-    	<td>Tuesday</td>
-    </tr>
-    <tr>
-    	<td>Wednesday</td>
-    </tr>
-    <tr>
-    	<td>Thursday</td>
-    </tr>
-    <tr>
-    	<td>Friday</td>
-    </tr>
-    <tr>
-    	<td>Saturday</td>
-    </tr>	
-    <tr>
-    	<td>Sunday</td>
-    </tr>
+    <% @venue.hours.each do |hours| %>
+      <tr>
+        <div id="opening-hours"></div>
+          <td><%= hours.day %></td>
+          <td><%= hours.open_time %></td>
+          <td><%= hours.close_time %></td>
+          <td><%= hours.interval %></td>
+          <td><%= hours.covers_per_interval %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_hour_path(@organisation, @venue, hours) %></td>
+      </tr>
+    <% end %>
   </tbody>
-</table>  
+  <tfoot></tfoot>
+</table>
 
-
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='opening-hours-modal-form' role="dialog">
-</div>
-
-<%= link_to edit_all_organisation_venue_hours_path(@organisation, @venue), 
+<%= link_to edit_all_organisation_venue_hours_path(@organisation, @venue, @hours), 
 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
   <i class="glyphicon glyphicon-pencil"></i>Update Hours
-
 <%end%>
 
-<p>
+<%= link_to 'New Hour', new_organisation_venue_hour_path(@organisation, @venue) %>
+<!-- Opening Hours Views -->
+
+<!-- Tables Info Views -->
+<h2> TABLES INFO </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tab</th>
+      <th>Section</th>
+      <th>Min Covers</th>
+      <th>Max Covers</th>
+      <th>Booking</th>
+     </tr>
+  </thead>
+  <tbody>
+    <% @venue.tables.each do |tables| %>
+      <tr>
+        <div id="tables"></div>
+          <td><%= tables.tab %></td>
+          <td><%= tables.section %></td>
+          <td><%= tables.min_covers %></td>
+          <td><%= tables.max_covers %></td>
+          <td><%= tables.booking_order %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_table_path(@organisation, @venue, tables) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_tables_path(@organisation, @venue, @tables), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Tables
+<%end%>
+
+<%= link_to 'New Table', new_organisation_venue_table_path(@organisation, @venue) %>
+<!-- Tables Info Views -->
 
 
-<%= link_to 'Back to All venues', organisation_venues_path %>
+<p><%= link_to 'Back to All venues', organisation_venues_path %></p>
+
+<!-- Modal form / New Channel Group -->
+<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
+
+<div class="modal fade" id='opening-hours-modal-form' role="dialog"></div>
+<!-- Modal form / New Channel Group -->
+
+</body>

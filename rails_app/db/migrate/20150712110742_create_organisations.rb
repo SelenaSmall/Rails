@@ -57,6 +57,26 @@ class CreateOrganisations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+    create_table :covers do |t|
+      t.belongs_to :venue, index: true
+      t.string :covers, null: false, limit: 100
+      t.string :covers_group, null: false, limit: 100
+      t.string :turn_time, null: false
+
+      t.timestamps null: false
+    end
+
+    create_table :tables do |t|
+      t.belongs_to :venue, index: true
+      t.string :tab, null: false, limit: 100
+      t.string :section, null: false, limit: 100
+      t.integer :min_covers, null: false
+      t.integer :max_covers, null: false
+      t.integer :booking_order, null: false
+
+      t.timestamps null: false
+    end
+
    # add_index :bookings, :start_time
    # add_index :bookings, :end_time
    # add_index :bookings, :tab_name

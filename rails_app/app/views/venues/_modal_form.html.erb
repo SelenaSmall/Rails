@@ -2,11 +2,20 @@
 <div class="modal-content">
 	<%= bootstrap_form_for([venue.organisation, venue], remote: true) do |f| %>
 <div class="modal-header">
-        <h4 class="modal-title">Opening Hours</h4>
+        <h4 class="modal-title">Venue Details</h4>
 </div>
 
 <div class="modal-body">
    <%= f.text_field :name %>
+</div>
+<div class="modal-body">
+   <%= f.text_field :phone %>
+</div>
+<div class="modal-body">
+   <%= f.text_field :email %>
+</div>
+<div class="modal-body">
+   <%= f.text_field :address %>
 </div>
 
 <div class="modal-footer">

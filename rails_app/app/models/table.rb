@@ -1,5 +1,10 @@
-class Table
-	include ActiveModel::Model
+class Table < ActiveRecord::Base
+	belongs_to :venue
 
-	attr_accessor :table_number
 end
+
+#class Table
+#	include ActiveModel::Model
+#
+#	attr_accessor :table_number
+#end

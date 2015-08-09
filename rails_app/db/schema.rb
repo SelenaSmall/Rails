@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20150712110742) do
 
   add_index "bookings", ["venue_id"], name: "index_bookings_on_venue_id", using: :btree
 
+  create_table "covers", force: :cascade do |t|
+    t.integer  "venue_id"
+    t.string   "covers",       limit: 100, null: false
+    t.string   "covers_group", limit: 100, null: false
+    t.string   "turn_time",                null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "covers", ["venue_id"], name: "index_covers_on_venue_id", using: :btree
+
   create_table "customers", force: :cascade do |t|
     t.integer  "venue_id"
     t.string   "name",       limit: 100, null: false
@@ -62,6 +73,19 @@ ActiveRecord::Schema.define(version: 20150712110742) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  create_table "tables", force: :cascade do |t|
+    t.integer  "venue_id"
+    t.string   "tab",           limit: 100, null: false
+    t.string   "section",       limit: 100, null: false
+    t.integer  "min_covers",                null: false
+    t.integer  "max_covers",                null: false
+    t.integer  "booking_order",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "tables", ["venue_id"], name: "index_tables_on_venue_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.integer  "organisation_id"

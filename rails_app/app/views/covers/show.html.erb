@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Covers:</strong>
+  <%= @cover.covers %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @cover.covers_group %>
+</p>
+
+<p>
+  <strong>Turn Time:</strong>
+  <%= @cover.turn_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_organisation_venue_cover_path(@organisation, @venue, @cover) %>
+
+
+<%= link_to 'Show All covers', organisation_venue_covers_path %>

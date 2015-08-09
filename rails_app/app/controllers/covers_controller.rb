@@ -1,12 +1,12 @@
-class HoursController < ApplicationController
+class CoversController < ApplicationController
   before_action :set_organisation
   before_action :set_venue
-  before_action :set_hour, only: [:show, :edit, :update, :destroy]
+  before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
-    @hours = @venue.hours.all
+    @covers = @venue.covers.all
   end
 
   # GET /tabs/1
@@ -16,12 +16,12 @@ class HoursController < ApplicationController
 
   # GET /tabs/new
   def new
-    @hour = @venue.hours.build
+    @cover = @venue.covers.build
   end
 
   # GET /tabs/1/edit
   def edit
-    @hours = @venue.hours.all
+  #  @covers = @venue.covers.all
   end
 
   def edit_all
@@ -34,15 +34,15 @@ class HoursController < ApplicationController
   # POST /tabs
   # POST /tabs.json
   def create
-    @hour = @venue.hours.build(hour_params)
+    @cover = @venue.covers.build(cover_params)
 
     respond_to do |format|
-      if @hour.save
-        format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully created.' }
-        format.json { render :show, status: :created, location: @hour }
+      if @cover.save
+        format.html { redirect_to [@organisation, @venue, @cover], notice: 'cover was successfully created.' }
+        format.json { render :show, status: :created, location: @cover }
       else
         format.html { render :new }
-        format.json { render json: @hour.errors, status: :unprocessable_entity }
+        format.json { render json: @cover.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,12 +51,12 @@ class HoursController < ApplicationController
   # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
-      if @hour.update(hour_params)
-        format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hour }
+      if @cover.update(cover_params)
+        format.html { redirect_to [@organisation, @venue, @cover], notice: 'cover was successfully updated.' }
+        format.json { render :show, status: :ok, location: @cover }
       else
         format.html { render :edit }
-        format.json { render json: @hour.errors, status: :unprocessable_entity }
+        format.json { render json: @cover.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,9 +64,9 @@ class HoursController < ApplicationController
   # DELETE /tabs/1
   # DELETE /tabs/1.json
   def destroy
-    @hour.destroy
+    @cover.destroy
     respond_to do |format|
-      format.html { redirect_to organisation_venue_hours_path(@venue), notice: 'hour was successfully destroyed.' }
+      format.html { redirect_to organisation_venue_covers_path(@venue), notice: 'cover was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -81,13 +81,13 @@ class HoursController < ApplicationController
       @venue = Venue.find(params[:venue_id])
     end
 
-    def set_hour
-      @hour = Hour.find(params[:id])
+    def set_cover
+      @cover = Cover.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def hour_params
-      params.require(:hour).permit(:day, :open_time, :close_time, :interval, :covers_per_interval)
+    def cover_params
+      params.require(:cover).permit(:covers, :covers_group, :turn_time)
     end
 end
 
