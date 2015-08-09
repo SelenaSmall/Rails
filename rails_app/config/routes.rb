@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
   get 'bookings/index'
 
-  get 'users/bookings'
-  get 'users/customers'
+  get 'organisations/bookings'
+  get 'organisations/customers'
 
-  get 'users/venues/bookings'
-  get 'users/venues/customers'
+  get 'organisations/venues/bookings'
+  get 'organisations/venues/customers'
+  get 'organisations/venues/hours'
 
 
-  resources :users do
+  resources :organisations do
     resources :venues do
       resources :bookings
       resources :customers
+      resources :hours do
+        get 'edit_all', on: :collection
+      end
     end
   end
 
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'organisations#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

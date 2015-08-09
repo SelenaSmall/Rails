@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_user
+  before_action :set_organisation
   before_action :set_venue
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
@@ -38,7 +38,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to [@user, @venue, @customer], notice: 'Customer was successfully created.' }
+        format.html { redirect_to [@organisation, @venue, @customer], notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to [@user, @venue, @customer], notice: 'Customer was successfully updated.' }
+        format.html { redirect_to [@organisation, @venue, @customer], notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -66,15 +66,15 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to user_venue_customers_path(@venue), notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to organisation_venue_customers_path(@venue), notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:user_id])
+    def set_organisation
+      @organisation = Organisation.find(params[:organisation_id])
     end
 
     def set_venue

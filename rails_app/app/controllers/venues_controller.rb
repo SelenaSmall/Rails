@@ -1,12 +1,13 @@
 class VenuesController < ApplicationController
-  before_action :set_user
+  before_action :set_organisation
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :set_hour
 
   # GET /tabs
   # GET /tabs.json
   def index
 #    @venues = Venue.all
-    @venues = @user.venues.all
+    @venues = @organisation.venues.all
   end
 
   def bookings
@@ -16,12 +17,16 @@ class VenuesController < ApplicationController
   # GET /tabs/1
   # GET /tabs/1.json
   def show
+    @hours = @venue.hours.all
+  end
+
+  def opening_hours
   end
 
   # GET /tabs/new
   def new
 #    @venue = Venue.new
-    @venue = @user.venues.build
+    @venue = @organisation.venues.build
   end
 
   # GET /tabs/1/edit
@@ -32,11 +37,11 @@ class VenuesController < ApplicationController
   # POST /tabs.json
   def create
 #    @venue = venue.new(venue_params)
-    @venue = @user.venues.build(venue_params)
+    @venue = @organisation.venues.build(venue_params)
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to [@user, @venue], notice: 'venue was successfully created.' }
+        format.html { redirect_to [@organisation, @venue], notice: 'venue was successfully created.' }
         format.json { render :show, status: :created, location: @venue }
       else
         format.html { render :new }
@@ -48,10 +53,12 @@ class VenuesController < ApplicationController
   # PATCH/PUT /tabs/1
   # PATCH/PUT /tabs/1.json
   def update
+    #binding.pry
     respond_to do |format|
       if @venue.update(venue_params)
-        format.html { redirect_to [@user, @venue], notice: 'venue was successfully updated.' }
+        format.html { redirect_to [@organisation, @venue], notice: 'venue was successfully updated.' }
         format.json { render :show, status: :ok, location: @venue }
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @venue.errors, status: :unprocessable_entity }
@@ -64,15 +71,15 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     respond_to do |format|
-      format.html { redirect_to user_venues_path(@user), notice: 'venue was successfully destroyed.' }
+      format.html { redirect_to organisation_venues_path(@organisation), notice: 'venue was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:user_id])
+    def set_organisation
+      @organisation = Organisation.find(params[:organisation_id])
     end
 
     def set_venue
@@ -83,6 +90,14 @@ class VenuesController < ApplicationController
     def venue_params
       params.require(:venue).permit(:name, :phone, :email, :address)
     end
+
+    def set_hour
+      @hour #= Hour.find(params[:id])
+    end
+
+    #def hour_params
+    #  params.require(:opening_hours).permit(:day, :open_time, :close_time, :interval, :covers_per_interval)
+    #end
 end
 
 

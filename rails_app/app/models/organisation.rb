@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Organisation < ActiveRecord::Base
 	has_many :customers
 	has_many :venues
 

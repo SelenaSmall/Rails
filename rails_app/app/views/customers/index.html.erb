@@ -2,7 +2,7 @@
 
 <h1>CUSTOMERS</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,9 +18,9 @@
         <td><%= customer.name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', [@user, @venue, @customer]%></td>
-        <td><%= link_to 'Edit', edit_user_venue_customer_path(@user, @venue, customer) %></td>
-        <td><%= link_to 'Destroy', [@user, @venue, @customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+        <td><%= link_to 'Details', [@organisation, @venue, @customer]%></td>
+        <td><%= link_to 'Edit', edit_organisation_venue_customer_path(@organisation, @venue, customer) %></td>
+        <td><%= link_to 'Delete', [@organisation, @venue, @customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
       </tr>
     <% end %>
   </tbody>
@@ -28,9 +28,5 @@
 
 
 
-<%= link_to 'New Customer', new_user_venue_customer_path %>
-<%= link_to 'Back to Venues', user_venues_path %>
-
-<br>
-
-<%= link_to 'BOOKINGS'  %>
+<%= link_to 'New Customer', new_organisation_venue_customer_path %>
+<div><%= link_to 'Back to Bookings', organisation_venue_bookings_path %></div>

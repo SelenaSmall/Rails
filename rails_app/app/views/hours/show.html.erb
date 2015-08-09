@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @hour.day %>
+</p>
+
+<p>
+  <strong>Open_time:</strong>
+  <%= @hour.open_time %>
+</p>
+
+<p>
+  <strong>Close_time:</strong>
+  <%= @hour.close_time %>
+</p>
+
+<p>
+  <strong>interval:</strong>
+  <%= @hour.interval %>
+</p>
+
+<p>
+  <strong>covers_per_interval:</strong>
+  <%= @hour.covers_per_interval %>
+</p>
+
+<%= link_to 'Edit', edit_organisation_venue_hour_path(@organisation, @venue, @hour) %>
+
+
+<%= link_to 'Show All hours', organisation_venue_hours_path %>

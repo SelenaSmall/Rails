@@ -15,11 +15,11 @@ default: &default
 
 development:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: reservations
   pool: 5
-  username: root
+  username: selenasmall
   password:
   #socket: temp/mysql.sock  
 

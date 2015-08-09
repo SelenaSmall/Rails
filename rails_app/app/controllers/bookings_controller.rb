@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_user
+  before_action :set_organisation
   before_action :set_venue
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to [@user, @venue, @booking], notice: 'Booking was successfully created.' }
+        format.html { redirect_to [@organisation, @venue, @booking], notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to [@user, @venue, @booking], notice: 'Booking was successfully updated.' }
+        format.html { redirect_to [@organisation, @venue, @booking], notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit }
@@ -58,15 +58,15 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to user_venue_bookings_path(@venue), notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to organisation_venue_bookings_path(@venue), notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:user_id])
+    def set_organisation
+      @organisation = Organisation.find(params[:organisation_id])
     end
 
     def set_venue

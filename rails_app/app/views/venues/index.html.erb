@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>VENUES</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,15 +19,14 @@
         <td><%= venue.phone %></td>
         <td><%= venue.email %></td>
         <td><%= venue.address %></td>
-        <td><%= link_to 'Show', [@user, venue] %></td>
-        <td><%= link_to 'Edit', edit_user_venue_path(@user, venue) %></td>
-        <td><%= link_to 'Destroy', [@user, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'View Bookings', user_venue_bookings_path(1, 1) %></td>
-        <td><%= link_to 'View Customers', user_venue_customers_path(1, 1) %></td>
+        <td><%= link_to 'Details', [@organisation, venue] %></td>
+        <td><%= link_to 'View Bookings', organisation_venue_bookings_path(@organisation, venue) %></td>
+        <td><%= link_to 'View Hours', organisation_venue_hours_path(@organisation, venue) %></td>
+        <td><%= link_to 'Delete', [@organisation, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New venue', new_user_venue_path %>
-<%= link_to 'Back to Users', users_path %>
+<%= link_to 'New Venue', new_organisation_venue_path %> |
+<%= link_to 'Back to Organisations', organisations_path %>

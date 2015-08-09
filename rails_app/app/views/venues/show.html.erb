@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>VENUE DETAILS</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @venue.name %>
@@ -16,11 +18,69 @@
 </p>
 
 <p>
-  <strong>address:</strong>
+  <strong>Address:</strong>
   <%= @venue.address %>
 </p>
+
+<p><%= link_to 'Edit Details', edit_organisation_venue_path(@organisation, @venue) %></p>
+
+<h2>Opening Hours</h2>
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Opening Time</th>
+      <th>Closing Time</th>
+      <th>Interval</th>
+      <th>Covers per Interval</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    	<td>Monday</td>
+      <td><div id="opening-hours">
+      <% @venue.hours.each do |hours| %>
+      <%= hours.day %>
+      <% end %></td>
+    </tr>	
+    <tr>
+    	<td>Tuesday</td>
+    </tr>
+    <tr>
+    	<td>Wednesday</td>
+    </tr>
+    <tr>
+    	<td>Thursday</td>
+    </tr>
+    <tr>
+    	<td>Friday</td>
+    </tr>
+    <tr>
+    	<td>Saturday</td>
+    </tr>	
+    <tr>
+    	<td>Sunday</td>
+    </tr>
+  </tbody>
+</table>  
+
+
+<!-- Modal form / New Channel Group -->
+<div class="modal fade" id='opening-hours-modal-form' role="dialog">
+</div>
+
+<%= link_to edit_all_organisation_venue_hours_path(@organisation, @venue), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Hours
+
+<%end%>
 
 <p>
 
 
-<%= link_to 'Show All venues', user_venues_path %>
+<%= link_to 'Back to All venues', organisation_venues_path %>
