@@ -9,13 +9,13 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to 'Details', [@venue.organisation, @venue] %></li>
-            <li><a href="#">Bookings RunSheet</a></li>
+            <li><a href="#">Bookings</a></li>
             <li><%= link_to 'Customers', organisation_venue_customers_path(@venue, @organisation) %></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Notes</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Organisation</a></li>
+            <li><%= link_to 'Organisation', organisation_path(@venue) %></li>
           </ul>
         </li>
       </ul>
@@ -44,7 +44,7 @@
 
 <h1> BOOKINGS</h1>
 
-<p>This Page will show a runsheet view of all bookings for a specified day in order of time.</p>
+<p>This Page will show a runsheet view of all bookings for a specified day in order of time. It will be clear which tables have been seated, with options to view history for the night and new groups waiting to be seated.</p>
 
 <table class="table">
   <thead>

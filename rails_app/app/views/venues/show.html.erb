@@ -9,13 +9,15 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Details</a></li>
-            <li><%= link_to 'Bookings RunSheet', organisation_venue_bookings_path(@venue, @organisation) %></li>
+            <li><%= link_to 'Bookings', organisation_venue_bookings_path(@venue, @organisation) %></li>
             <li><%= link_to 'Customers', organisation_venue_customers_path(@venue, @organisation) %></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Reports</a></li>
-                  <%= link_to edit_all_organisation_venue_covers_path(@organisation, @venue, @covers), 
+                  
+                  <%= link_to edit_all_organisation_venue_notes_path(@organisation, @venue, @covers), 
                   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Notes
                   <%end%>
+
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Organisation', organisation_path %></li>
           </ul>
