@@ -3,6 +3,7 @@ class Organisation < ActiveRecord::Base
 	has_many :venues
 	has_many :customers
 	has_many :bookings
+	has_many :reports
 
 	def tables
 		@tables = []

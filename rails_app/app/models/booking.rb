@@ -4,5 +4,6 @@ class Booking < ActiveRecord::Base
 	belongs_to :venue
 	belongs_to :user
 	belongs_to :customer
+	has_many :reports
 
 end

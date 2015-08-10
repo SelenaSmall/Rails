@@ -17,7 +17,7 @@
                 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Notes
                 <%end%></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Organisation', organisation_path %></li>
+            <li><%= link_to 'Organisation', organisation_path(@venue.organisation, @organisation) %></li>
           </ul>
         </li>
       </ul>
@@ -183,6 +183,8 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
 
 <div class="modal fade" id='opening-hours-modal-form' role="dialog"></div>
+
+<div class="modal fade" id='covers-modal-form' role="dialog"></div>
 <!-- Modal form / New Channel Group -->
 
 </body>

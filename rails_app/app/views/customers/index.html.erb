@@ -4,6 +4,11 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+      <class="btn-group" role="group" aria-label="...">
+      <% @organisation.venues.each do |venue| %>
+      <button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, [@organisation, venue] %></button>
+      <% end %>
+      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/OUT <span class="caret"></span></a>
@@ -20,13 +25,15 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Details', @organisation %></li>
-            <li><%= link_to 'Bookings' %></li>
+            <li><%= link_to edit_organisation_path(@organisation), 
+                remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit Org Details
+                <%end%></li>
+            <li><%= link_to 'Organisation Home', (@organisation)%></li>
             <li><%= link_to 'Customers', organisation_customers_path(@organisation)%></li>
             <li><%= link_to 'Users', organisation_users_path(@organisation) %></li>
-            <li><a href="#">Reports</a></li>
+            <li><%= link_to 'Reports', organisation_reports_path(@organisation) %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Organisation', organisation_path(@organisation) %></li>
+            <li><%= link_to 'New Venue', new_organisation_venue_path(@organisation) %></li>
           </ul>
         </li>
       </ul>

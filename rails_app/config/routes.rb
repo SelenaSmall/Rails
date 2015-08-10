@@ -17,12 +17,14 @@ Rails.application.routes.draw do
     resources :users
     resources :customers
     resources :bookings
+    resources :reports
     resources :venues do
       get 'edit_all'
       resources :details
       resources :users
       resources :customers
       resources :bookings
+      resources :reports
       resources :hours do
         get 'edit_all', on: :collection
       end

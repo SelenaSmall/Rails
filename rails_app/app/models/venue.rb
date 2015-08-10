@@ -3,6 +3,7 @@ class Venue < ActiveRecord::Base
 	belongs_to :user
 	has_many :customers
 	has_many :bookings
+	has_many :reports
 	
 	has_many :hours
 	has_many :covers
