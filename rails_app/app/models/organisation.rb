@@ -1,6 +1,8 @@
 class Organisation < ActiveRecord::Base
-	has_many :customers
+	has_many :users
 	has_many :venues
+	has_many :customers
+	has_many :bookings
 
 	def tables
 		@tables = []

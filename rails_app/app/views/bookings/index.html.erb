@@ -13,7 +13,9 @@
             <li><%= link_to 'Customers', organisation_venue_customers_path(@venue, @organisation) %></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Reports</a></li>
-            <li><a href="#">Notes</a></li>
+            <li><%= link_to edit_all_organisation_venue_notes_path(@organisation, @venue, @covers), 
+                remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Notes
+                <%end%></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Organisation', organisation_path(@venue) %></li>
           </ul>
@@ -41,7 +43,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<body>
 <h1> BOOKINGS</h1>
 
 <p>This Page will show a runsheet view of all bookings for a specified day in order of time. It will be clear which tables have been seated, with options to view history for the night and new groups waiting to be seated.</p>
@@ -76,3 +78,11 @@
 
 <%= link_to 'New Booking', new_organisation_venue_booking_path %>
 <div><%= link_to 'Back to Venues', organisation_venues_path %></div>
+
+<!-- Modal form / New Channel Group -->
+<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
+
+<div class="modal fade" id='opening-hours-modal-form' role="dialog"></div>
+<!-- Modal form / New Channel Group -->
+
+</body>

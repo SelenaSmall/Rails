@@ -1,12 +1,11 @@
 class CustomersController < ApplicationController
   before_action :set_organisation
-  before_action :set_venue
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
-    @customers = @venue.customers.all
+    @customers = @organisation.customers.all
   end
 
 #  def search
@@ -24,7 +23,7 @@ class CustomersController < ApplicationController
 
   # GET /tabs/new
   def new
-    @customer = @venue.customers.build
+    @customer = @organisation.customers.build
   end
 
   # GET /tabs/1/edit
@@ -34,11 +33,11 @@ class CustomersController < ApplicationController
   # POST /tabs
   # POST /tabs.json
   def create
-    @customer = @venue.customers.build(customer_params)
+    @customer = @organisation.customers.build(customer_params)
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to [@organisation, @venue, @customer], notice: 'Customer was successfully created.' }
+        format.html { redirect_to [@organisation, @customer], notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -52,7 +51,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to [@organisation, @venue, @customer], notice: 'Customer was successfully updated.' }
+        format.html { redirect_to [@organisation, @customer], notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -66,7 +65,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to organisation_venue_customers_path(@venue), notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to organisation_customers_path(@organisation), notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

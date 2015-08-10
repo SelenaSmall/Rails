@@ -24,7 +24,7 @@ class CreateOrganisations < ActiveRecord::Migration
     end
     
     create_table :customers do |t|
-      t.belongs_to :venue, index: true
+      t.belongs_to :organisation, index: true
       t.string :name, null: false, limit: 100
       t.string :phone, null: false, limit: 10
       t.string :email, null: false, limit: 100
@@ -36,7 +36,7 @@ class CreateOrganisations < ActiveRecord::Migration
     end
 
     create_table :bookings do |t|
-      t.belongs_to :venue, index: true
+      t.belongs_to :organisation, index: true
       t.string :name, null: false, limit: 100
       t.string :phone, null: false, limit: 10
       t.string :email, null: false, limit: 100
@@ -73,6 +73,19 @@ class CreateOrganisations < ActiveRecord::Migration
       t.integer :min_covers, null: false
       t.integer :max_covers, null: false
       t.integer :booking_order, null: false
+
+      t.timestamps null: false
+    end
+
+    create_table :users do |t|
+      t.belongs_to :organisation, index: true
+      t.string :user_name, null: false, limit: 100
+      t.string :password, null: false, limit: 100
+      t.string :first_name, null: false, limit: 100
+      t.string :last_name, null: false, limit: 100
+      t.string :email, null: false, limit: 100
+      t.string :phone, null: false, limit: 100
+      t.string :facebook, null: false, limit: 100
 
       t.timestamps null: false
     end

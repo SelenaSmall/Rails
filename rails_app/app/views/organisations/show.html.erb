@@ -5,12 +5,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
-      <button type="button" class="btn btn-default navbar-btn">Venue Links</button>
+      <% @organisation.venues.each do |venue| %>
+      <button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, [@organisation, venue] %></button>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -28,8 +25,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Details/Home</a></li>
-            <li><a href="#">Customers</a></li>
-            <li><a href="#">Users</a></li>
+            <li><%= link_to 'Customers', organisation_customers_path(@organisation)%></li>
+            <li><%= link_to 'Users', organisation_users_path(@organisation) %></li>
             <li><a href="#">Reports</a></li>
             <li role="separator" class="divider"></li>
           </ul>
@@ -41,7 +38,7 @@
 </nav>
 
 <body>
-<h1>DETAILS</h1>
+<h1>ORGANISATION DETAILS</h1>
 
 <p>
   <strong>Name:</strong>
@@ -70,32 +67,6 @@
 
 
 <%= link_to 'Edit Details', edit_organisation_path(@organisation) %>
-
-<h1>VENUES</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organisation.venues.each do |venue| %>
-      <tr>
-        <td><%= venue.name %></td>
-        <td><%= venue.phone %></td>
-        <td><%= venue.email %></td>
-        <td><%= venue.address %></td>
-        <td><%= link_to 'Details', [@organisation, venue] %></td>
-        <td><%= link_to 'Delete', [@organisation, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <div><%= link_to 'All Organisations', organisations_path %></div>
 

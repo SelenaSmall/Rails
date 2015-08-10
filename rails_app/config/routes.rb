@@ -5,18 +5,24 @@ Rails.application.routes.draw do
   get 'organisations/bookings'
   get 'organisations/customers'
 
-  get 'organisations/venues/bookings'
-  get 'organisations/venues/customers'
+  get 'organisations/bookings'
+  get 'organisations/customers'
+  get 'organisations/users'
+  get 'organisations/venues'
   get 'organisations/venues/hours'
   get 'organisations/venues/covers'
 
 
   resources :organisations do
+    resources :users
+    resources :customers
+    resources :bookings
     resources :venues do
       get 'edit_all'
       resources :details
-      resources :bookings
+      resources :users
       resources :customers
+      resources :bookings
       resources :hours do
         get 'edit_all', on: :collection
       end

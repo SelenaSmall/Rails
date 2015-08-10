@@ -1,5 +1,7 @@
 class Customer < ActiveRecord::Base
+	belongs_to :organisation
 	belongs_to :venue
+	belongs_to :user
 	has_many :bookings
 
 	def get_todays_date 
