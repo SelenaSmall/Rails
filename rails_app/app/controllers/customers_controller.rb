@@ -21,6 +21,9 @@ class CustomersController < ApplicationController
   def show
   end
 
+  def venuecustomers
+  end
+
   # GET /tabs/new
   def new
     @customer = @organisation.customers.build

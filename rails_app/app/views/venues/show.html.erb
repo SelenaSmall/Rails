@@ -8,7 +8,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Details</a></li>
+            <li><%= link_to @venue.name, [@organisation, @venue] %></li>
             <li><%= link_to 'Bookings', organisation_venue_bookings_path(@venue, @organisation) %></li>
             <li><%= link_to 'Customers', organisation_venue_customers_path(@venue.organisation, @venue) %></li>
             <li><%= link_to 'Users', organisation_venue_users_path(@venue.organisation, @venue) %></li>
@@ -17,7 +17,6 @@
                 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Notes
                 <%end%></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Organisation', organisation_path(@venue.organisation, @organisation) %></li>
           </ul>
         </li>
       </ul>
@@ -45,31 +44,29 @@
 
 <body>
 <!-- Venue Details Views -->
-<h1> VENUE DETAILS </h1>
+<h1><center><strong><%= @venue.name %></center></strong></h1>
 
-<p><strong>Name:</strong>
-  <%= @venue.name %></p>
+<div><center>
+  <strong>PH </strong><%= @venue.phone %> | 
 
-<p><strong>Phone:</strong>
-  <%= @venue.phone %></p>
+  <strong>EMAIL </strong><%= @venue.email %> |
 
-<p><strong>Email:</strong>
-  <%= @venue.email %></p>
+  <strong>ADDRESS </strong><%= @venue.address %>
+</center></div>
 
-<p><strong>Address:</strong>
-  <%= @venue.address %></p>
-
-<%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
+<br>
+<center><%= link_to 'All venues', organisation_venues_path %> | 
+  <%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
   <i class="glyphicon glyphicon-pencil"></i>Update Details
-<%end%>
+<%end%> | 
+<%= link_to @organisation.name, organisation_path(@venue) %></center>
+<!-- <li><%= link_to @organisation.name, organisation_path(@venue.organisation, @organisation) %></li> -->
 <!-- Venue Details Views -->
+
 
 <!-- Covers Views -->
 <h2> COVERS </h2>
-
-<p><strong>Interval between covers:</strong></p>
-<p><strong>Max covers per interval:</strong></p>
 
 <table class="table">
   <thead>
@@ -176,8 +173,6 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <%= link_to 'New Table', new_organisation_venue_table_path(@organisation, @venue) %>
 <!-- Tables Info Views -->
 
-
-<p><%= link_to 'Back to All venues', organisation_venues_path %></p>
 
 <!-- Modal form / New Channel Group -->
 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>

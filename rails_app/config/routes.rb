@@ -37,6 +37,12 @@ Rails.application.routes.draw do
       resources :notes do
         get 'edit_all', on: :collection
       end
+      resources :gridview do
+        get 'edit_all', on: :collection
+      end
+      resources :floorplan do
+        get 'edit_all', on: :collection
+      end
     end
   end
 

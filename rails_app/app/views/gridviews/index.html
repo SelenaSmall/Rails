@@ -15,6 +15,7 @@
               <li><a href="#">Create New User</a></li>
             </ul>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
@@ -22,7 +23,7 @@
             <li><%= link_to @organisation.name, (@organisation)%></li>
             <li><%= link_to 'Customers', organisation_customers_path(@organisation)%></li>
             <li><%= link_to 'Users', organisation_users_path(@organisation) %></li>
-            <li><%= link_to 'Reports', organisation_reports_path(@organisation) %></li>
+            <li><a href="#">Reports</a></li>
             <li role="separator" class="divider"></li>
           </ul>
         </li>
@@ -33,44 +34,6 @@
 </nav>
 
 <body>
-
-<h1><center><%= @organisation.name %></center></h1>
-
-<p><center><strong>PH </strong><%= @organisation.phone %></center></p>
-
-<p><center><strong>ADDRESS </strong><%= @organisation.address %></center></p>
-
-<p><center><strong>EMAIL </strong><%= @organisation.email %></center></p>
-
-<p><center><class="btn-group" role="group" aria-label="...">
-      <% @organisation.venues.each do |venue| %>
-        <div><button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, [@organisation, venue] %></button>
-          <% end %>
-        </div>
-    </center><p>
-<br>
-
-<div>
-  <center>
-    <%= link_to 'All Organisations', organisations_path %> |
-    <%= link_to edit_organisation_path(@organisation), 
-      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit Organisation Details
-    <%end%> |
+<h1><center>GRID VIEW</center></h1>
 
 
-    <%= link_to new_organisation_venue_path(@organisation), 
-      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New Venue
-    <%end%>
-
-
-    
-  </center>
-</div>
-
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-venue-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
-
-</body>
