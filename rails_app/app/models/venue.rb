@@ -4,7 +4,7 @@ class Venue < ActiveRecord::Base
 	has_many :customers
 	has_many :bookings
 	has_many :reports
-	has_many :gridviews
+	has_many :grids
 	
 	has_many :hours
 	has_many :covers

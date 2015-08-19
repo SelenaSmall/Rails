@@ -1,4 +1,4 @@
-class Gridview < ActiveRecord::Base
+class Grid < ActiveRecord::Base
 	belongs_to :organisation
 	belongs_to :user
 	belongs_to :venue

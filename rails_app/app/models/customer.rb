@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
 	belongs_to :user
 	has_many :bookings
 	has_many :reports
+	has_many :grids
 
 	def get_todays_date 
 		GetDate.generate

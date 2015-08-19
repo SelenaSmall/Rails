@@ -4,6 +4,7 @@ class VenuesController < ApplicationController
   before_action :set_hour
   before_action :set_cover
   before_action :set_note
+  before_action :set_grid
   
   # GET /tabs
   # GET /tabs.json
@@ -109,6 +110,10 @@ class VenuesController < ApplicationController
 
     def set_note
       @note #= Hour.find(params[:id])
+    end
+
+     def set_grid
+      @grid #= Hour.find(params[:id])
     end
 
     #def hour_params

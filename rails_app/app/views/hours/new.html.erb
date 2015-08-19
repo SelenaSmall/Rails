@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show All hours', organisation_venue_hours_path %>
+<%= link_to @venue.name, new_organisation_venue_path(@organisation, @venue) %>

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "organisation_id"
+    t.integer  "venue_id"
     t.string   "name",            limit: 100, null: false
     t.string   "phone",           limit: 10,  null: false
     t.string   "email",           limit: 100, null: false
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
   end
 
   add_index "bookings", ["organisation_id"], name: "index_bookings_on_organisation_id", using: :btree
+  add_index "bookings", ["venue_id"], name: "index_bookings_on_venue_id", using: :btree
 
   create_table "covers", force: :cascade do |t|
     t.integer  "venue_id"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "organisation_id"
+    t.integer  "venue_id"
     t.string   "name",            limit: 100, null: false
     t.string   "phone",           limit: 10,  null: false
     t.string   "email",           limit: 100, null: false
@@ -50,6 +53,16 @@ ActiveRecord::Schema.define(version: 20150712110742) do
   end
 
   add_index "customers", ["organisation_id"], name: "index_customers_on_organisation_id", using: :btree
+  add_index "customers", ["venue_id"], name: "index_customers_on_venue_id", using: :btree
+
+  create_table "grid", force: :cascade do |t|
+    t.integer  "venue_id"
+    t.string   "grid_name",  limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "grid", ["venue_id"], name: "index_grid_on_venue_id", using: :btree
 
   create_table "hours", force: :cascade do |t|
     t.integer  "venue_id"
@@ -89,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "organisation_id"
+    t.integer  "venue_id"
     t.string   "user_name",       limit: 100, null: false
     t.string   "password",        limit: 100, null: false
     t.string   "first_name",      limit: 100, null: false
@@ -101,6 +115,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
   end
 
   add_index "users", ["organisation_id"], name: "index_users_on_organisation_id", using: :btree
+  add_index "users", ["venue_id"], name: "index_users_on_venue_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.integer  "organisation_id"

@@ -1,8 +1,9 @@
-class GridviewsController < ApplicationController
+class GridsController < ApplicationController
   before_action :set_organisation
   before_action :set_venue
 
   def index
+    @organisations = Organisation.all
   end
 
   private
@@ -15,11 +16,11 @@ class GridviewsController < ApplicationController
       @venue = Venue.find(params[:venue_id])
     end
 
-    def set_gridview
-      @gridview = Gridview.find(params[:id])
+    def set_grid
+      @grid = Grid.find(params[:id])
     end
 
-    def gridview_params
-      params.require(:gridview).permit()
+    def report_params
+      params.require(:grid).permit()
     end
 end

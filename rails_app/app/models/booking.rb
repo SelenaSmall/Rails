@@ -5,5 +5,6 @@ class Booking < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :customer
 	has_many :reports
+	has_many :grids
 
 end

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
       resources :customers
       resources :bookings
       resources :reports
+      resources :grids
+      resources :plans
       resources :hours do
         get 'edit_all', on: :collection
       end
@@ -35,12 +37,6 @@ Rails.application.routes.draw do
         get 'edit_all', on: :collection
       end
       resources :notes do
-        get 'edit_all', on: :collection
-      end
-      resources :gridview do
-        get 'edit_all', on: :collection
-      end
-      resources :floorplan do
         get 'edit_all', on: :collection
       end
     end
