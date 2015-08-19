@@ -5,6 +5,7 @@ class Venue < ActiveRecord::Base
 	has_many :bookings
 	has_many :reports
 	has_many :grids
+	has_many :plans
 	
 	has_many :hours
 	has_many :covers

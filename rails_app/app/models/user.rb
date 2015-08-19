@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
 	has_many :venues
 	has_many :reports
 	has_many :grids
+	has_many :plans
 
 end

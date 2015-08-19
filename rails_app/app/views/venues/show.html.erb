@@ -22,8 +22,8 @@
       </ul>
 
       <class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default navbar-btn">Grid View</button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Grid View', organisation_venue_grids_path(@organisation, @venue) %></button>
+      <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', organisation_venue_plans_path(@organisation, @venue) %></button>
       <button type="button" class="btn btn-default navbar-btn">Date Selector to go Here</button>
 
       <ul class="nav navbar-nav navbar-right">
@@ -43,7 +43,11 @@
 </nav>
 
 <body>
+<div class="main-container">
 <!-- Venue Details Views -->
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-4">
 <h1><center><strong><%= @venue.name %></center></strong></h1>
 
 <div><center>
@@ -63,10 +67,17 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 
 <%= link_to @organisation.name, organisation_path(@venue) %></center>
 <!-- <li><%= link_to @organisation.name, organisation_path(@venue.organisation, @organisation) %></li> -->
+</div>
+<div class="col-md-4"></div>
+</div>
 <!-- Venue Details Views -->
 
 
 <!-- Covers Views -->
+<div class="2-col-container">
+  <div class ="left-container">
+<div class="column">
+<div class="col-md-6">
 <h2> COVERS </h2>
 
 <table class="table" >
@@ -96,10 +107,49 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <%end%>
 
 <%= link_to 'New Cover', new_organisation_venue_cover_path(@organisation, @venue) %>
+</div>
 <!-- Covers Views -->
 
+<!-- Tables Info Views -->
+<div class="col-md-6">
+<h2> TABLES INFO </h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tab</th>
+      <th>Section</th>
+      <th>Min Covers</th>
+      <th>Max Covers</th>
+      <th>Booking</th>
+     </tr>
+  </thead>
+  <tbody>
+    <% @venue.tables.each do |tables| %>
+      <tr>
+        <div id="tables"></div>
+          <td><%= tables.tab %></td>
+          <td><%= tables.section %></td>
+          <td><%= tables.min_covers %></td>
+          <td><%= tables.max_covers %></td>
+          <td><%= tables.booking_order %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_table_path(@organisation, @venue, tables) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_tables_path(@organisation, @venue, @tables), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Tables
+<%end%>
+
+<%= link_to 'New Table', new_organisation_venue_table_path(@organisation, @venue) %>
+</div>
+<!-- Tables Info Views -->
 
 <!-- Opening Hours Views -->
+<div class="col-md-6">
 <h2> OPENING HOURS </h2>
 
 <table class="table">
@@ -136,43 +186,10 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <%end%>
 
 <%= link_to 'New Hour', new_organisation_venue_hour_path(@organisation, @venue) %>
+</div>
+</div>
 <!-- Opening Hours Views -->
 
-<!-- Tables Info Views -->
-<h2> TABLES INFO </h2>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Tab</th>
-      <th>Section</th>
-      <th>Min Covers</th>
-      <th>Max Covers</th>
-      <th>Booking</th>
-     </tr>
-  </thead>
-  <tbody>
-    <% @venue.tables.each do |tables| %>
-      <tr>
-        <div id="tables"></div>
-          <td><%= tables.tab %></td>
-          <td><%= tables.section %></td>
-          <td><%= tables.min_covers %></td>
-          <td><%= tables.max_covers %></td>
-          <td><%= tables.booking_order %></td>
-          <td><%= link_to 'Edit', edit_organisation_venue_table_path(@organisation, @venue, tables) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to edit_all_organisation_venue_tables_path(@organisation, @venue, @tables), 
-remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-  <i class="glyphicon glyphicon-pencil"></i>Update Tables
-<%end%>
-
-<%= link_to 'New Table', new_organisation_venue_table_path(@organisation, @venue) %>
-<!-- Tables Info Views -->
 
 
 <!-- Modal form / New Channel Group -->
@@ -183,4 +200,5 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="modal fade" id='covers-modal-form' role="dialog"></div>
 <!-- Modal form / New Channel Group -->
 
+</div>
 </body>
