@@ -43,17 +43,53 @@
 </nav>
 
 <body>
+<div class="main-container">
+
 <h1><center>GRID VIEW</center></h1>
 
+<!--this is not actually what I want to do. I need to find a way to access the opening info for 1 specific day and venue-->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tab #</th>
+      <th>
+        <% @venue.hours.each do |hour| %>
+            <%= link_to hour.open_time, [@organisation, @venue, hour] %>
+        <% end %>    
+      </th>   
+      <th>
+        <% @venue.hours.each do |hour| %>
+            <%= link_to hour.close_time, [@organisation, @venue, hour] %>
+        <% end %>    
+      </th> 
+      </tr>  
+    </thead>
+
+    <tbody>
+        <% @venue.tables.each do |table| %>
+          <tr>
+            <td>
+              <class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default"><%= link_to table.tab, [@organisation, @venue, table] %></button>
+            </td>
+
+            <td>
+              <%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
+              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+              <i class="glyphicon glyphicon-pencil"></i>
+              <%end%> 
+            </td>
+
+          </tr>
+        <%end%> 
+    </tbody>
+  </table>
 
 
-      <p><center><class="btn-group" role="group" aria-label="...">
-      <% @venue.tables.each do |table| %>
-        <div><button type="button" class="btn btn-default navbar-btn"><%= link_to table.tab, [@organisation, @venue, table] %></button>
-          <% end %>
-        </div>
-      </center>
-      <p>
+<!-- Modal form / New Channel Group -->
+<div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
+<!-- Modal form / New Channel Group -->
 
+</div>
 </body>
 
