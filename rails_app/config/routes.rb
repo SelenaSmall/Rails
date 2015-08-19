@@ -19,13 +19,14 @@ Rails.application.routes.draw do
     resources :bookings
     resources :reports
     resources :venues do
-      get 'edit_all'
       resources :details
       resources :users
       resources :customers
       resources :bookings
       resources :reports
-      resources :grids
+      resources :grids do
+        resources :tables
+      end
       resources :plans
       resources :hours do
         get 'edit_all', on: :collection
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
 
   resources :customers  do
     resources :bookings

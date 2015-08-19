@@ -1,5 +1,6 @@
 class Table < ActiveRecord::Base
 	belongs_to :venue
+	belongs_to :grid
 
 end
 

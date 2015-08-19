@@ -1,6 +1,7 @@
 class GridsController < ApplicationController
   before_action :set_organisation
   before_action :set_venue
+  before_action :set_tables
 
   def index
     @organisations = Organisation.all
@@ -18,6 +19,10 @@ class GridsController < ApplicationController
 
     def set_grid
       @grid = Grid.find(params[:id])
+    end
+
+    def set_tables
+      @tables #= Table.find(params[:id])
     end
 
     def report_params

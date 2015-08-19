@@ -6,7 +6,7 @@ class TablesController < ApplicationController
   # GET /tabs
   # GET /tabs.json
   def index
-    @tables = @venue.tables.all
+    @tables = @organisation.venue.tables.all
   end
 
   # GET /tabs/1

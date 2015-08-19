@@ -14,6 +14,11 @@ class VenuesController < ApplicationController
     @venues = @organisation.venues.all
   end
 
+    def index_venue
+#    @venues = Venue.all
+    @venues = @organisation.venues.all
+  end
+
   def bookings
     @venues = Venue.all
   end

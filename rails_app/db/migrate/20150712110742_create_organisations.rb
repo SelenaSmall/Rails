@@ -70,6 +70,7 @@ class CreateOrganisations < ActiveRecord::Migration
 
     create_table :tables do |t|
       t.belongs_to :venue, index: true
+      t.belongs_to :grid, index: true
       t.string :tab, null: false, limit: 100
       t.string :section, null: false, limit: 100
       t.integer :min_covers, null: false
@@ -93,7 +94,7 @@ class CreateOrganisations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-      create_table :grid do |t|
+      create_table :grids do |t|
       t.belongs_to :venue, index: true
       t.string :grid_name, null: false, limit: 100
 

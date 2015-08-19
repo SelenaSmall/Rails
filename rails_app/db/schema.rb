@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 20150712110742) do
   add_index "customers", ["organisation_id"], name: "index_customers_on_organisation_id", using: :btree
   add_index "customers", ["venue_id"], name: "index_customers_on_venue_id", using: :btree
 
-  create_table "grid", force: :cascade do |t|
+  create_table "grids", force: :cascade do |t|
     t.integer  "venue_id"
     t.string   "grid_name",  limit: 100, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  add_index "grid", ["venue_id"], name: "index_grid_on_venue_id", using: :btree
+  add_index "grids", ["venue_id"], name: "index_grids_on_venue_id", using: :btree
 
   create_table "hours", force: :cascade do |t|
     t.integer  "venue_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
 
   create_table "tables", force: :cascade do |t|
     t.integer  "venue_id"
+    t.integer  "grid_id"
     t.string   "tab",           limit: 100, null: false
     t.string   "section",       limit: 100, null: false
     t.integer  "min_covers",                null: false
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150712110742) do
     t.datetime "updated_at",                null: false
   end
 
+  add_index "tables", ["grid_id"], name: "index_tables_on_grid_id", using: :btree
   add_index "tables", ["venue_id"], name: "index_tables_on_venue_id", using: :btree
 
   create_table "users", force: :cascade do |t|
