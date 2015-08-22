@@ -1,6 +1,6 @@
 <div class="modal-dialog reorder-modal-form">
 <div class="modal-content">
-	<%= bootstrap_form_for([venue], remote: true) do |f| %>
+	<%= bootstrap_form_for([venue.organisation, venue], remote: true) do |f| %>
 <div class="modal-header">
         <h4 class="modal-title">New Venue</h4>
 </div>

@@ -1,4 +1,4 @@
-class VenuesController < ApplicationController
+class VenuesController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_hour
@@ -58,6 +58,7 @@ class VenuesController < ApplicationController
       if @venue.save
         format.html { redirect_to [@organisation, @venue], notice: 'venue was successfully created.' }
         format.json { render :show, status: :created, location: @venue }
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @venue.errors, status: :unprocessable_entity }

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :bookings
     resources :reports
     resources :venues do
-      resources :details
+    #  resources :details
       resources :users
       resources :customers
       resources :bookings

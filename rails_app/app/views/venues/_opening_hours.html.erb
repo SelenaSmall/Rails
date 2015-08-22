@@ -1,0 +1,36 @@
+<h1>Opening Hours</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Opening Time</th>
+      <th>Closing Time</th>
+      <th>Interval</th>
+      <th>Covers per Interval</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venue.hours.each do |hour| %>
+      <tr>
+        <div id="opening-hours"></div>
+          <td><%= hour.day %></td>
+          <td><%= hour.open_time %></td>
+          <td><%= hour.close_time %></td>
+          <td><%= hour.interval %></td>
+          <td><%= hour.covers_per_interval %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_hour_path(venue.organisation, venue, hour) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot></tfoot>
+</table>
+
+<%= link_to edit_all_organisation_venue_hours_path(venue.organisation, venue, venue.hours), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Hours
+<%end%>
+
+<%= link_to 'New Hour', new_organisation_venue_hour_path(venue.organisation, venue) %>

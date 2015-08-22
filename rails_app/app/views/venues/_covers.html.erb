@@ -1,0 +1,29 @@
+<h2> COVERS </h2>
+
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Covers</th>
+      <th>Group</th>
+      <th>Turn Time</th>
+     </tr>
+  </thead>
+    <tbody>
+      <% venue.covers.each do |cover| %>
+      <tr>
+        <div id="covers"></div>
+          <td><%= cover.covers %></td>
+          <td><%= cover.covers_group %></td>
+          <td><%= cover.turn_time %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_cover_path(venue.organisation, venue, cover) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_covers_path(venue.organisation, venue, venue.covers), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Covers
+<%end%>
+
+<%= link_to 'New Cover', new_organisation_venue_cover_path(venue.organisation, venue) %>

@@ -1,0 +1,33 @@
+<h1>Tables</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tab</th>
+      <th>Section</th>
+      <th>Min Covers</th>
+      <th>Max Covers</th>
+      <th>Booking</th>
+     </tr>
+  </thead>
+  <tbody>
+    <% @venue.tables.each do |table| %>
+      <tr>
+        <div id="tables"></div>
+          <td><%= table.tab %></td>
+          <td><%= table.section %></td>
+          <td><%= table.min_covers %></td>
+          <td><%= table.max_covers %></td>
+          <td><%= table.booking_order %></td>
+          <td><%= link_to 'Edit', edit_organisation_venue_table_path(venue.organisation, venue, table) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_tables_path(venue.organisation, venue, venue.tables), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update Tables
+<%end%>
+
+<%= link_to 'New Table', new_organisation_venue_table_path(venue.organisation, venue) %>
