@@ -40,6 +40,7 @@ class TablesController < ApplicationController
       if @table.save
         format.html { redirect_to [@organisation, @venue, @table], notice: 'table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
+        format.js {redirect_via_turbolinks_to [@table.venue.organisation, @table]}
       else
         format.html { render :new }
         format.json { render json: @table.errors, status: :unprocessable_entity }
@@ -54,6 +55,7 @@ class TablesController < ApplicationController
       if @table.update(table_params)
         format.html { redirect_to [@organisation, @venue, @table], notice: 'table was successfully updated.' }
         format.json { render :show, status: :ok, location: @table }
+        format.js {redirect_via_turbolinks_to [@table.venue.organisation, @table]}
       else
         format.html { render :edit }
         format.json { render json: @table.errors, status: :unprocessable_entity }
