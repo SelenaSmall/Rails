@@ -40,7 +40,7 @@ class HoursController < ApplicationController
       if @hour.save
         format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully created.' }
         format.json { render :show, status: :created, location: @hour }
-        format.js {redirect_via_turbolinks_to [@hour.venue.organisation, @hour]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @hour.errors, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class HoursController < ApplicationController
       if @hour.update(hour_params)
         format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully updated.' }
         format.json { render :show, status: :ok, location: @hour }
-        format.js {redirect_via_turbolinks_to [@hour.venue.organisation, @hour]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @hour.errors, status: :unprocessable_entity }

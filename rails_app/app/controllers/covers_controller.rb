@@ -40,7 +40,7 @@ class CoversController < ApplicationController
       if @cover.save
         format.html { redirect_to [@organisation, @venue, @cover], notice: 'cover was successfully created.' }
         format.json { render :show, status: :created, location: @cover }
-        format.js {redirect_via_turbolinks_to [@cover.venue.organisation, @cover]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @cover.errors, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class CoversController < ApplicationController
       if @cover.update(cover_params)
         format.html { redirect_to [@organisation, @venue, @cover], notice: 'cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @cover }
-        format.js {redirect_via_turbolinks_to [@cover.venue.organisation, @cover]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @cover.errors, status: :unprocessable_entity }
