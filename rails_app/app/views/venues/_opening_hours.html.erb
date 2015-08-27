@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @venue.hours.each do |hour| %>
+    <% venue.hours.each do |hour| %>
       <tr>
         <div id="opening-hours"></div>
           <td><%= hour.day %></td>
@@ -30,7 +30,9 @@
 
 <%= link_to edit_all_organisation_venue_hours_path(venue.organisation, venue, venue.hours), 
 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-  <i class="glyphicon glyphicon-pencil"></i>Update Hours
+  <i class="glyphicon glyphicon-pencil"></i>Update ALL Hours
 <%end%>
 
-<%= link_to 'New Hour', new_organisation_venue_hour_path(venue.organisation, venue) %>
+<%= link_to new_organisation_venue_hour_path(@organisation, @venue, @cover), 
+      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New Hour
+<%end%>
