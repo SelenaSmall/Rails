@@ -14,7 +14,7 @@ class VenuesController < VenueLayoutController
     @venues = @organisation.venues.all
   end
 
-    def index_venue
+  def index_venue
 #    @venues = Venue.all
     @venues = @organisation.venues.all
   end
