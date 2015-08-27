@@ -21,7 +21,7 @@ class VenuesController < VenueLayoutController
   end
 
   def bookings
-    @venues = Venue.all
+#    @venues = Venue.all
   end
 
   # GET /tabs/1

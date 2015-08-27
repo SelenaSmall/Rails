@@ -31,11 +31,8 @@
               <button type="button" class="btn btn-default"><%= link_to table.tab, [@organisation, @venue, table] %></button>
             </td>
 
-            <td>
-              <%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
-              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-              <i class="glyphicon glyphicon-pencil"></i>
-              <%end%> 
+            <td class="col-md-6">
+              <%= render "grids/field", grid: @grid %>
             </td>
 
           </tr>
@@ -46,6 +43,7 @@
 
 <!-- Modal form / New Channel Group -->
 <div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
+<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
 <!-- Modal form / New Channel Group -->
 
 </div>

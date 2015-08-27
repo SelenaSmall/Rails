@@ -32,6 +32,7 @@ class BookingsController < VenueLayoutController
       if @booking.save
         format.html { redirect_to [@organisation, @venue, @booking], notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -46,6 +47,7 @@ class BookingsController < VenueLayoutController
       if @booking.update(booking_params)
         format.html { redirect_to [@organisation, @venue, @booking], notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
