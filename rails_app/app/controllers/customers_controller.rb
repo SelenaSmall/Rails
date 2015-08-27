@@ -1,5 +1,6 @@
-class CustomersController < ApplicationController
+class CustomersController < VenueLayoutController
   before_action :set_organisation
+  before_action :set_venue
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs

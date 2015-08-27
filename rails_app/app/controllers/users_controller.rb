@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < VenueLayoutController
   before_action :set_organisation
+  before_action :set_venue
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs

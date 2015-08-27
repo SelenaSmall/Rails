@@ -1,5 +1,6 @@
-class ReportsController < ApplicationController
+class ReportsController < VenueLayoutController
   before_action :set_organisation
+  before_action :set_venue
 
   def index
   end
