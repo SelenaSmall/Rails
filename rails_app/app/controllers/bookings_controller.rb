@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+class BookingsController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
   before_action :set_booking, only: [:show, :edit, :update, :destroy]

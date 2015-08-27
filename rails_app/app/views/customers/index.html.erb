@@ -1,38 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/OUT <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">List </a></li>
-              <li><a href="#">of </a></li>
-              <li><a href="#">Users</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Create New User</a></li>
-            </ul>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to @organisation.name, (@organisation)%></li>
-            <li><%= link_to 'Customers', organisation_customers_path(@organisation)%></li>
-            <li><%= link_to 'Users', organisation_users_path(@organisation) %></li>
-            <li><%= link_to 'Reports', organisation_reports_path(@organisation) %></li>
-            <li role="separator" class="divider"></li>
-          </ul>
-        </li>
-      </ul>
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
 <body>
 <div class="main-container">
 <h1><center>CUSTOMERS</center></h1>

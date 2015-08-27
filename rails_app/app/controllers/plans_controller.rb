@@ -1,4 +1,4 @@
-class PlansController < ApplicationController
+class PlansController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
 

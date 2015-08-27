@@ -1,4 +1,4 @@
-class GridsController < ApplicationController
+class GridsController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
   before_action :set_tables
