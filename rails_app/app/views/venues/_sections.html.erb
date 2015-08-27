@@ -1,0 +1,37 @@
+<h2> Section </h2>
+
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>First tab</th>
+      <th>Last tab</th>
+      <th>Bookable</th>
+     </tr>
+  </thead>
+    <tbody>
+      <% venue.sections.each do |section| %>
+      <tr>
+        <div id="sections"></div>
+          <td><%= section.section %></td>
+        <td><%= section.first_num %></td>
+        <td><%= section.last_num %></td>
+        <td><%= section.bookable %></td>
+          <td><%= link_to edit_organisation_venue_section_path(@organisation, @venue, section), 
+              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+              <i class="glyphicon glyphicon-pencil"></i>Edit
+              <%end%>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to edit_all_organisation_venue_sections_path(venue.organisation, venue, venue.sections), 
+remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+  <i class="glyphicon glyphicon-pencil"></i>Update ALL sections
+<%end%>
+
+<%= link_to new_organisation_venue_section_path(@organisation, @venue, @section), 
+      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New section
+<%end%>

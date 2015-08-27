@@ -68,6 +68,16 @@ class CreateOrganisations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+    create_table :sections do |t|
+      t.belongs_to :venue, index: true
+      t.string :section, null: false, limit: 100
+      t.string :first_num, null: false, limit: 100
+      t.string :last_num, null: false, limit: 100
+      t.string :bookable, null: false, limit: 100
+
+      t.timestamps null: false
+    end
+
     create_table :tables do |t|
       t.belongs_to :venue, index: true
       t.belongs_to :grid, index: true

@@ -10,5 +10,6 @@ class Venue < ActiveRecord::Base
 	has_many :hours
 	has_many :covers
 	has_many :tables
+	has_many :sections
 
 end

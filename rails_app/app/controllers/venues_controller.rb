@@ -3,6 +3,7 @@ class VenuesController < VenueLayoutController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_hour
   before_action :set_cover
+  before_action :set_section 
   before_action :set_note
   before_action :set_grid
   before_action :set_plan
@@ -113,6 +114,10 @@ class VenuesController < VenueLayoutController
 
     def set_cover
       @cover #= Hour.find(params[:id])
+    end
+
+        def set_section
+      @section #= Hour.find(params[:id])
     end
 
     def set_note

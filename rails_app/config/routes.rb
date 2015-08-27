@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'organisations/venues'
   get 'organisations/venues/hours'
   get 'organisations/venues/covers'
+  get 'organisations/venues/sections'
 
 
   resources :organisations do
@@ -32,6 +33,9 @@ Rails.application.routes.draw do
         get 'edit_all', on: :collection
       end
       resources :covers do
+        get 'edit_all', on: :collection
+      end
+      resources :sections do
         get 'edit_all', on: :collection
       end
       resources :tables do

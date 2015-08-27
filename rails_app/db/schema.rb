@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20150712110742) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.integer  "venue_id"
+    t.string   "section",    limit: 100, null: false
+    t.string   "first_num",  limit: 100, null: false
+    t.string   "last_num",   limit: 100, null: false
+    t.string   "bookable",   limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "sections", ["venue_id"], name: "index_sections_on_venue_id", using: :btree
+
   create_table "tables", force: :cascade do |t|
     t.integer  "venue_id"
     t.integer  "grid_id"

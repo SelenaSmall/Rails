@@ -36,6 +36,7 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
   <%= render "venues/opening_hours", venue: @venue %>
 </div>
 <div class="col-md-6">
+  <%= render "venues/sections", venue: @venue %>
   <%= render "venues/tables", venue: @venue %>
 </div>
 </div>
@@ -52,6 +53,10 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="modal fade" id='new-cover-modal-form' role="dialog"></div>
 
 <div class="modal fade" id='edit-cover-modal-form' role="dialog"></div>
+
+<div class="modal fade" id='new-section-modal-form' role="dialog"></div>
+
+<div class="modal fade" id='edit-section-modal-form' role="dialog"></div>
 
 <div class="modal fade" id='new-table-modal-form' role="dialog"></div>
 
