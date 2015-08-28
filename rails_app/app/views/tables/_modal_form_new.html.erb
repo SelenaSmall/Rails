@@ -7,7 +7,17 @@
 
 <div class="modal-body">
    <%= f.text_field :tab %>
-   <%= f.text_field :section %>
+
+   <div class="dropdown">
+  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Section
+    	<span class="caret"></span>
+ 	 	</button>
+  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  		<% @venue.sections.each do |section| %>
+    	<li><a href="#"><%= section.section %></a></li>
+    	<% end%>
+  	</ul>
+	</div>
    <%= f.text_field :min_covers %>
    <%= f.text_field :max_covers %>
    <%= f.text_field :booking_order %>
