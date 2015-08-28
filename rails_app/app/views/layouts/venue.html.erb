@@ -32,7 +32,14 @@
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Run Sheet', organisation_venue_bookings_path(@organisation, @venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Grid View', organisation_venue_grids_path(@organisation, @venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', organisation_venue_plans_path(@organisation, @venue) %></button>
-      <button type="button" class="btn btn-default navbar-btn">Date Selector to go Here</button>
+      <button type="button" class="btn btn-default dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Date Selector<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                    <% @venue.hours.each do |hour| %>
+                    <div><%= link_to hour.day, [@organisation, @venue, hour] %></div>
+                    <% end %> 
+            </ul>
+      </button>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
