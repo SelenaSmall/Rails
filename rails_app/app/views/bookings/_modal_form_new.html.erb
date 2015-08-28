@@ -1,0 +1,33 @@
+<div class="modal-dialog reorder-modal-form">
+<div class="modal-content">
+	<%= bootstrap_form_for([@organisation, @venue, booking], remote: true) do |f| %>
+<div class="modal-header">
+        <h4 class="modal-title">New Booking</h4>
+</div>
+
+<div class="modal-body">
+   <%= f.text_field :name %>
+   <%= f.text_field :phone %>
+   <%= f.text_field :email %>
+   <%= f.text_field :start_time %>
+   <%= f.text_field :tab_name %>
+   
+       <div class="dropdown">
+  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Tab Name 'doesnt work yet>'
+    	<span class="caret"></span>
+ 	 	</button>
+  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  			<% @venue.tables.each do |table| %>
+            <%= link_to table.tab, [@organisation, @venue, table] %>
+        <% end %> 
+  	</ul>
+	</div>
+</div>
+
+<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
+        <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
+</div>
+<% end %>
+</div>
+</div>
