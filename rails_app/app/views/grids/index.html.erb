@@ -10,20 +10,18 @@
     <thead>
       <tr>
         <th>Tab #</th>
+        <% 10.times do |f| %>
       <th>
         <% @venue.hours.each do |hour| %>
-            <%= link_to hour.open_time, [@organisation, @venue, hour] %>
+            <%= hour.open_time %>
         <% end %>    
       </th>   
-      <th>
-        <% @venue.hours.each do |hour| %>
-            <%= link_to hour.close_time, [@organisation, @venue, hour] %>
-        <% end %>    
-      </th> 
+      <% end %>
       </tr>  
     </thead>
 
     <tbody>
+        
         <% @venue.tables.each do |table| %>
 
           <tr>
@@ -31,9 +29,11 @@
               <%= table.tab %>
             </td>
 
-            <td class="col-md-6">
+            <% 10.times do |f| %>
+            <td>
               <%= render "grids/field", grid: @grid %>
             </td>
+            <% end %>
 
           </tr>
         <%end%> 
