@@ -25,10 +25,10 @@
 
     <tbody>
         <% @venue.tables.each do |table| %>
+
           <tr>
             <td>
-              <class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default"><%= link_to table.tab, [@organisation, @venue, table] %></button>
+              <%= table.tab %>
             </td>
 
             <td class="col-md-6">

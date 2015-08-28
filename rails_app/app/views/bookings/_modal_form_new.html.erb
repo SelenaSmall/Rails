@@ -18,7 +18,7 @@
  	 	</button>
   	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
   			<% @venue.tables.each do |table| %>
-            <%= link_to table.tab, [@organisation, @venue, table] %>
+            <div><%= table.tab %></div>
         <% end %> 
   	</ul>
 	</div>
