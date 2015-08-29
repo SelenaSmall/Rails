@@ -1,0 +1,17 @@
+<center>Showing hours and tables available for <%= @hour.day %>...</center>
+<p><center>
+  <strong>Open Time:</strong>
+  <%= @hour.open_time %> |
+
+  <strong>Close Time:</strong>
+  <%= @hour.close_time %> |
+
+  <strong>interval:</strong>
+  <%= @hour.interval %> |
+
+  <strong>covers_per_interval:</strong>
+  <%= @hour.covers_per_interval %>
+</center></p> 
+
+<%= render "grids/index", grid: @grid %>
+
