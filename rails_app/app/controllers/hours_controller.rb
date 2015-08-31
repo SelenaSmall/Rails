@@ -1,6 +1,7 @@
 class HoursController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
+  before_action :set_table
   before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
@@ -85,6 +86,10 @@ class HoursController < VenueLayoutController
 
     def set_hour
       @hour = Hour.find(params[:id])
+    end
+
+    def set_table
+      @table #= Tab.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

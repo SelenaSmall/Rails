@@ -19,9 +19,9 @@
     <tbody>
         
         <% @venue.tables.each do |table| %>
-
           <tr>
             <td>
+              <%= render "tables/tab", table: @table %>
               <%= table.tab %>
             </td>
 
