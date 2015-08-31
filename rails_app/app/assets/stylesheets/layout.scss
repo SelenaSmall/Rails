@@ -1,5 +1,34 @@
-.bordered-box {
-	border: 1px solid black;
-	padding: 20px;
-	margin: 10px;
+.application {
+	background-color: #FFFAFA;
+	h1 {
+		font-size: 50px;
+		font-family: monospace;
+		color: black;
+	}
 }
+
+.venue {
+	background-color: #E0F0FF;
+	h1 {
+		font-size: 50px;
+		font-family: fantasy;
+		color: #0040A1;
+	}
+
+	h2 {
+		font-size:20px;
+	}
+}
+
+.bordered-box {
+	border: 1px solid #5CB8E6;
+	border-radius: px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	margin-top: 30px;
+	background-color: #F9F9FF;
+}
+
+
+

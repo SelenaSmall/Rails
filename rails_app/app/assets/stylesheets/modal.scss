@@ -1,0 +1,30 @@
+.reorder-modal-form {
+	padding: 150px;
+}
+
+.modal-content {
+	border-radius: 10px;
+}
+
+.modal-header {
+	margin-top: 10px;
+	padding: 10px;
+
+	.modal-title {
+		margin-left: 85px;
+		margin-right: 85px;
+	}
+}
+
+.modal-body {
+	padding-top: 5px;
+	padding-bottom: 2px;
+	.form-group {
+		margin: 10px;
+	}	
+}
+
+.modal-footer {
+	padding-bottom: 10px;
+	border-top: 0px solid white;	
+}
