@@ -25,6 +25,7 @@ class TablesController < ApplicationController
   end
 
   def edit_all
+      @table = @venue.tables.build
 #    respond_to do |format|
 #      format.html {raise 'bad'}
 #      format.js

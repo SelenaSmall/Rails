@@ -25,6 +25,7 @@ class SectionsController < ApplicationController
   end
 
   def edit_all
+    @section = @venue.sections.build
 #    respond_to do |format|
 #      format.html {raise 'bad'}
 #      format.js

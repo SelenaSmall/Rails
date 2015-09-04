@@ -19,14 +19,13 @@
           <td><%= table.min_covers %></td>
           <td><%= table.max_covers %></td>
           <td><%= table.booking_order %></td>
-          <td><%= link_to edit_organisation_venue_table_path(@organisation, @venue, table), 
-              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-              <i class="glyphicon glyphicon-pencil"></i>Edit
-              <%end%>
-          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to new_organisation_venue_table_path(@organisation, @venue, @table), 
+      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New Table
+<%end%>
 
 </div>

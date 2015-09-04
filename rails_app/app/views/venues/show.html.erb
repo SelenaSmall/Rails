@@ -63,18 +63,18 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="col-md-6">
 <div class="venue-header">
 <strong>Sections</strong>
-  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+  <%= link_to edit_all_organisation_venue_sections_path(@venue.organisation, @venue, @venue.sections), 
     remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Sections
     <%end%>
 </div>  
   <%= render "venues/sections", venue: @venue %>
 
 <div class="venue-header">
 <strong>Tables</strong>
-  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+  <%= link_to edit_all_organisation_venue_tables_path(@venue.organisation, @venue, @venue.tables), 
     remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Tables
     <%end%>
 </div>
   <%= render "venues/tables", venue: @venue %>
@@ -97,10 +97,12 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="modal fade" id='edit-cover-modal-form' role="dialog"></div>
 
 
+<div class="modal fade" id='sections-details-modal-form' role="dialog"></div>
 <div class="modal fade" id='new-section-modal-form' role="dialog"></div>
 <div class="modal fade" id='edit-section-modal-form' role="dialog"></div>
 
 
+<div class="modal fade" id='tables-details-modal-form' role="dialog"></div>
 <div class="modal fade" id='new-table-modal-form' role="dialog"></div>
 <div class="modal fade" id='edit-table-modal-form' role="dialog"></div>
 <!-- Modal form / New Channel Group -->

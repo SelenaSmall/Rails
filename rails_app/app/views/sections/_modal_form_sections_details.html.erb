@@ -1,18 +1,12 @@
 <div class="modal-dialog reorder-modal-form">
 <div class="modal-content">
-	<%= bootstrap_form_for([venue.organisation, venue], remote: true) do |f| %>
+  <%= bootstrap_form_for([@organisation, @venue, @section], remote: true) do |f| %>
 <div class="modal-header">
-        <h4 class="modal-title">sections</h4>
+        <h4 class="modal-title">Sections Details</h4>
 </div>
 
 <div class="modal-body">
-  <table>
-    <th>
-  <th class="field"><%= f.text_field :sections %></th>
-  <th class="field"><%= f.label :sections_group %></th>
-  <th class="field"><%= f.label :turn_time %></th> 
-    </th>
-  </table>
+  <%= render "sections/details", venue: @venue.sections %>
 </div>
 
 <div class="modal-footer">

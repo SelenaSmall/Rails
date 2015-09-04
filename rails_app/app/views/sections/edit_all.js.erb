@@ -1,2 +1,2 @@
-$("#sections-modal-form").html("<%= j render('sections/modal_form', venue: @venue) %>");
-$('#sections-modal-form').modal('show')
+$("#sections-details-modal-form").html("<%= j render('sections/modal_form_sections_details', sections: @venue.sections) %>");
+$('#sections-details-modal-form').modal('show')
