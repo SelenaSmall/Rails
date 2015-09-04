@@ -26,6 +26,7 @@ class HoursController < VenueLayoutController
   end
 
   def edit_all
+    @hour = @venue.hours.build
 #    respond_to do |format|
 #      format.html {raise 'bad'}
 #      format.js

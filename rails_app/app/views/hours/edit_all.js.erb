@@ -1,2 +1,2 @@
-$("#opening-hours-modal-form").html("<%= j render('hours/modal_form', venue: @venue) %>");
-$('#opening-hours-modal-form').modal('show')
+$("#hours-details-modal-form").html("<%= j render('hours/modal_form_hours_details', hours: @venue.hours) %>");
+$('#hours-details-modal-form').modal('show')
