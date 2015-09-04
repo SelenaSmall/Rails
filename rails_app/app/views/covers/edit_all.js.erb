@@ -1,2 +1,2 @@
-$("#covers-modal-form").html("<%= j render('covers/modal_form_edit_all', venue: @venue) %>");
-$('#covers-modal-form').modal('show')
+$("#covers-details-modal-form").html("<%= j render('covers/modal_form_covers_details', covers: @venue.covers) %>");
+$('#covers-details-modal-form').modal('show')

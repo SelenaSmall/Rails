@@ -1,4 +1,5 @@
 <div class="bordered-box">
+<h2>Covers</h2>
 
 <table class="table" >
   <thead>
@@ -15,14 +16,16 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-          <td><%= link_to edit_organisation_venue_cover_path(@organisation, @venue, cover), 
-              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-              <i class="glyphicon glyphicon-pencil"></i>Edit
-              <%end%>
-          </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+
+<%= link_to new_organisation_venue_cover_path(@organisation, @venue, @cover), 
+      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New Cover
+<%end%>
+
 
 </div>

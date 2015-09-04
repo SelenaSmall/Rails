@@ -2,13 +2,11 @@
 <div class="modal-content">
 	<%= bootstrap_form_for([@organisation, @venue, @cover], remote: true) do |f| %>
 <div class="modal-header">
-        <h4 class="modal-title">Edit Cover</h4>
+        <h4 class="modal-title">Covers Details</h4>
 </div>
 
 <div class="modal-body">
-   <%= f.text_field :covers %>
-   <%= f.text_field :covers_group %>
-   <%= f.text_field :turn_time %>
+  <%= render "covers/details", venue: @venue.covers %>
 </div>
 
 <div class="modal-footer">

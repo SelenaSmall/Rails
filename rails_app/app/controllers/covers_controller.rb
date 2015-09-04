@@ -24,9 +24,10 @@ class CoversController < ApplicationController
   #  @covers = @venue.covers.all
   end
 
-  def edit_all
+ def edit_all
+  @cover = @venue.covers.build
 #    respond_to do |format|
-#      format.html {raise 'bad'}
+#     format.html {raise 'bad'}
 #      format.js
 #    end
   end

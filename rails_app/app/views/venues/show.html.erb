@@ -32,11 +32,76 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 
 <div class="row">
 <div class="col-md-6">
+
+<div class="venue-header">
+<table>
+    <thead>
+      <th>
+  <h2>Covers</h2>
+</th>
+<th>
+  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+    <%end%>
+  </th>
+</thead>
+</table>
+</div>
   <%= render "venues/covers", venue: @venue %>
+
+<div class="venue-header">
+<table>
+    <thead>
+      <th>
+  <h2>Section</h2>
+</th>
+<th>
+  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+    <%end%>
+  </th>
+</thead>
+</table>
+</div>
+
   <%= render "venues/opening_hours", venue: @venue %>
 </div>
+
 <div class="col-md-6">
+<div class="venue-header">
+<table>
+    <thead>
+      <th>
+  <h2>Covers</h2>
+</th>
+<th>
+  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+    <%end%>
+  </th>
+</thead>
+</table>
+</div>  
   <%= render "venues/sections", venue: @venue %>
+
+<div class="venue-header">
+<table>
+    <thead>
+      <th>
+  <h2>Tables</h2>
+</th>
+<th>
+  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
+    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
+      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
+    <%end%>
+  </th>
+</thead>
+</table>
+</div>
   <%= render "venues/tables", venue: @venue %>
 </div>
 </div>
@@ -46,22 +111,22 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <!-- Modal form / New Channel Group -->
 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
 
-<div class="modal fade" id='new-hour-modal-form' role="dialog"></div>
 
+<div class="modal fade" id='new-hour-modal-form' role="dialog"></div>
 <div class="modal fade" id='edit-hour-modal-form' role="dialog"></div>
 
+
+<div class="modal fade" id='covers-details-modal-form' role="dialog"></div>
 <div class="modal fade" id='covers-modal-form' role="dialog"></div>
-
 <div class="modal fade" id='new-cover-modal-form' role="dialog"></div>
-
 <div class="modal fade" id='edit-cover-modal-form' role="dialog"></div>
 
-<div class="modal fade" id='new-section-modal-form' role="dialog"></div>
 
+<div class="modal fade" id='new-section-modal-form' role="dialog"></div>
 <div class="modal fade" id='edit-section-modal-form' role="dialog"></div>
 
-<div class="modal fade" id='new-table-modal-form' role="dialog"></div>
 
+<div class="modal fade" id='new-table-modal-form' role="dialog"></div>
 <div class="modal fade" id='edit-table-modal-form' role="dialog"></div>
 <!-- Modal form / New Channel Group -->
 
