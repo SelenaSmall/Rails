@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'organisations/venues/covers'
   get 'organisations/venues/sections'
 
+  get 'v/:slug/grid' => 'tables#grid', as: 'grid'
+  get 'v/:id' => 'venues#show', as: 'venue'
 
   resources :organisations do
     resources :users
@@ -25,9 +27,8 @@ Rails.application.routes.draw do
       resources :customers
       resources :bookings
       resources :reports
-      resources :grids do
-        resources :tables
-      end
+      resources :tables
+      get 'grid' => 'tables#index' 
       resources :plans
       resources :hours do
         get 'edit_all', on: :collection

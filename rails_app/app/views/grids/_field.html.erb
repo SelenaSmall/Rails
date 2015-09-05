@@ -1,4 +1,4 @@
-<%= link_to new_organisation_venue_booking_path(@organisation, @venue, @booking), 
+<%= link_to new_organisation_venue_booking_path(@venue.organisation, @venue, @booking), 
 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
 <i class="glyphicon glyphicon-pencil"></i>NEW
 <%end%>

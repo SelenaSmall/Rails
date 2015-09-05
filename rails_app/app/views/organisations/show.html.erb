@@ -14,7 +14,7 @@
 
 <p><center><class="btn-group" role="group" aria-label="...">
       <% @organisation.venues.each do |venue| %>
-        <div><button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, [@organisation, venue] %></button>
+        <div><button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, venue_path(venue) %></button>
           <% end %>
         </div>
     </center><p>

@@ -1,15 +1,17 @@
 class Venue < ActiveRecord::Base
-	belongs_to :organisation
+	include FriendlyId
+	friendly_id :name, :use => [:slugged]
+
+ 	belongs_to :organisation
 	belongs_to :user
-	has_many :customers
-	has_many :bookings
-	has_many :reports
-	has_many :grids
-	has_many :plans
+	has_many :customers, dependent: :destroy
+	has_many :bookings, dependent: :destroy
 	
-	has_many :hours
-	has_many :covers
-	has_many :tables
-	has_many :sections
+	has_many :hours, dependent: :destroy
+	has_many :covers, dependent: :destroy
+	has_many :tables, dependent: :destroy
+	has_many :sections, dependent: :destroy
+
+	validates :name, uniqueness: true
 
 end

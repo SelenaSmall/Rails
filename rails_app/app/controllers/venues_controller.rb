@@ -1,5 +1,5 @@
 class VenuesController < VenueLayoutController
-  before_action :set_organisation
+  before_action :set_organisation, only: [:create]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_hour
   before_action :set_cover
@@ -63,6 +63,7 @@ class VenuesController < VenueLayoutController
       else
         format.html { render :new }
         format.json { render json: @venue.errors, status: :unprocessable_entity }
+        format.js { render partial: 'shared/ajax_form_errors', locals: {model: @venue}, status: 400}
       end
     end
   end
@@ -100,7 +101,7 @@ class VenuesController < VenueLayoutController
     end
 
     def set_venue
-      @venue = Venue.find(params[:id])
+      @venue = Venue.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

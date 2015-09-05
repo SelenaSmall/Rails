@@ -17,14 +17,15 @@
 </center></div>
 
 <br>
-<center><%= link_to 'All venues', organisation_venues_path %> | 
+<center><%= link_to 'All venues', organisation_venues_path(@venue.organisation) %> | 
   <%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
 remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
   <i class="glyphicon glyphicon-pencil"></i>Update Details
 <%end%> | 
 
-<%= link_to @organisation.name, organisation_path(@venue.organisation) %></center>
-<!-- <li><%= link_to @organisation.name, organisation_path(@venue.organisation, @organisation) %></li> -->
+<%= link_to @venue.organisation.name, organisation_path(@venue.organisation) %></center>
+
+
 </div>
 <div class="col-md-4"></div>
 </div>

@@ -1,17 +1,28 @@
-class TablesController < ApplicationController
-  before_action :set_organisation
-  before_action :set_venue
+class TablesController < VenueLayoutController
+  before_action :set_venue, except: [:grid]
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
-    @tables = @organisation.venue.tables.all
+    @tables = @venue.tables.all
+
+#    if params[:type] == 'summary'
+#      render 'summary'
+#    else 
+
+      render 'grid'
+#    end
   end
 
   # GET /tabs/1
   # GET /tabs/1.json
   def show
+  end
+
+  def grid
+    @venue = Venue.friendly.find params[:slug]
+    @tables = @venue.tables.all
   end
 
   # GET /tabs/new
@@ -75,11 +86,6 @@ class TablesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
-    end
-
     def set_venue
       @venue = Venue.find(params[:venue_id])
     end
