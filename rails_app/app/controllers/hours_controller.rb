@@ -1,4 +1,4 @@
-class HoursController < ApplicationController
+class HoursController < VenueLayoutController
   before_action :set_venue, only: [:show]
   before_action :set_hour, only: [:show, :edit, :update, :destroy]
 

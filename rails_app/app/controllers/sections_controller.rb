@@ -1,4 +1,4 @@
-class SectionsController < ApplicationController
+class SectionsController < VenueLayoutController
   before_action :set_venue, only: [:show]
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 

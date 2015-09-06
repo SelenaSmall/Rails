@@ -23,6 +23,8 @@ class VenuesController < VenueLayoutController
   end
 
   def covers
+    @venue = Venue.friendly.find params[:slug]
+    @covers = @venue.covers.all
   end
 
   def notes

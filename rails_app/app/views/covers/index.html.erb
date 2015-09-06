@@ -19,8 +19,6 @@
         <td><%= cover.covers_group %></td>
         <td><%= cover.turn_time %></td>
         <td><%= link_to 'Details', [@organisation, @venue, @cover] %></td>
-        <td><%= link_to 'Edit', edit_organisation_venue_cover_path(@organisation, @venue, cover) %></td>
-        <td><%= link_to 'Delete', [@organisation, @venue, @cover], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

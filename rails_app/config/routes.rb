@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'v/:slug/covers' => 'covers#index', as: 'covers'
   get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
+  post 'v/:slug/covers' => 'covers#create'
+  put 'v/:slug/covers' => 'covers#update'
 
   get 'v/:slug/hours' => 'hours#index', as: 'hours'
   get 'v/:slug/sections' => 'sections#index', as: 'sections'
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
 #      resources :hours do
 #        get 'edit_all', on: :collection
 #      end
-#      resources :covers do
+#     resources :covers do
 #        get 'edit_all', on: :collection
 #      end
 #      resources :sections do
