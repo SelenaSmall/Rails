@@ -29,7 +29,7 @@
       <%= link_to edit_all_organisation_venue_notes_path(@venue.organisation, @venue, @covers), 
                 remote: true, id: "new-item-link", class: "btn btn-default navbar-btn" do %> Notes
                 <%end%>
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Run Sheet', organisation_venue_bookings_path(@venue.organisation, @venue) %></button>
+      <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Run Sheet', runsheet_path(@venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Grid View', grid_path(@venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', plan_path(@venue) %></button>
       <button type="button" class="btn btn-default dropdown">
@@ -56,6 +56,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4"></div>
+</div>
 
 <%= yield %>
 </div>

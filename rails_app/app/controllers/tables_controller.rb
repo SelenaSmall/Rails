@@ -1,9 +1,7 @@
 class TablesController < VenueLayoutController
-  before_action :set_venue, except: [:grid, :plan]
+  before_action :set_venue, except: [:grid, :plan, :runsheet]
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
     @tables = @venue.tables.all
 
@@ -15,8 +13,6 @@ class TablesController < VenueLayoutController
 #    end
   end
 
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
@@ -29,12 +25,16 @@ class TablesController < VenueLayoutController
     @venue = Venue.friendly.find params[:slug]
     @tables = @venue.tables.all
   end
-  # GET /tabs/new
+
+  def runsheet
+    @venue = Venue.friendly.find params[:slug]
+    @tables = @venue.tables.all
+  end
+
   def new
     @table = @venue.tables.build
   end
 
-  # GET /tabs/1/edit
   def edit
     @tables = @venue.tables.all
   end
@@ -47,8 +47,6 @@ class TablesController < VenueLayoutController
 #    end
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @table = @venue.tables.build(table_params)
 
@@ -64,8 +62,6 @@ class TablesController < VenueLayoutController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @table.update(table_params)
@@ -79,8 +75,6 @@ class TablesController < VenueLayoutController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @table.destroy
     respond_to do |format|
@@ -98,7 +92,6 @@ class TablesController < VenueLayoutController
       @table = Table.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def table_params
       params.require(:table).permit(:tab, :section, :min_covers, :max_covers, :booking_order)
     end

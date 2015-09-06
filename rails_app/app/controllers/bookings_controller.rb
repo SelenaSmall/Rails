@@ -1,6 +1,7 @@
 class BookingsController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
+  before_action :set_tables
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -60,6 +61,9 @@ class BookingsController < VenueLayoutController
 
     def set_venue
       @venue = Venue.find(params[:venue_id])
+    end
+    def set_tables
+      @tables
     end
 
     def set_booking

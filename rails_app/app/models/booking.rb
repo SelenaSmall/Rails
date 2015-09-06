@@ -7,5 +7,6 @@ class Booking < ActiveRecord::Base
 	has_many :reports
 	has_many :grids
 	has_many :plans
+	has_many :tables
 
 end
