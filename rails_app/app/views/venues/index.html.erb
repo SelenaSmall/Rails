@@ -24,11 +24,6 @@
         <td><%= venue.email %></td>
         <td><%= venue.address %></td>
         <td><%= link_to 'Details', [@organisation, venue] %></td>
-        <td><%= link_to 'Bookings', organisation_venue_bookings_path(@organisation, venue) %></td>
-        <td><%= link_to 'Customers', organisation_venue_customers_path(@organisation, venue) %></td>
-        <td><%= link_to 'Opening Hours', organisation_venue_hours_path(@organisation, venue) %></td>
-        <td><%= link_to 'Covers', organisation_venue_covers_path(@organisation, venue) %></td>
-        <td><%= link_to 'Tables', organisation_venue_tables_path(@organisation, venue) %></td>
         <td><%= link_to 'Delete', [@organisation, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

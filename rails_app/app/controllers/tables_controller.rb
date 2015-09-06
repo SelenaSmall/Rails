@@ -1,15 +1,14 @@
 class TablesController < VenueLayoutController
-  before_action :set_venue, except: [:grid, :plan, :runsheet]
+  before_action :set_venue, except: [:grid, :plan, :runsheet], only: [:show]
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   def index
+    @venue = Venue.friendly.find params[:slug]
     @tables = @venue.tables.all
-
 #    if params[:type] == 'summary'
 #      render 'summary'
 #    else 
-
-      render 'grid'
+#      render 'grid'
 #    end
   end
 

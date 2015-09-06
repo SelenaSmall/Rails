@@ -1,23 +1,18 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'covers/index'
-  get 'organisations/bookings'
-  get 'organisations/customers'
-  get 'organisations/users'
- # get 'organisations/venues'
-  get 'organisations/venues/hours'
-  get 'organisations/venues/covers'
-  get 'organisations/venues/sections'
-
-
   get 'org/:id' => 'organisations#show', as: 'organisation'
 
-  get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues'
-  
-  get 'org/:slug/venue/new' => 'venues#new', as: 'organisations_venue_new'
+  get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
+  get 'org/:slug/venues/new' => 'venues#new', as: 'organisations_venue_new'
 
 
-  get 'v/:id' => 'venues#show', as: 'venue'
+  get 'v/:id' => 'venues#show', as: 'venue' 
+
+  get 'v/:slug/covers' => 'covers#index', as: 'covers'
+  get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
+
+  get 'v/:slug/hours' => 'hours#index', as: 'hours'
+  get 'v/:slug/sections' => 'sections#index', as: 'sections'
+  get 'v/:slug/tables' => 'tables#index', as: 'tables'
 
   get 'v/:slug/grid' => 'tables#grid', as: 'grid'
   get 'v/:slug/plan' => 'tables#plan', as: 'plan'
@@ -28,7 +23,6 @@ Rails.application.routes.draw do
       resources :users
       resources :customers
       resources :bookings
-      resources :reports
       resources :tables
       get 'grid' => 'tables#index' 
       resources :plans

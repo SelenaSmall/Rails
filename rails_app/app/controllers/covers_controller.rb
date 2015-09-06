@@ -1,11 +1,12 @@
 class CoversController < ApplicationController
-  before_action :set_organisation
-  before_action :set_venue
+#  before_action :set_organisation
+  before_action :set_venue, only: [:show]
   before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
+    @venue = Venue.friendly.find params[:slug]
     @covers = @venue.covers.all
   end
 
@@ -16,6 +17,7 @@ class CoversController < ApplicationController
 
   # GET /tabs/new
   def new
+    @venue = Venue.friendly.find params[:slug]
     @cover = @venue.covers.build
   end
 
@@ -76,12 +78,12 @@ class CoversController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
-    end
+ #   def set_organisation
+ #     @organisation = Organisation.find(params[:organisation_id])
+ #  end
 
     def set_venue
-      @venue = Venue.find(params[:venue_id])
+      @venue = Venue.friendly.find(params[:venue_id])
     end
 
     def set_cover

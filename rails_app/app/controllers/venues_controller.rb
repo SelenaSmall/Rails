@@ -9,6 +9,7 @@ class VenuesController < VenueLayoutController
   before_action :set_plan
 
   def index
+  #  @organisation = Organisation.friendly.find params[:slug]
     @venues = Venue.all
   end
 
@@ -27,7 +28,13 @@ class VenuesController < VenueLayoutController
   def notes
   end
 
+  def customers
+    @venue = Venue.friendly.find params[:slug]
+    @customers = @venue.customers.all
+  end
+
   def new
+#    @organisation = Organisation.friendly.find params[:slug]
     @venue = @organisation.venues.new
   end
 

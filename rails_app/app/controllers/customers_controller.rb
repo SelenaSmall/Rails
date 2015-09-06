@@ -1,20 +1,16 @@
 class CustomersController < VenueLayoutController
-  before_action :set_organisation
   before_action :set_venue
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = @organisation.customers.all
+    @customers = @venue.customers.all
   end
 
   def show
   end
 
-  def venuecustomers
-  end
-
   def new
-    @customer = @organisation.customers.build
+    @customer = @venue.customers.build
   end
 
   def edit
@@ -55,12 +51,8 @@ class CustomersController < VenueLayoutController
   end
 
   private
-    def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
-    end
-
     def set_venue
-      @venue = Venue.find(params[:venue_id])
+      @venue = Venue.friendly.find(params[:venue_id])
     end
 
     def set_customer

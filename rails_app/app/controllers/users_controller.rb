@@ -1,12 +1,11 @@
 class UsersController < VenueLayoutController
-  before_action :set_organisation
   before_action :set_venue
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
-    @users = @organisation.users.all
+    @users = @venue.users.all
   end
 
 #  def search
@@ -24,7 +23,7 @@ class UsersController < VenueLayoutController
 
   # GET /tabs/new
   def new
-    @user = @organisation.users.build
+    @user = @venue.users.build
   end
 
   # GET /tabs/1/edit
@@ -72,13 +71,8 @@ class UsersController < VenueLayoutController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
-    end
-
     def set_venue
-      @venue = Venue.find(params[:venue_id])
+      @venue = Venue.friendly.find(params[:venue_id])
     end
 
     def set_user

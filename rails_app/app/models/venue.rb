@@ -3,7 +3,7 @@ class Venue < ActiveRecord::Base
 	friendly_id :name, :use => [:slugged]
 
  	belongs_to :organisation
-	belongs_to :user
+	has_many :users, dependent: :destroy
 	has_many :customers, dependent: :destroy
 	has_many :bookings, dependent: :destroy
 	

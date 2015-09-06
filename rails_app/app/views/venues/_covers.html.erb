@@ -15,7 +15,7 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-          <td><%= link_to edit_organisation_venue_cover_path(@organisation, @venue, cover), 
+          <td><%= link_to edit_organisation_venue_cover_path(@organisation, @venue, @covers), 
               remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
               <i class="glyphicon glyphicon-pencil"></i>Edit
               <%end%>
@@ -24,5 +24,7 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Details', covers_path(@venue) %>
 
 </div>
