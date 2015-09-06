@@ -16,7 +16,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to @venue.name, [@venue.organisation, @venue] %></li>
+            <li><%= link_to 'venue', [@venue.organisation, @venue] %></li>
             <li><%= link_to 'Customers', organisation_venue_customers_path(@venue.organisation, @venue) %></li>
             <li><%= link_to 'Users', organisation_venue_users_path(@venue.organisation, @venue) %></li>
             <li><%= link_to 'Reports', organisation_venue_reports_path(@venue.organisation, @venue) %></li>
@@ -26,9 +26,7 @@
       </ul>
 
       <class="btn-group" role="group" aria-label="...">
-      <%= link_to edit_all_organisation_venue_notes_path(@venue.organisation, @venue, @covers), 
-                remote: true, id: "new-item-link", class: "btn btn-default navbar-btn" do %> Notes
-                <%end%>
+      
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Run Sheet', runsheet_path(@venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Grid View', grid_path(@venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', plan_path(@venue) %></button>

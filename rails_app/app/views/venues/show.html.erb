@@ -17,13 +17,6 @@
 </center></div>
 
 <br>
-<center><%= link_to 'All venues', organisation_venues_path(@venue.organisation) %> | 
-  <%= link_to edit_organisation_venue_path(@venue.organisation, @venue), 
-remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-  <i class="glyphicon glyphicon-pencil"></i>Update Details
-<%end%> | 
-
-<%= link_to @venue.organisation.name, organisation_path(@venue.organisation) %></center>
 
 
 </div>
@@ -40,20 +33,14 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="venue-header-row">
   <strong>Covers</strong>
 
-  <%= link_to edit_all_organisation_venue_covers_path(@venue.organisation, @venue, @venue.covers), 
-    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Covers
-    <%end%>
+  
 </div>
 </div>
   <%= render "venues/covers", venue: @venue %>
 
 <div class="venue-header">
 <strong>Opening Hours</strong>
-  <%= link_to edit_all_organisation_venue_hours_path(@venue.organisation, @venue, @venue.hours), 
-    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Hours
-    <%end%>
+  
 </div>
 
   <%= render "venues/opening_hours", venue: @venue %>
@@ -64,19 +51,13 @@ remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %>
 <div class="col-md-6">
 <div class="venue-header">
 <strong>Sections</strong>
-  <%= link_to edit_all_organisation_venue_sections_path(@venue.organisation, @venue, @venue.sections), 
-    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Sections
-    <%end%>
+  
 </div>  
   <%= render "venues/sections", venue: @venue %>
 
 <div class="venue-header">
 <strong>Tables</strong>
-  <%= link_to edit_all_organisation_venue_tables_path(@venue.organisation, @venue, @venue.tables), 
-    remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-      <i class="glyphicon glyphicon-pencil"></i>Update ALL Tables
-    <%end%>
+  
 </div>
   <%= render "venues/tables", venue: @venue %>
 </div>

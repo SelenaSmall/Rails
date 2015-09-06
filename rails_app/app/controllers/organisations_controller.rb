@@ -1,8 +1,6 @@
 class OrganisationsController < ApplicationController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
     @organisations = Organisation.all
   end
@@ -11,22 +9,16 @@ class OrganisationsController < ApplicationController
     @organisations = Organisation.all
   end
 
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
-  # GET /tabs/new
   def new
     @organisation = Organisation.new
   end
 
-  # GET /tabs/1/edit
   def edit
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @organisation = Organisation.new(organisation_params)
 
@@ -41,8 +33,6 @@ class OrganisationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @organisation.update(organisation_params)
@@ -56,8 +46,6 @@ class OrganisationsController < ApplicationController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @organisation.destroy
     respond_to do |format|
@@ -67,12 +55,10 @@ class OrganisationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_organisation
-      @organisation = Organisation.find(params[:id])
+      @organisation = Organisation.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def organisation_params
       params.require(:organisation).permit(:name, :phone, :address, :email, :number_of_tabs)
     end

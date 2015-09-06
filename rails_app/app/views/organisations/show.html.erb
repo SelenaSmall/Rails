@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <body>
 
 <h1><center><%= @organisation.name %></center></h1>
@@ -28,9 +26,8 @@
     <%end%> |
 
 
-    <%= link_to new_organisation_venue_path(@organisation, @venue), 
-      remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New Venue
-    <%end%>
+    <%= link_to 'Venues', organisation_venues_path(@organisation, @venues) %>
+
 
 
     

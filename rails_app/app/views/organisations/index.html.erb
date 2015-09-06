@@ -22,9 +22,8 @@
         <td><%= organisation.address %></td>
         <td><%= organisation.email %></td>
         <td><%= organisation.number_of_tabs %></td>
-        <td><%= link_to 'Details', organisation %></td>
-        <td><%= link_to 'View Venues', organisation_venues_path(organisation) %></td>
-        <td><%= link_to 'Delete', organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Details', organisation_path(organisation) %></td>
+        <td><%= link_to 'Delete', @organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

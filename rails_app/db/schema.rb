@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905014013) do
+ActiveRecord::Schema.define(version: 20150906070346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,14 +90,6 @@ ActiveRecord::Schema.define(version: 20150905014013) do
 
   add_index "hours", ["venue_id"], name: "index_hours_on_venue_id", using: :btree
 
-  create_table "incomes", force: :cascade do |t|
-    t.integer  "wages",        null: false
-    t.integer  "other_income", null: false
-    t.integer  "income_total", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "organisations", force: :cascade do |t|
     t.string   "name",           limit: 128, null: false
     t.string   "phone",          limit: 12,  null: false
@@ -106,7 +98,10 @@ ActiveRecord::Schema.define(version: 20150905014013) do
     t.string   "number_of_tabs", limit: 128, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.text     "slug"
   end
+
+  add_index "organisations", ["slug"], name: "index_organisations_on_slug", using: :btree
 
   create_table "sections", force: :cascade do |t|
     t.integer  "venue_id"

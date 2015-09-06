@@ -1,5 +1,5 @@
 class VenuesController < VenueLayoutController
-  before_action :set_organisation, only: [:create]
+  before_action :set_organisation, only: [:create, :new]
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_hour
   before_action :set_cover
@@ -9,11 +9,7 @@ class VenuesController < VenueLayoutController
   before_action :set_plan
 
   def index
-    @venues = @organisation.venues.all
-  end
-
-  def index_venue
-    @venues = @organisation.venues.all
+    @venues = Venue.all
   end
 
   def bookings
@@ -32,7 +28,7 @@ class VenuesController < VenueLayoutController
   end
 
   def new
-    @venue = @organisation.venues.build
+    @venue = @organisation.venues.new
   end
 
   def edit
@@ -78,7 +74,7 @@ class VenuesController < VenueLayoutController
 
   private
     def set_organisation
-      @organisation = Organisation.find(params[:organisation_id])
+      @organisation = Organisation.friendly.find(params[:organisation_id])
     end
 
     def set_venue

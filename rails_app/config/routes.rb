@@ -1,30 +1,30 @@
 Rails.application.routes.draw do
   get 'bookings/index'
   get 'covers/index'
-
-  get 'organisations/bookings'
-  get 'organisations/customers'
-
   get 'organisations/bookings'
   get 'organisations/customers'
   get 'organisations/users'
-  get 'organisations/venues'
+ # get 'organisations/venues'
   get 'organisations/venues/hours'
   get 'organisations/venues/covers'
   get 'organisations/venues/sections'
 
-  get 'venue/:slug/grid' => 'tables#grid', as: 'grid'
-  get 'venue/:slug/plan' => 'tables#plan', as: 'plan'
-  get 'venue/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
+
+  get 'org/:id' => 'organisations#show', as: 'organisation'
+
+  get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues'
+  
+  get 'org/:slug/venue/new' => 'venues#new', as: 'organisations_venue_new'
+
+
   get 'v/:id' => 'venues#show', as: 'venue'
 
+  get 'v/:slug/grid' => 'tables#grid', as: 'grid'
+  get 'v/:slug/plan' => 'tables#plan', as: 'plan'
+  get 'v/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
+
   resources :organisations do
-    resources :users
-    resources :customers
-    resources :bookings
-    resources :reports
     resources :venues do
-    #  resources :details
       resources :users
       resources :customers
       resources :bookings
@@ -50,10 +50,6 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :customers  do
-    resources :bookings
-  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
