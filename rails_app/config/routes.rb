@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'organisations/venues/sections'
 
   get 'v/:slug/grid' => 'tables#grid', as: 'grid'
+  get 'v/:slug/plan' => 'tables#plan', as: 'plan'
   get 'v/:id' => 'venues#show', as: 'venue'
 
   resources :organisations do

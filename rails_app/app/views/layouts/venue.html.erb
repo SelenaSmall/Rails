@@ -31,7 +31,7 @@
                 <%end%>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Run Sheet', organisation_venue_bookings_path(@venue.organisation, @venue) %></button>
       <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Grid View', grid_path(@venue) %></button>
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', organisation_venue_plans_path(@venue.organisation, @venue) %></button>
+      <button type="button" class="btn btn-default navbar-btn"><%= link_to 'Floor Plan', plan_path(@venue) %></button>
       <button type="button" class="btn btn-default dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Date Selector<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -57,12 +57,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container">
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
-</div>
 <%= yield %>
 </div>
 

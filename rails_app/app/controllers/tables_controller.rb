@@ -1,5 +1,5 @@
 class TablesController < VenueLayoutController
-  before_action :set_venue, except: [:grid]
+  before_action :set_venue, except: [:grid, :plan]
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
@@ -25,6 +25,10 @@ class TablesController < VenueLayoutController
     @tables = @venue.tables.all
   end
 
+  def plan
+    @venue = Venue.friendly.find params[:slug]
+    @tables = @venue.tables.all
+  end
   # GET /tabs/new
   def new
     @table = @venue.tables.build

@@ -8,7 +8,6 @@ class GridsController < VenueLayoutController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_organisation
       @organisation = Organisation.find(params[:organisation_id])
     end
@@ -25,7 +24,7 @@ class GridsController < VenueLayoutController
       @tables #= Table.find(params[:id])
     end
 
-    def report_params
-      params.require(:grid).permit()
-    end
+#    def report_params
+#      params.require(:grid).permit()
+#    end
 end

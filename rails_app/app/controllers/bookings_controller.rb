@@ -3,28 +3,20 @@ class BookingsController < VenueLayoutController
   before_action :set_venue
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
     @bookings = @venue.bookings.all
   end
 
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
-  # GET /tabs/new
   def new
     @booking = @venue.bookings.build
   end
 
-  # GET /tabs/1/edit
   def edit
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @booking = @venue.bookings.build(booking_params)
 
@@ -40,8 +32,6 @@ class BookingsController < VenueLayoutController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @booking.update(booking_params)
@@ -55,8 +45,6 @@ class BookingsController < VenueLayoutController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @booking.destroy
     respond_to do |format|
@@ -66,7 +54,6 @@ class BookingsController < VenueLayoutController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_organisation
       @organisation = Organisation.find(params[:organisation_id])
     end
@@ -79,7 +66,6 @@ class BookingsController < VenueLayoutController
       @booking = Booking.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(:name, :phone, :email, :start_time, :tab_name)
     end

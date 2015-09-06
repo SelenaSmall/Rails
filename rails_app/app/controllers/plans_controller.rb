@@ -1,6 +1,7 @@
 class PlansController < VenueLayoutController
   before_action :set_organisation
   before_action :set_venue
+  before_action :set_tables
 
   def index
     @organisations = Organisation.all
@@ -20,7 +21,7 @@ class PlansController < VenueLayoutController
       @plan = Plan.find(params[:id])
     end
 
-    def report_params
-      params.require(:plan).permit()
-    end
+#    def report_params
+#      params.require(:plan).permit()
+#    end
 end
