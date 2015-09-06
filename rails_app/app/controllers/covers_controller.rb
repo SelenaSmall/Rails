@@ -1,27 +1,20 @@
 class CoversController < ApplicationController
-#  before_action :set_organisation
-  before_action :set_venue, only: [:show]
+  before_action :set_venue, only: [:show, :create]
   before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
     @venue = Venue.friendly.find params[:slug]
     @covers = @venue.covers.all
   end
 
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
-  # GET /tabs/new
   def new
     @venue = Venue.friendly.find params[:slug]
     @cover = @venue.covers.build
   end
 
-  # GET /tabs/1/edit
   def edit
   #  @covers = @venue.covers.all
   end
@@ -34,8 +27,6 @@ class CoversController < ApplicationController
 #    end
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @cover = @venue.covers.build(cover_params)
 
@@ -51,8 +42,6 @@ class CoversController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @cover.update(cover_params)
@@ -66,8 +55,6 @@ class CoversController < ApplicationController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @cover.destroy
     respond_to do |format|
@@ -77,12 +64,7 @@ class CoversController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
- #   def set_organisation
- #     @organisation = Organisation.find(params[:organisation_id])
- #  end
-
-    def set_venue
+  def set_venue
       @venue = Venue.friendly.find(params[:venue_id])
     end
 
@@ -90,7 +72,6 @@ class CoversController < ApplicationController
       @cover = Cover.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def cover_params
       params.require(:cover).permit(:covers, :covers_group, :turn_time)
     end

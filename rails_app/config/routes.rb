@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
   get 'org/:slug/venues/new' => 'venues#new', as: 'organisations_venue_new'
 
-
   get 'v/:id' => 'venues#show', as: 'venue' 
 
   get 'v/:slug/covers' => 'covers#index', as: 'covers'
@@ -22,25 +21,25 @@ Rails.application.routes.draw do
     resources :venues do
       resources :users
       resources :customers
-      resources :bookings
-      resources :tables
-      get 'grid' => 'tables#index' 
-      resources :plans
-      resources :hours do
-        get 'edit_all', on: :collection
-      end
-      resources :covers do
-        get 'edit_all', on: :collection
-      end
-      resources :sections do
-        get 'edit_all', on: :collection
-      end
-      resources :tables do
-        get 'edit_all', on: :collection
-      end
-      resources :notes do
-        get 'edit_all', on: :collection
-      end
+#      resources :bookings
+#      resources :tables
+#      get 'grid' => 'tables#index' 
+#      resources :plans
+#      resources :hours do
+#        get 'edit_all', on: :collection
+#      end
+#      resources :covers do
+#        get 'edit_all', on: :collection
+#      end
+#      resources :sections do
+#        get 'edit_all', on: :collection
+#      end
+#      resources :tables do
+#        get 'edit_all', on: :collection
+#      end
+#      resources :notes do
+#        get 'edit_all', on: :collection
+#      end
     end
   end
 
