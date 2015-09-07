@@ -14,7 +14,6 @@ class SectionsController < VenueLayoutController
   end
 
   def edit
-  #  @sections = @venue.sections.all
   end
 
   def edit_all
@@ -43,7 +42,7 @@ class SectionsController < VenueLayoutController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to [@venue, @section], notice: 'section was successfully updated.' }
+        format.html { redirect_to [@venue, @sections], notice: 'section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
 #        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
@@ -56,7 +55,7 @@ class SectionsController < VenueLayoutController
   def destroy
     @section.destroy
     respond_to do |format|
-      format.html { redirect_to venue_sections_path(@venue), notice: 'section was successfully destroyed.' }
+      format.html { redirect_to venue_path(@venue), notice: 'section was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

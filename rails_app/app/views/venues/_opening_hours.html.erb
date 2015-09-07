@@ -28,6 +28,8 @@
   </tbody>
 </table>
 
-<%= link_to 'New', new_venue_hour_path(@venue, @hours) %>
+<%= link_to new_venue_hour_path(@venue), 
+  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+<%end%>
 
 </div>

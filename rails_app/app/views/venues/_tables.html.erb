@@ -19,16 +19,15 @@
           <td><%= table.min_covers %></td>
           <td><%= table.max_covers %></td>
           <td><%= table.booking_order %></td>
-          <td><%= link_to edit_table_path(@venue, table), 
-              remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
-              <i class="glyphicon glyphicon-pencil"></i>Edit
-              <%end%>
-          </td>
+          <td><%= link_to 'Edit', edit_venue_table_path(@venue, table) %> </td>
+          <td><%= link_to 'Delete', [@venue, table], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_venue_table_path(@venue) %>
+<%= link_to new_venue_table_path(@venue), 
+  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+<%end%>
 
 </div>

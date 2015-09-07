@@ -1,6 +1,6 @@
 class CoversController < VenueLayoutController
   before_action :set_venue
-  before_action :set_cover, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
   def index
     @covers = @venue.covers.all
@@ -31,7 +31,7 @@ class CoversController < VenueLayoutController
       if @cover.save
         format.html { redirect_to [@venue, @covers], notice: 'cover was successfully created.' }
         format.json { render :show, status: :created, location: @cover }
-#        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue, @covers]}
       else
         format.html { render :new }
         format.json { render json: @cover.errors, status: :unprocessable_entity }

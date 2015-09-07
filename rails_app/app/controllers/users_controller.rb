@@ -2,36 +2,20 @@ class UsersController < VenueLayoutController
   before_action :set_venue
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
     @users = @venue.users.all
   end
 
-#  def search
-#    if @user.search(user_params)
-#      @users = user.search(params[:search]).order("created_at DESC")
-#    else
-#      @users = user.order("created_at DESC")
-#    end
-#  end
-
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
-  # GET /tabs/new
   def new
     @user = @venue.users.build
   end
 
-  # GET /tabs/1/edit
   def edit
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @user = @venue.users.build(user_params)
 
@@ -46,8 +30,6 @@ class UsersController < VenueLayoutController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -60,8 +42,6 @@ class UsersController < VenueLayoutController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -79,11 +59,6 @@ class UsersController < VenueLayoutController
       @user = User.find(params[:id])
     end
 
-#    def search_user
-#      @user = user.search(params[:search])
-#    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:user_name, :password, :first_name, :last_name, :email, :phone, :facebook)
     end

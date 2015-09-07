@@ -15,51 +15,15 @@ Rails.application.routes.draw do
   
   resources :venues, only: [:edit, :update, :destroy] do
     resources :users, shallow: true
-    resources :customers, shallow: true
+    resources :customers, shallow: true, except: [:destroy]
 
-    resources :bookings, shallow: true
+    resources :bookings, except: [:index]
 
-    resources :covers, except: [:show]
-    resources :hours, except: [:show]
-    resources :sections, shallow: true, except: [:show]
-    resources :tables, shallow: true, except: [:show]
+    resources :covers, except: [:show, :index]
+    resources :hours, except: [:show, :index]
+    resources :sections, except: [:show, :index]
+    resources :tables, except: [:show, :index]
   end
-
-#  get 'v/:slug/covers' => 'covers#index', as: 'covers'
-#  get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
-#  get 'v/:slug/covers/edit' => 'covers#edit', as: 'covers_edit'
-#  post 'v/:slug/covers' => 'covers#create'
-#  patch 'v/:slug/covers' => 'covers#update'
-#  put 'v/:slug/covers' => 'covers#update'
-#  delete 'v/:slug/covers' => 'covers#destroy'
-
-#resources :organisations # do
-
-#  get 'v/:slug/hours' => 'hours#index', as: 'hours'
-#  get 'v/:slug/sections' => 'sections#index', as: 'sections'
-#  get 'v/:slug/tables' => 'tables#index', as: 'tables'
-
-#      resources :bookings
-#      resources :tables
-#      get 'grid' => 'tables#index' 
-#      resources :plans
-#      resources :hours do
-#        get 'edit_all', on: :collection
-#      end
-#     resources :covers do
-#        get 'edit_all', on: :collection
-#      end
-#      resources :sections do
-#        get 'edit_all', on: :collection
-#      end
-#      resources :tables do
-#        get 'edit_all', on: :collection
-#      end
-#      resources :notes do
-#        get 'edit_all', on: :collection
-#      end
-#    end
-#  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

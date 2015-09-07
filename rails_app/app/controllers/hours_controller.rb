@@ -1,6 +1,6 @@
 class HoursController < VenueLayoutController
   before_action :set_venue
-  before_action :set_hour, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   def index
     @hours = @venue.hours.all

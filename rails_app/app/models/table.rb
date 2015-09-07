@@ -1,7 +1,7 @@
 class Table < ActiveRecord::Base
 	belongs_to :venue
-	belongs_to :grid
 	has_many :hours
+	has_many :bookings
 
 end
 

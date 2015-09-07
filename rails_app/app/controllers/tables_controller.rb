@@ -3,7 +3,6 @@ class TablesController < VenueLayoutController
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   def index
-    @venue = Venue.friendly.find params[:slug]
     @tables = @venue.tables.all
 #    if params[:type] == 'summary'
 #      render 'summary'
@@ -35,7 +34,6 @@ class TablesController < VenueLayoutController
   end
 
   def edit
-    @tables = @venue.tables.all
   end
 
   def edit_all
@@ -64,7 +62,7 @@ class TablesController < VenueLayoutController
   def update
     respond_to do |format|
       if @table.update(table_params)
-        format.html { redirect_to [@venue, @table], notice: 'table was successfully updated.' }
+        format.html { redirect_to [@venue, @tables], notice: 'table was successfully updated.' }
         format.json { render :show, status: :ok, location: @table }
   #      format.js {redirect_via_turbolinks_to [@venue]}
       else
@@ -77,7 +75,7 @@ class TablesController < VenueLayoutController
   def destroy
     @table.destroy
     respond_to do |format|
-      format.html { redirect_to organisation_venue_tables_path(@venue), notice: 'table was successfully destroyed.' }
+      format.html { redirect_to venue_path(@venue), notice: 'table was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

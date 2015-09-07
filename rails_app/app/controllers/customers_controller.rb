@@ -7,6 +7,7 @@ class CustomersController < VenueLayoutController
   end
 
   def show
+    @customer = @venue.customers.build(customer_params)
   end
 
   def new
@@ -14,6 +15,7 @@ class CustomersController < VenueLayoutController
   end
 
   def edit
+
   end
 
   def create

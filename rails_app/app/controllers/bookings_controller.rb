@@ -1,5 +1,4 @@
 class BookingsController < VenueLayoutController
-#  before_action :set_organisation
   before_action :set_venue
   before_action :set_tables
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
@@ -23,7 +22,7 @@ class BookingsController < VenueLayoutController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to [@venue, @bookings], notice: 'Booking was successfully created.' }
+        format.html { redirect_to runsheet_path(@venue), notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
 #       format.js {redirect_via_turbolinks_to [@venue]}
       else
@@ -36,9 +35,9 @@ class BookingsController < VenueLayoutController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to [ @venue, @booking], notice: 'Booking was successfully updated.' }
+        format.html { redirect_to runsheet_path(@venue), notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
-        format.js {redirect_via_turbolinks_to [@venue]}
+#       format.js {redirect_via_turbolinks_to [@venue]}
       else
         format.html { render :edit }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -49,16 +48,12 @@ class BookingsController < VenueLayoutController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to venue_bookings_path(@venue), notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to runsheet_path(@venue), notice: 'Booking was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-#    def set_organisation
-#      @organisation = Organisation.find(params[:organisation_id])
-#    end
-
     def set_venue
       @venue = Venue.friendly.find(params[:venue_id])
     end
