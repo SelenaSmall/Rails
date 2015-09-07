@@ -1,6 +1,5 @@
 class CoversController < VenueLayoutController
-
-  before_action :set_cover, only: [:show, :edit, :update, :destroy]
+#  before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
   def index
     @venue = Venue.friendly.find params[:slug]
@@ -16,7 +15,7 @@ class CoversController < VenueLayoutController
   end
 
   def edit
-  #  @covers = @venue.covers.all
+    @venue = Venue.friendly.find params[:slug]
   end
 
  def edit_all
@@ -44,9 +43,12 @@ class CoversController < VenueLayoutController
   end
 
   def update
+    @venue = Venue.friendly.find params[:slug]
+    @cover = @venue.covers.build(cover_params)
+
     respond_to do |format|
       if @cover.update(cover_params)
-        format.html { redirect_to [@organisation, @venue, @cover], notice: 'cover was successfully updated.' }
+        format.html { redirect_to covers_path(@venue), notice: 'cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @cover }
         format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
@@ -65,8 +67,6 @@ class CoversController < VenueLayoutController
   end
 
   private
-
-
     def set_cover
       @cover = Cover.find(params[:id])
     end

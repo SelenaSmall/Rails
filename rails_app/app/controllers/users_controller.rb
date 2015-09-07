@@ -33,11 +33,11 @@ class UsersController < VenueLayoutController
   # POST /tabs
   # POST /tabs.json
   def create
-    @user = @organisation.users.build(user_params)
+    @user = @venue.users.build(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to [@organisation, @user], notice: 'user was successfully created.' }
+        format.html { redirect_to [@venue, @users], notice: 'user was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

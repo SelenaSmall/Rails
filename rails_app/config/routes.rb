@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   get 'v/:slug/covers' => 'covers#index', as: 'covers'
   get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
+  get 'v/:slug/covers/edit' => 'covers#edit', as: 'covers_edit'
   post 'v/:slug/covers' => 'covers#create'
+  patch 'v/:slug/covers' => 'covers#update'
   put 'v/:slug/covers' => 'covers#update'
+  delete 'v/:slug/covers' => 'covers#destroy'
 
   get 'v/:slug/hours' => 'hours#index', as: 'hours'
   get 'v/:slug/sections' => 'sections#index', as: 'sections'
@@ -19,10 +22,12 @@ Rails.application.routes.draw do
   get 'v/:slug/plan' => 'tables#plan', as: 'plan'
   get 'v/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
 
-  resources :organisations do
-    resources :venues do
-      resources :users
-      resources :customers
+  resources :organisations # do
+  
+  resources :venues do
+    resources :users, shallow: true
+    resources :customers
+#      resources :covers
 #      resources :bookings
 #      resources :tables
 #      get 'grid' => 'tables#index' 
@@ -43,7 +48,7 @@ Rails.application.routes.draw do
 #        get 'edit_all', on: :collection
 #      end
     end
-  end
+#  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

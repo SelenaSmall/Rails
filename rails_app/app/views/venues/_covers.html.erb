@@ -15,7 +15,8 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-
+          <td><%= link_to 'Edit', covers_edit_path(@venue) %> </td>
+          <td><%= link_to 'Delete'%> </td>
       </tr>
     <% end %>
   </tbody>
