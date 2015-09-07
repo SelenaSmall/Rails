@@ -35,16 +35,15 @@
         <td><%= customer.name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Details', [@organisation,  @customer]%></td>
-        <td><%= link_to 'Edit', edit_organisation_customer_path(@organisation, customer) %></td>
-        <td><%= link_to 'Delete', [@organisation,  @customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+        <td><%= link_to 'Details', [@venue,  @customer]%></td>
+        <td><%= link_to 'Edit', edit_customer_path(@venue, customer) %></td>
+        <td><%= link_to 'Delete', [@venue,  @customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
       </tr>
     <% end %>
   </tbody>
 </table>
 
-
-
+<%= link_to 'New', new_venue_customer_path(@venue) %>
 
 <!-- Modal form / New Channel Group -->
 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>

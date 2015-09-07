@@ -15,13 +15,13 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-          <td><%= link_to 'Edit', covers_edit_path(@venue) %> </td>
+          <td><%= link_to 'Edit', edit_cover_path(@venue, cover) %> </td>
           <td><%= link_to 'Delete'%> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Details', covers_path(@venue) %>
+<%= link_to 'Details', venue_covers_path(@venue) %>
 
 </div>

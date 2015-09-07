@@ -9,17 +9,17 @@ Rails.application.routes.draw do
 
   get 'v/:id' => 'venues#show', as: 'venue' 
 
-  get 'v/:slug/covers' => 'covers#index', as: 'covers'
-  get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
-  get 'v/:slug/covers/edit' => 'covers#edit', as: 'covers_edit'
-  post 'v/:slug/covers' => 'covers#create'
-  patch 'v/:slug/covers' => 'covers#update'
-  put 'v/:slug/covers' => 'covers#update'
-  delete 'v/:slug/covers' => 'covers#destroy'
+#  get 'v/:slug/covers' => 'covers#index', as: 'covers'
+#  get 'v/:slug/covers/new' => 'covers#new', as: 'covers_new'
+#  get 'v/:slug/covers/edit' => 'covers#edit', as: 'covers_edit'
+#  post 'v/:slug/covers' => 'covers#create'
+#  patch 'v/:slug/covers' => 'covers#update'
+#  put 'v/:slug/covers' => 'covers#update'
+#  delete 'v/:slug/covers' => 'covers#destroy'
 
-  get 'v/:slug/hours' => 'hours#index', as: 'hours'
-  get 'v/:slug/sections' => 'sections#index', as: 'sections'
-  get 'v/:slug/tables' => 'tables#index', as: 'tables'
+#  get 'v/:slug/hours' => 'hours#index', as: 'hours'
+#  get 'v/:slug/sections' => 'sections#index', as: 'sections'
+#  get 'v/:slug/tables' => 'tables#index', as: 'tables'
 
   get 'v/:slug/grid' => 'tables#grid', as: 'grid'
   get 'v/:slug/plan' => 'tables#plan', as: 'plan'
@@ -27,10 +27,14 @@ Rails.application.routes.draw do
 
   #resources :organisations # do
   
-  resources :venues do
+  resources :venues, only: [:edit, :update, :destroy] do
     resources :users, shallow: true
-    resources :customers
-#      resources :covers
+    resources :customers, shallow: true
+    resources :covers, shallow: true
+    resources :hours, shallow: true
+    resources :sections, shallow: true
+    resources :tables, shallow: true
+  end
 #      resources :bookings
 #      resources :tables
 #      get 'grid' => 'tables#index' 
@@ -50,7 +54,7 @@ Rails.application.routes.draw do
 #      resources :notes do
 #        get 'edit_all', on: :collection
 #      end
-    end
+#    end
 #  end
 
   # The priority is based upon order of creation: first created -> highest priority.

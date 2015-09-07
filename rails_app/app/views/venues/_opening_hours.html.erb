@@ -21,7 +21,7 @@
           <td><%= hour.close_time %></td>
           <td><%= hour.interval %></td>
           <td><%= hour.covers_per_interval %></td>
-          <td><%= link_to edit_organisation_venue_hour_path(@organisation, @venue, hour), 
+          <td><%= link_to edit_hour_path(@venue, hour), 
               remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
               <i class="glyphicon glyphicon-pencil"></i>Edit
               <%end%>
@@ -31,6 +31,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Details', hours_path(@venue) %>
+<%= link_to 'Details', venue_hours_path(@venue) %>
 
 </div>

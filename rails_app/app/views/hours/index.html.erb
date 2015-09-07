@@ -23,11 +23,11 @@
         <td><%= hour.interval %></td>
         <td><%= hour.covers_per_interval %></td>
         <td><%= link_to 'Details', [@organisation, @venue, @hour] %></td>
-        <td><%= link_to 'Edit', edit_organisation_venue_hour_path(@organisation, @venue, hour) %></td>
-        <td><%= link_to 'Delete', [@organisation, @venue, @hour], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_hour_path(@venue, hour) %></td>
+        <td><%= link_to 'Delete', [@venue, @hour], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Hours' %>
+<%= link_to 'New', new_venue_hour_path(@venue) %>

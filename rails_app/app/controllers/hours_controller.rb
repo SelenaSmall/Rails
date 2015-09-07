@@ -1,11 +1,11 @@
 class HoursController < VenueLayoutController
-  before_action :set_venue, only: [:show]
+  before_action :set_venue
   before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   # GET /tabs
   # GET /tabs.json
   def index
-    @venue = Venue.friendly.find params[:slug]
+#    @venue = Venue.friendly.find params[:slug]
     @hours = @venue.hours.all
   end
 
@@ -39,9 +39,9 @@ class HoursController < VenueLayoutController
 
     respond_to do |format|
       if @hour.save
-        format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully created.' }
+        format.html { redirect_to [@venue, @hours], notice: 'hour was successfully created.' }
         format.json { render :show, status: :created, location: @hour }
-        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+    #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @hour.errors, status: :unprocessable_entity }
@@ -54,9 +54,9 @@ class HoursController < VenueLayoutController
   def update
     respond_to do |format|
       if @hour.update(hour_params)
-        format.html { redirect_to [@organisation, @venue, @hour], notice: 'hour was successfully updated.' }
+        format.html { redirect_to [@venue, @hour], notice: 'hour was successfully updated.' }
         format.json { render :show, status: :ok, location: @hour }
-        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+    #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @hour.errors, status: :unprocessable_entity }
@@ -69,13 +69,12 @@ class HoursController < VenueLayoutController
   def destroy
     @hour.destroy
     respond_to do |format|
-      format.html { redirect_to organisation_venue_hours_path(@venue), notice: 'hour was successfully destroyed.' }
+      format.html { redirect_to venue_hours_path(@venue), notice: 'hour was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-
     def set_venue
       @venue = Venue.friendly.find(params[:venue_id])
     end
