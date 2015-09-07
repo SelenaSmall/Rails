@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  root 'organisations#index'
+
   get 'org/:id' => 'organisations#show', as: 'organisation'
+  resources :organisations, only: [:new, :edit, :update, :destroy]
 
   get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
   get 'org/:slug/venues/new' => 'venues#new', as: 'organisations_venue_new'
@@ -22,7 +25,7 @@ Rails.application.routes.draw do
   get 'v/:slug/plan' => 'tables#plan', as: 'plan'
   get 'v/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
 
-  resources :organisations # do
+  #resources :organisations # do
   
   resources :venues do
     resources :users, shallow: true
@@ -54,7 +57,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'organisations#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
