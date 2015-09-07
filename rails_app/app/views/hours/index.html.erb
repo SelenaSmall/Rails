@@ -22,8 +22,7 @@
         <td><%= hour.close_time %></td>
         <td><%= hour.interval %></td>
         <td><%= hour.covers_per_interval %></td>
-        <td><%= link_to 'Details', [@organisation, @venue, @hour] %></td>
-        <td><%= link_to 'Edit', edit_hour_path(@venue, hour) %></td>
+        <td><%= link_to 'Edit', edit_hour_path(@venue, @hours) %></td>
         <td><%= link_to 'Delete', [@venue, @hour], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

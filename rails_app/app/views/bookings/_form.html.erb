@@ -1,4 +1,4 @@
-<%= form_for [@organisation, @venue, @booking] do |f| %>
+<%= form_for [@venue, @booking] do |f| %>
   <% if @booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -28,7 +28,15 @@
   </div>
   <div class="field">
     <%= f.label :tab_name %><br>
-    <%= f.text_field :tab_name %>
+    <%= f.text_field :tab_name %> 
+    <button type="button" class="btn btn-default dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+    <% @venue.tables.each do |table| %>
+      <div><%= link_to table.tab, [@venue] %></div>
+      <% end %> 
+    </ul> 
+    </button> 
   </div>
   <div class="actions">
     <%= f.submit %>

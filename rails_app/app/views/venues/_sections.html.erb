@@ -17,7 +17,7 @@
         <td><%= section.first_num %></td>
         <td><%= section.last_num %></td>
         <td><%= section.bookable %></td>
-          <td><%= link_to edit_organisation_venue_section_path(@organisation, @venue, section), 
+          <td><%= link_to edit_section_path(@venue, section), 
               remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> 
               <i class="glyphicon glyphicon-pencil"></i>Edit
               <%end%>
@@ -27,6 +27,6 @@
   </tbody>
 </table>
 
-<%= link_to 'Details', venue_sections_path(@venue) %>
+<%= link_to 'New', new_venue_section_path(@venue) %>
 
 </div>

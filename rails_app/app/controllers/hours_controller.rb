@@ -54,7 +54,7 @@ class HoursController < VenueLayoutController
   def update
     respond_to do |format|
       if @hour.update(hour_params)
-        format.html { redirect_to [@venue, @hour], notice: 'hour was successfully updated.' }
+        format.html { redirect_to [@venue, hour], notice: 'hour was successfully updated.' }
         format.json { render :show, status: :ok, location: @hour }
     #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else

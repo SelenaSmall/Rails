@@ -21,15 +21,15 @@
         <td><%= booking.email %></td>
         <td><%= booking.start_time %></td>
         <td><%= booking.tab_name %></td>
-        <td><%= link_to 'Details', [@organisation, @venue, @booking] %></td>
-        <td><%= link_to 'Edit', edit_organisation_venue_booking_path(@organisation, @venue, booking) %></td>
-        <td><%= link_to 'Delete', [@organisation, @venue, @booking], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Details', [@venue, @booking] %></td>
+        <td><%= link_to 'Edit', edit_booking_path(@venue, booking) %></td>
+        <td><%= link_to 'Delete', [@venue, @booking], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-
+<%= link_to 'New', new_venue_booking_path(@venue, @booking) %>
 
 <!-- Modal form / New Channel Group -->
 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>

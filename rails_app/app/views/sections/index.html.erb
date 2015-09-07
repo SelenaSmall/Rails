@@ -20,12 +20,11 @@
         <td><%= section.first_num %></td>
         <td><%= section.last_num %></td>
         <td><%= section.bookable %></td>
-        <td><%= link_to 'Details', [@organisation, @venue, @section] %></td>
-        <td><%= link_to 'Edit', edit_organisation_venue_section_path(@organisation, @venue, section) %></td>
-        <td><%= link_to 'Delete', [@organisation, @venue, @section], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_section_path(@venue, section) %></td>
+        <td><%= link_to 'Delete', [@venue, @section], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Section' %> 
+<%= link_to 'New', new_venue_section_path(@venue) %>

@@ -1,5 +1,5 @@
 class TablesController < VenueLayoutController
-  before_action :set_venue, except: [:grid, :plan, :runsheet], only: [:show]
+  before_action :set_venue, except: [:grid, :plan, :runsheet]
   before_action :set_table, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -51,9 +51,9 @@ class TablesController < VenueLayoutController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to [@organisation, @venue, @table], notice: 'table was successfully created.' }
+        format.html { redirect_to [@venue, @tables], notice: 'table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
-        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+  #      format.js {redirect_via_turbolinks_to [@venue]}
       else
         format.html { render :new }
         format.json { render json: @table.errors, status: :unprocessable_entity }
@@ -64,9 +64,9 @@ class TablesController < VenueLayoutController
   def update
     respond_to do |format|
       if @table.update(table_params)
-        format.html { redirect_to [@organisation, @venue, @table], notice: 'table was successfully updated.' }
+        format.html { redirect_to [@venue, @table], notice: 'table was successfully updated.' }
         format.json { render :show, status: :ok, location: @table }
-        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+  #      format.js {redirect_via_turbolinks_to [@venue]}
       else
         format.html { render :edit }
         format.json { render json: @table.errors, status: :unprocessable_entity }
@@ -84,7 +84,7 @@ class TablesController < VenueLayoutController
 
   private
     def set_venue
-      @venue = Venue.find(params[:venue_id])
+      @venue = Venue.friendly.find(params[:venue_id])
     end
 
     def set_table

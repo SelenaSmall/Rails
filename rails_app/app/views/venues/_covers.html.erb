@@ -15,13 +15,14 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-          <td><%= link_to 'Edit', edit_cover_path(@venue, cover) %> </td>
-          <td><%= link_to 'Delete'%> </td>
+          <td><%= link_to 'Edit', edit_venue_cover_path(@venue, cover) %> </td>
+          
+          <td><%= link_to 'Delete', [@venue, cover], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Details', venue_covers_path(@venue) %>
+<%= link_to 'New', new_venue_cover_path(@venue) %>
 
 </div>

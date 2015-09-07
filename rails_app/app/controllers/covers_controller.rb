@@ -1,9 +1,8 @@
 class CoversController < VenueLayoutController
-  before_action :set_venue
-  before_action :set_cover, only: [:show, :edit, :update, :destroy]
+  before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :set_cover, only: [:index, :show, :edit, :update, :destroy]
 
   def index
-#    @venue = Venue.friendly.find params[:slug]
     @covers = @venue.covers.all
   end
 
@@ -11,12 +10,10 @@ class CoversController < VenueLayoutController
   end
 
   def new
-#    @venue = Venue.friendly.find params[:slug]
     @cover = @venue.covers.build
   end
 
   def edit
-#    @venue = Venue.friendly.find params[:slug]
   end
 
  def edit_all
@@ -28,7 +25,6 @@ class CoversController < VenueLayoutController
   end
 
   def create
-#    @venue = Venue.friendly.find params[:slug]
     @cover = @venue.covers.build(cover_params)
 
    respond_to do |format|
@@ -44,7 +40,6 @@ class CoversController < VenueLayoutController
   end
 
   def update
-#    @venue = Venue.friendly.find params[:slug]
     @cover = @venue.covers.build(cover_params)
 
     respond_to do |format|
@@ -62,7 +57,7 @@ class CoversController < VenueLayoutController
   def destroy
     @cover.destroy
     respond_to do |format|
-      format.html { redirect_to venue_covers_path(@venue), notice: 'cover was successfully destroyed.' }
+      format.html { redirect_to venue_path(@venue), notice: 'cover was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
