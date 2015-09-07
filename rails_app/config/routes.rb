@@ -7,20 +7,22 @@ Rails.application.routes.draw do
   get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
   get 'org/:slug/venues/new' => 'venues#new', as: 'organisations_venue_new'
 
-  get 'v/:id' => 'venues#show', as: 'venue' 
+  get 'venue/:id' => 'venues#show', as: 'venue' 
 
-  get 'v/:slug/grid' => 'tables#grid', as: 'grid'
-  get 'v/:slug/plan' => 'tables#plan', as: 'plan'
-  get 'v/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
+  get 'venue/:slug/grid' => 'tables#grid', as: 'grid'
+  get 'venue/:slug/plan' => 'tables#plan', as: 'plan'
+  get 'venue/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
   
   resources :venues, only: [:edit, :update, :destroy] do
     resources :users, shallow: true
     resources :customers, shallow: true
+
+    resources :bookings, shallow: true
+
     resources :covers, except: [:show]
-    resources :hours, shallow: true, except: [:show]
+    resources :hours, except: [:show]
     resources :sections, shallow: true, except: [:show]
     resources :tables, shallow: true, except: [:show]
-    resources :bookings, shallow: true
   end
 
 #  get 'v/:slug/covers' => 'covers#index', as: 'covers'

@@ -1,27 +1,19 @@
 class HoursController < VenueLayoutController
   before_action :set_venue
-  before_action :set_hour, only: [:show, :edit, :update, :destroy]
+  before_action :set_hour, only: [:index, :show, :edit, :update, :destroy]
 
-  # GET /tabs
-  # GET /tabs.json
   def index
-#    @venue = Venue.friendly.find params[:slug]
     @hours = @venue.hours.all
   end
 
-  # GET /tabs/1
-  # GET /tabs/1.json
   def show
   end
 
-  # GET /tabs/new
   def new
     @hour = @venue.hours.build
   end
 
-  # GET /tabs/1/edit
   def edit
-    @hours = @venue.hours.all
   end
 
   def edit_all
@@ -32,8 +24,6 @@ class HoursController < VenueLayoutController
 #    end
   end
 
-  # POST /tabs
-  # POST /tabs.json
   def create
     @hour = @venue.hours.build(hour_params)
 
@@ -54,7 +44,7 @@ class HoursController < VenueLayoutController
   def update
     respond_to do |format|
       if @hour.update(hour_params)
-        format.html { redirect_to [@venue, hour], notice: 'hour was successfully updated.' }
+        format.html { redirect_to [@venue, @hours], notice: 'hour was successfully updated.' }
         format.json { render :show, status: :ok, location: @hour }
     #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
@@ -69,7 +59,7 @@ class HoursController < VenueLayoutController
   def destroy
     @hour.destroy
     respond_to do |format|
-      format.html { redirect_to venue_hours_path(@venue), notice: 'hour was successfully destroyed.' }
+      format.html { redirect_to venue_path(@venue), notice: 'hour was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -87,7 +77,6 @@ class HoursController < VenueLayoutController
       @table #= Tab.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def hour_params
       params.require(:hour).permit(:day, :open_time, :close_time, :interval, :covers_per_interval)
     end

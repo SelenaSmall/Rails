@@ -1,5 +1,5 @@
 class CoversController < VenueLayoutController
-  before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :set_venue
   before_action :set_cover, only: [:index, :show, :edit, :update, :destroy]
 
   def index
@@ -40,8 +40,6 @@ class CoversController < VenueLayoutController
   end
 
   def update
-    @cover = @venue.covers.build(cover_params)
-
     respond_to do |format|
       if @cover.update(cover_params)
         format.html { redirect_to [@venue, @covers], notice: 'cover was successfully updated.' }

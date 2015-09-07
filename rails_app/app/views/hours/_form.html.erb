@@ -1,4 +1,4 @@
-<%= form_for [@organisation, @venue, @hour] do |f| %>
+<%= form_for [@venue, @hour] do |f| %>
   <% if @hour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hour.errors.count, "error") %> prohibited this hour from being saved:</h2>
