@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     resources :bookings, except: [:index]
 
-    resources :covers, except: [:show, :index]
+    resources :covers, except: [:show]
     resources :hours, except: [:show, :index]
     resources :sections, except: [:show, :index]
     resources :tables, except: [:show, :index]

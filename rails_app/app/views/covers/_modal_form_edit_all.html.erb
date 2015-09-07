@@ -1,20 +1,31 @@
 <div class="modal-dialog reorder-modal-form">
 <div class="modal-content">
-	<%= bootstrap_form_for([@organisation, @venue, @cover], remote: true) do |f| %>
-<div class="modal-header">
-        <h4 class="modal-title">Edit Cover</h4>
-</div>
+ <div class="bordered-box">
 
-<div class="modal-body">
-   <%= f.text_field :covers %>
-   <%= f.text_field :covers_group %>
-   <%= f.text_field :turn_time %>
-</div>
-
-<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
-        <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
-</div>
-<% end %>
+<table class="table" >
+  <thead>
+    <tr>
+      <th>Covers</th>
+      <th>Group</th>
+      <th>Turn Time</th>
+     </tr>
+  </thead>
+    <tbody>
+      <% @venue.covers.each do |cover| %>
+      <tr>
+        <div id="covers"></div>
+          <td><%= cover.covers %></td>
+          <td><%= cover.covers_group %></td>
+          <td><%= cover.turn_time %></td>
+          <td>
+            <%= link_to edit_venue_cover_path(@venue, cover), 
+            remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit
+          <%end%>
+          </td>
+          <td><%= link_to 'Delete', [@venue, cover], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 </div>

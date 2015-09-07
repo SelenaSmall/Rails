@@ -15,8 +15,6 @@
           <td><%= cover.covers %></td>
           <td><%= cover.covers_group %></td>
           <td><%= cover.turn_time %></td>
-          <td><%= link_to 'Edit', edit_venue_cover_path(@venue, cover) %> </td>
-          <td><%= link_to 'Delete', [@venue, cover], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,6 +22,10 @@
 
 <%= link_to new_venue_cover_path(@venue), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+<%end%>
+
+<%= link_to venue_covers_path(@venue, @covers), 
+  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit All
 <%end%>
 
 </div>

@@ -17,6 +17,7 @@ class CoversController < VenueLayoutController
   end
 
  def edit_all
+  @venue = Venue.friendly.find params[:slug]
   @cover = @venue.covers.build
 #    respond_to do |format|
 #     format.html {raise 'bad'}
@@ -44,7 +45,7 @@ class CoversController < VenueLayoutController
       if @cover.update(cover_params)
         format.html { redirect_to [@venue, @covers], notice: 'cover was successfully updated.' }
         format.json { render :show, status: :ok, location: @cover }
-#        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue, @covers]}
       else
         format.html { render :edit }
         format.json { render json: @cover.errors, status: :unprocessable_entity }
