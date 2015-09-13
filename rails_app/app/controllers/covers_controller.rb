@@ -6,9 +6,6 @@ class CoversController < VenueLayoutController
     @covers = @venue.covers.all
   end
 
-  def show
-  end
-
   def new
     @cover = @venue.covers.build
   end

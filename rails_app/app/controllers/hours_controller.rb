@@ -6,9 +6,6 @@ class HoursController < VenueLayoutController
     @hours = @venue.hours.all
   end
 
-  def show
-  end
-
   def new
     @hour = @venue.hours.build
   end
@@ -31,7 +28,7 @@ class HoursController < VenueLayoutController
       if @hour.save
         format.html { redirect_to [@venue, @hours], notice: 'hour was successfully created.' }
         format.json { render :show, status: :created, location: @hour }
-    #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @hour.errors, status: :unprocessable_entity }
@@ -39,14 +36,12 @@ class HoursController < VenueLayoutController
     end
   end
 
-  # PATCH/PUT /tabs/1
-  # PATCH/PUT /tabs/1.json
   def update
     respond_to do |format|
       if @hour.update(hour_params)
         format.html { redirect_to [@venue, @hours], notice: 'hour was successfully updated.' }
         format.json { render :show, status: :ok, location: @hour }
-    #    format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @hour.errors, status: :unprocessable_entity }
@@ -54,8 +49,6 @@ class HoursController < VenueLayoutController
     end
   end
 
-  # DELETE /tabs/1
-  # DELETE /tabs/1.json
   def destroy
     @hour.destroy
     respond_to do |format|

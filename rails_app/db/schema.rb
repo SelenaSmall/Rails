@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 20150906070346) do
 
   add_index "hours", ["venue_id"], name: "index_hours_on_venue_id", using: :btree
 
+  create_table "incomes", force: :cascade do |t|
+    t.integer  "wages"
+    t.integer  "other_income"
+    t.integer  "income_total"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "organisations", force: :cascade do |t|
     t.string   "name",           limit: 128, null: false
     t.string   "phone",          limit: 12,  null: false

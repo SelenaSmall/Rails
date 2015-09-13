@@ -16,9 +16,7 @@
           <td><%= section.section %></td>
         <td><%= section.first_num %></td>
         <td><%= section.last_num %></td>
-        <td><%= section.bookable %></td>
-        <td><%= link_to 'Edit', edit_venue_section_path(@venue, section) %> </td>
-          <td><%= link_to 'Delete', [@venue, section], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+        <td><%= section.bookable %></td> 
       </tr>
     <% end %>
   </tbody>
@@ -26,6 +24,11 @@
 
 <%= link_to new_venue_section_path(@venue), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+<%end%>
+
+
+<%= link_to venue_sections_path(@venue, @sections), 
+  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit All
 <%end%>
 
 </div>

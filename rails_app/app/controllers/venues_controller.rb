@@ -1,9 +1,9 @@
 class VenuesController < VenueLayoutController
   before_action :set_organisation, only: [:create, :new]
-  before_action :set_venue, only: [:show, :edit, :update, :destroy]
-  before_action :set_hour
-  before_action :set_cover
-  before_action :set_section 
+  before_action :set_venue, only: [:new, :show, :edit, :update, :destroy]
+#  before_action :set_hour
+#  before_action :set_cover
+#  before_action :set_section 
   before_action :set_note
   before_action :set_grid
   before_action :set_plan
@@ -22,10 +22,10 @@ class VenuesController < VenueLayoutController
   def opening_hours
   end
 
-  def covers
-    @venue = Venue.friendly.find params[:slug]
-    @covers = @venue.covers.all
-  end
+#  def covers
+#    @venue = Venue.friendly.find params[:slug]
+#    @covers = @venue.covers.all
+#  end
 
   def notes
   end
@@ -36,8 +36,8 @@ class VenuesController < VenueLayoutController
   end
 
   def new
-#    @organisation = Organisation.friendly.find params[:slug]
-    @venue = @organisation.venues.new
+    @organisation = Organisation.friendly.find params[:slug]
+    @venue = @organisation.venues.build
   end
 
   def edit
@@ -94,17 +94,17 @@ class VenuesController < VenueLayoutController
       params.require(:venue).permit(:name, :phone, :email, :address)
     end
 
-    def set_hour
-      @hour 
-    end
+#    def set_hour
+#      @hour 
+#    end
 
-    def set_cover
-      @cover 
-    end
+#    def set_cover
+#      @cover 
+#    end
 
-        def set_section
-      @section 
-    end
+#        def set_section
+#      @section 
+#    end
 
     def set_note
       @note 

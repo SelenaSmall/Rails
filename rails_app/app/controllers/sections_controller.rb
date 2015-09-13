@@ -6,9 +6,6 @@ class SectionsController < VenueLayoutController
     @sections = @venue.sections.all
   end
 
-  def show
-  end
-
   def new
     @section = @venue.sections.build
   end
@@ -31,7 +28,7 @@ class SectionsController < VenueLayoutController
       if @section.save
         format.html { redirect_to [@venue, @sections], notice: 'section was successfully created.' }
         format.json { render :show, status: :created, location: @section }
-#        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -44,7 +41,7 @@ class SectionsController < VenueLayoutController
       if @section.update(section_params)
         format.html { redirect_to [@venue, @sections], notice: 'section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
-#        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @section.errors, status: :unprocessable_entity }

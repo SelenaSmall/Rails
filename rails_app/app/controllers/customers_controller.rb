@@ -15,7 +15,6 @@ class CustomersController < VenueLayoutController
   end
 
   def edit
-
   end
 
   def create

@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root 'organisations#index'
 
   get 'org/:id' => 'organisations#show', as: 'organisation'
-  resources :organisations, only: [:new, :edit, :update, :destroy]
+  resources :organisations, only: [:new, :edit, :update, :destroy] 
 
   get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
-  get 'org/:slug/venues/new' => 'venues#new', as: 'organisations_venue_new'
+  get 'org/:id/venues/new' => 'venues#new', as: 'organisations_venue_new'
 
   get 'venue/:id' => 'venues#show', as: 'venue' 
 
@@ -20,9 +20,9 @@ Rails.application.routes.draw do
     resources :bookings, except: [:index]
 
     resources :covers, except: [:show]
-    resources :hours, except: [:show, :index]
-    resources :sections, except: [:show, :index]
-    resources :tables, except: [:show, :index]
+    resources :hours, except: [:show]
+    resources :sections, except: [:show]
+    resources :tables, except: [:show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
