@@ -1,0 +1,39 @@
+<div class="modal-dialog reorder-modal-form">
+<div class="modal-content">
+	<div class="modal-header">
+        <h4 class="modal-title">All tables</h4>
+</div>
+ <div class="bordered-box">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tables</th>
+      <th>Section</th>
+      <th>Min covers</th>
+      <th>Max covers</th>
+      <th>Booking Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tables.each do |table| %>
+      <tr>
+        <td><%= table.tab %></td>
+        <td><%= table.section %></td>
+        <td><%= table.min_covers %></td>
+        <td><%= table.max_covers %></td>
+        <td><%= table.booking_order %></td>
+        <td>
+            <%= link_to edit_venue_table_path(@venue, table), 
+            remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit
+          <%end%>
+          </td>
+          <td><%= link_to 'Delete', [@venue, table], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

@@ -1,10 +1,6 @@
 class VenuesController < VenueLayoutController
   before_action :set_organisation, only: [:create, :new]
   before_action :set_venue, only: [:new, :show, :edit, :update, :destroy]
-#  before_action :set_hour
-#  before_action :set_cover
-#  before_action :set_section 
-  before_action :set_note
   before_action :set_grid
   before_action :set_plan
 
@@ -92,22 +88,6 @@ class VenuesController < VenueLayoutController
 
     def venue_params
       params.require(:venue).permit(:name, :phone, :email, :address)
-    end
-
-#    def set_hour
-#      @hour 
-#    end
-
-#    def set_cover
-#      @cover 
-#    end
-
-#        def set_section
-#      @section 
-#    end
-
-    def set_note
-      @note 
     end
 
     def set_grid

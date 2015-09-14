@@ -11,8 +11,12 @@ class TablesController < VenueLayoutController
 #    end
   end
 
-  def show
+  def new
+    @table = @venue.tables.build
   end
+
+#  def show
+#  end
 
   def grid
     @venue = Venue.friendly.find params[:slug]
@@ -29,14 +33,11 @@ class TablesController < VenueLayoutController
     @tables = @venue.tables.all
   end
 
-  def new
-    @table = @venue.tables.build
-  end
-
   def edit
   end
 
   def edit_all
+      @venue = Venue.friendly.find params[:slug]
       @table = @venue.tables.build
 #    respond_to do |format|
 #      format.html {raise 'bad'}
@@ -51,7 +52,7 @@ class TablesController < VenueLayoutController
       if @table.save
         format.html { redirect_to [@venue, @tables], notice: 'table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
-  #      format.js {redirect_via_turbolinks_to [@venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :new }
         format.json { render json: @table.errors, status: :unprocessable_entity }
@@ -64,7 +65,7 @@ class TablesController < VenueLayoutController
       if @table.update(table_params)
         format.html { redirect_to [@venue, @tables], notice: 'table was successfully updated.' }
         format.json { render :show, status: :ok, location: @table }
-  #      format.js {redirect_via_turbolinks_to [@venue]}
+        format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
         format.html { render :edit }
         format.json { render json: @table.errors, status: :unprocessable_entity }
