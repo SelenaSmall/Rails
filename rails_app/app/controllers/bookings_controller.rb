@@ -1,6 +1,6 @@
 class BookingsController < VenueLayoutController
   before_action :set_venue
-  before_action :set_tables
+  before_action :set_table
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -24,7 +24,7 @@ class BookingsController < VenueLayoutController
       if @booking.save
         format.html { redirect_to runsheet_path(@venue), notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
-#       format.js {redirect_via_turbolinks_to [@venue]}
+#        format.js {redirect_via_turbolinks_to [@venue, @runsheet] }
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class BookingsController < VenueLayoutController
       if @booking.update(booking_params)
         format.html { redirect_to runsheet_path(@venue), notice: 'Booking was successfully updated.' }
         format.json { render :show, status: :ok, location: @booking }
-#       format.js {redirect_via_turbolinks_to [@venue]}
+#        format.js {redirect_via_turbolinks_to [@venue, @runsheet]}
       else
         format.html { render :edit }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -57,8 +57,9 @@ class BookingsController < VenueLayoutController
     def set_venue
       @venue = Venue.friendly.find(params[:venue_id])
     end
-    def set_tables
-      @tables
+
+    def set_table
+      @table
     end
 
     def set_booking

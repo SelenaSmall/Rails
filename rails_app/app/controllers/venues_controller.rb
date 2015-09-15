@@ -18,11 +18,6 @@ class VenuesController < VenueLayoutController
   def opening_hours
   end
 
-#  def covers
-#    @venue = Venue.friendly.find params[:slug]
-#    @covers = @venue.covers.all
-#  end
-
   def notes
   end
 
