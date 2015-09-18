@@ -3,6 +3,7 @@ class VenuesController < VenueLayoutController
   before_action :set_venue, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_grid
   before_action :set_plan
+  before_action :set_runsheet
 
   def index
   #  @organisation = Organisation.friendly.find params[:slug]
@@ -91,5 +92,9 @@ class VenuesController < VenueLayoutController
 
     def set_plan
       @plan
+    end
+
+    def set_runsheet
+      @runsheet
     end
 end

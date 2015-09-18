@@ -19,15 +19,17 @@
     <% @venue.tables.each do |table| %>
      <tr>
       <td><%= table.tab %></td>
-      <td>New Booking</td>
+      <td>
+       <%= link_to new_venue_booking_path(@venue),
+        remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+       <%end%>
+      </td>
      </tr>
     <%end%> 
    </tbody>
   </table>
-  
   <!-- Modal form / New Channel Group -->
   <div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
-  <div class="modal fade" id='booking-details-modal-form' role="dialog"></div>
   <!-- Modal form / New Channel Group -->
  </div>
 </body>

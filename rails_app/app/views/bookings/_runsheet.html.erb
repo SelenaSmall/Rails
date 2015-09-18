@@ -1,38 +1,38 @@
 <body>
-<p>This Page will show a runsheet view of all bookings for a specified day in order of time. It will be clear which tables have been seated, with options to view history for the night and new groups waiting to be seated.</p>
+ <p>This Page will show a runsheet view of all bookings for a specified day in order of time. It will be clear which tables have been seated, with options to view history for the night and new groups waiting to be seated.</p>
 
-<table class="table">
+ <table class="table">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Start time </th>
-      <th>Tab</th>
-      <th colspan="3"></th>
-    </tr>
+   <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Start time </th>
+    <th>Tab</th>
+    <th colspan="3"></th>
+   </tr>
   </thead>
-
   <tbody>
-    <% @venue.bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.name %></td>
-        <td><%= booking.phone %></td>
-        <td><%= booking.email %></td>
-        <td><%= booking.start_time %></td>
-        <td><%= booking.tab_name %></td>
-        <td><%= link_to 'Details', [@venue, booking] %></td>
-        <td><%= link_to 'Edit', edit_venue_booking_path(@venue, booking) %></td>
-        <td><%= link_to 'Delete', [@venue, booking], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+   <% @venue.bookings.each do |booking| %>
+    <tr>
+     <td><%= booking.name %></td>
+     <td><%= booking.phone %></td>
+     <td><%= booking.email %></td>
+     <td><%= booking.start_time %></td>
+     <td><%= booking.tab_name %></td>
+     <td><%= link_to 'Details', [@venue, booking] %></td>
+     <td><%= link_to 'Edit', edit_venue_booking_path(@venue, booking) %></td>
+     <td><%= link_to 'Delete', [@venue, booking], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+   <% end %>
   </tbody>
-</table>
+ </table>
 
-<%= link_to 'New', new_venue_booking_path(@venue) %>
+ <%= link_to new_venue_booking_path(@venue),
+  remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
+ <%end%>
 
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
-
+ <!-- Modal form / New Channel Group -->
+ <div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
+ <!-- Modal form / New Channel Group -->
 </body>

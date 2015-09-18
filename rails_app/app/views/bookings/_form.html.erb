@@ -1,44 +1,49 @@
 <%= form_for [@venue, @booking] do |f| %>
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+ <% if @booking.errors.any? %>
+  <div id="error_explanation">
+   <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+   <ul>
+    <% @booking.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+   </ul>
+  </div>
+ <% end %>
+  
+ <div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+ </div>
+ 
+ <div class="field">
+  <%= f.label :phone %><br>
+  <%= f.number_field :phone %>
+ </div>
 
-      <ul>
-      <% @booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.text_field :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :tab_name %><br>
-    <%= f.text_field :tab_name %> 
-    <button type="button" class="btn btn-default dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table<span class="caret"></span></a>
-    <ul class="dropdown-menu">
+ <div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+ </div>
+
+ <div class="field">
+  <%= f.label :start_time %><br>
+  <%= f.text_field :start_time %>
+ </div>
+
+ <div class="field">
+  <%= f.label :tab_name %><br>
+  <%= f.text_field :tab_name %> 
+  <button type="button" class="btn btn-default dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table<span class="caret"></span></a>
+   <ul class="dropdown-menu">
     <% @venue.tables.each do |table| %>
-      <div><%= link_to table.tab, [@venue] %></div>
-      <% end %> 
-    </ul> 
-    </button> 
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+     <div><%= link_to table.tab, [@venue] %></div>
+    <% end %> 
+   </ul> 
+  </button> 
+ </div>
+
+ <div class="actions">
+  <%= f.submit %>
+ </div>
 <% end %>
