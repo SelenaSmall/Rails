@@ -1,32 +1,37 @@
 <%= form_for [@organisations, @venues] do |f| %>
-  <% if @venue.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
+ <% if @venue.errors.any? %>
+  <div id="error_explanation">
+   <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
 
-      <ul>
-      <% @venue.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+   <ul>
+    <% @venue.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+   </ul>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.number_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <% end %>
+
+ <div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+ </div>
+
+ <div class="field">
+  <%= f.label :phone %><br>
+  <%= f.number_field :phone %>
+ </div>
+
+ <div class="field">
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+ </div>
+
+ <div class="field">
+  <%= f.label :address %><br>
+  <%= f.text_field :address %>
+ </div>
+
+ <div class="actions">
+  <%= f.submit %>
+ </div>
 <% end %>

@@ -4,9 +4,3 @@ class Table < ActiveRecord::Base
 	has_many :bookings
 
 end
-
-#class Table
-#	include ActiveModel::Model
-#
-#	attr_accessor :table_number
-#end

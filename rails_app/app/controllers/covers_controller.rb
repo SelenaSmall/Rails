@@ -71,4 +71,3 @@ class CoversController < VenueLayoutController
       params.require(:cover).permit(:covers, :covers_group, :turn_time)
     end
 end
-

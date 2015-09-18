@@ -38,7 +38,7 @@ class OrganisationsController < ApplicationController
       if @organisation.update(organisation_params)
         format.html { redirect_to @organisation, notice: 'organisation was successfully updated.' }
         format.json { render :show, status: :ok, location: @organisation }
-        format.js {redirect_via_turbolinks_to [@organisation]}
+#        format.js {redirect_via_turbolinks_to [@organisation]}
       else
         format.html { render :edit }
         format.json { render json: @organisation.errors, status: :unprocessable_entity }
@@ -63,5 +63,3 @@ class OrganisationsController < ApplicationController
       params.require(:organisation).permit(:name, :phone, :address, :email, :number_of_tabs)
     end
 end
-
-

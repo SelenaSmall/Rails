@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
   <title>Reservations</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
+ </head>
 
-<body class="application">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <body class="application">
+  <nav class="navbar navbar-default">
+   <div class="container-fluid"><!-- /.container-fluid -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- /.navbar-collapse -->
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/OUT <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">List </a></li>
-              <li><a href="#">of </a></li>
-              <li><a href="#">Users</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Create New User</a></li>
-            </ul>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li role="separator" class="divider"></li>
-          </ul>
-        </li>
-      </ul>
-
+     <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN/OUT <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+         <li><a href="#">List </a></li>
+         <li><a href="#">of </a></li>
+         <li><a href="#">Users</a></li>
+         <li role="separator" class="divider"></li>
+         <li><a href="#">Create New User</a></li>
+        </ul>
+      </li>
+     </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+        <li role="separator" class="divider"></li>
+       </ul>
+      </li>
+     </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+   </div><!-- /.container-fluid -->
+  </nav>
 
-</div>
-<%= yield %>
-</div>
-
-</body>
+  </div>
+   <%= yield %>
+  </div>
+ </body>
 </html>

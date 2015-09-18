@@ -70,4 +70,3 @@ class SectionsController < VenueLayoutController
       params.require(:section).permit(:section, :first_num, :last_num, :bookable)
     end
 end
-

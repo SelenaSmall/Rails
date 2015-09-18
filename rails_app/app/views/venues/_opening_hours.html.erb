@@ -1,37 +1,35 @@
 <div class="bordered-box">
-
-<table class="table">
+ <table class="table">
   <thead>
-    <tr>
-      <th>Day</th>
-      <th>Opening Time</th>
-      <th>Closing Time</th>
-      <th>Interval</th>
-      <th>Covers per Interval</th>
-      <th colspan="3"></th>
-    </tr>
+   <tr>
+    <th>Day</th>
+    <th>Opening Time</th>
+    <th>Closing Time</th>
+    <th>Interval</th>
+    <th>Covers per Interval</th>
+    <th colspan="3"></th>
+   </tr>
   </thead>
 
   <tbody>
-    <% @venue.hours.each do |hour| %>
-      <tr>
-        <div id="opening-hours"></div>
-          <td><%= hour.day %></td>
-          <td><%= hour.open_time %></td>
-          <td><%= hour.close_time %></td>
-          <td><%= hour.interval %></td>
-          <td><%= hour.covers_per_interval %></td>
-      </tr>
-    <% end %>
+   <% @venue.hours.each do |hour| %>
+    <tr>
+     <div id="opening-hours"></div>
+     <td><%= hour.day %></td>
+     <td><%= hour.open_time %></td>
+     <td><%= hour.close_time %></td>
+     <td><%= hour.interval %></td>
+     <td><%= hour.covers_per_interval %></td>
+    </tr>
+   <% end %>
   </tbody>
-</table>
+ </table>
 
-<%= link_to new_venue_hour_path(@venue), 
+ <%= link_to new_venue_hour_path(@venue),
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
-<%end%>
+ <%end%>
 
-<%= link_to venue_hours_path(@venue, @hours), 
+ <%= link_to venue_hours_path(@venue, @hours), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit All
-<%end%>
-
+ <%end%>
 </div>

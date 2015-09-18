@@ -92,7 +92,4 @@ class VenuesController < VenueLayoutController
     def set_plan
       @plan
     end
-
 end
-
-

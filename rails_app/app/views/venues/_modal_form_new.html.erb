@@ -1,27 +1,23 @@
 <div class="modal-dialog reorder-modal-form">
-<div class="modal-content">
-	<%= bootstrap_form_for([venue.organisation, venue], remote: true) do |f| %>
-<div class="modal-header">
-        <h4 class="modal-title">New Venue</h4>
-</div>
+ <div class="modal-content">
+		<%= bootstrap_form_for([venue.organisation, venue], remote: true) do |f| %>
+			<div class="modal-header">
+    <h4 class="modal-title">New Venue</h4>
+			</div>
 
-<div class="modal-body">
-<div id="venue-form-errors"></div>
+			<div class="modal-body">
+				<div id="venue-form-errors"></div>
+   		<%= f.text_field :name %>
+   		<%= f.text_field :phone %>
+   		<%= f.text_field :email %>
+   		<%= f.text_field :address %>
+				</div>
+			</div>
 
-
-   <%= f.text_field :name %>
-
-   <%= f.text_field :phone %>
-
-   <%= f.text_field :email %>
-
-   <%= f.text_field :address %>
-</div>
-
-<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
-        <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
-</div>
-<% end %>
-</div>
+			<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
+     <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
+			</div>
+		<% end %>
+	</div>
 </div>

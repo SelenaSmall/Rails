@@ -1,89 +1,64 @@
-
-
 <body>
-<div class="main-container">
-<!-- Venue Details Views -->
-<div class="row">
-<div class="col-md-4"></div>
-<div class="col-md-4">
-<h1><center><strong><%= @venue.name %></center></strong></h1>
+ <div class="main-container">
+  <!-- Venue Details Views -->
+	 <div class="row">
+		 <div class="col-md-4"></div>
+		 <div class="col-md-4">
+			 <h1><center><strong><%= @venue.name %></center></strong></h1>
+			 <div>
+			 	<center>
+  			 <strong>PH </strong><%= @venue.phone %> | 
+  			 <strong>EMAIL </strong><%= @venue.email %> |
+  			 <strong>ADDRESS </strong><%= @venue.address %>
+			  </center>
+			 </div>
+			 <br>
+		 </div>
+		 <div class="col-md-4"></div>
+	 </div>
+  <!-- Venue Details Views -->
 
-<div><center>
-  <strong>PH </strong><%= @venue.phone %> | 
+  <!-- Left Column -->
+		 <div class="col-md-6">
+			 <div class="venue-header">
+			  <div class="venue-header-row"><strong>Covers</strong>
+  		  <%= render "venues/covers", venue: @venue %>
+  		 </div>
+			 </div>
+			 <div class="venue-header"><strong>Opening Hours</strong></div>
+			  <%= render "venues/opening_hours", venue: @venue %>
+		 </div>
+  <!-- Left Column -->
 
-  <strong>EMAIL </strong><%= @venue.email %> |
+  <!-- Right Column -->
+	 <div class="col-md-6">
+		 <div class="venue-header"><strong>Sections</strong>
+  	 <%= render "venues/sections", venue: @venue %>
+  	</div>			 
+		 <div class="venue-header"><strong>Tables</strong></div>
+		  <%= render "venues/tables", venue: @venue %>
+		 </div>
+	 </div>
+ <!-- Right Column -->
 
-  <strong>ADDRESS </strong><%= @venue.address %>
-</center></div>
+ <!-- Modal form / New Channel Group -->
+	 <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
 
-<br>
+	 <div class="modal fade" id='new-cover-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-all-cover-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-cover-modal-form' role="dialog"></div>
 
+	 <div class="modal fade" id='new-hour-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-all-hour-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-hour-modal-form' role="dialog"></div>
 
-</div>
-<div class="col-md-4"></div>
-</div>
-<!-- Venue Details Views -->
+	 <div class="modal fade" id='new-section-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-all-section-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-section-modal-form' role="dialog"></div>
 
-
-<!-- Left Column -->
-<div class="row">
-<div class="col-md-6">
-
-<div class="venue-header">
-<div class="venue-header-row">
-  <strong>Covers</strong>
-
-  
-</div>
-</div>
-  <%= render "venues/covers", venue: @venue %>
-
-<div class="venue-header">
-<strong>Opening Hours</strong>
-  
-</div>
-
-  <%= render "venues/opening_hours", venue: @venue %>
-</div>
-<!-- Left Column -->
-
-<!-- Right Column -->
-<div class="col-md-6">
-<div class="venue-header">
-<strong>Sections</strong>
-  
-</div>  
-  <%= render "venues/sections", venue: @venue %>
-
-<div class="venue-header">
-<strong>Tables</strong>
-  
-</div>
-  <%= render "venues/tables", venue: @venue %>
-</div>
-</div>
-<!-- Right Column -->
-
-
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-cover-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-all-cover-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-cover-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-hour-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-all-hour-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-hour-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-section-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-all-section-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-section-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-table-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-all-table-modal-form' role="dialog"></div>
-<div class="modal fade" id='edit-table-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
-
-</div>
+	 <div class="modal fade" id='new-table-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-all-table-modal-form' role="dialog"></div>
+	 <div class="modal fade" id='edit-table-modal-form' role="dialog"></div>
+  <!-- Modal form / New Channel Group -->
+ </div>
 </body>

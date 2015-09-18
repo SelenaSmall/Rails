@@ -1,31 +1,32 @@
 <div class="modal-dialog reorder-modal-form">
-<div class="modal-content">
-	<%= bootstrap_form_for([@organisation, @venue, table], remote: true) do |f| %>
-<div class="modal-header">
-        <h4 class="modal-title">Edit Table</h4>
-</div>
+ <div class="modal-content">
+	 <%= bootstrap_form_for([@organisation, @venue, table], remote: true) do |f| %>
+   <div class="modal-header">
+    <h4 class="modal-title">Edit Table</h4>
+   </div>
 
-<div class="modal-body">
-   <%= f.text_field :tab %>
-   <div class="dropdown">
-  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Section
-    	<span class="caret"></span>
- 	 	</button>
-  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-  		<% @venue.sections.each do |section| %>
-    	<li><a href="#"><%= section.section %></a></li>
-    	<% end%>
-  	</ul>
-	</div>
-   <%= f.text_field :min_covers %>
-   <%= f.text_field :max_covers %>
-   <%= f.text_field :booking_order %>
-</div>
+   <div class="modal-body">
+    <%= f.text_field :tab %>
+    <div class="dropdown">
+  		 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Section
+    	 <span class="caret"></span>
+     </button>
+     </div>
+  	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  		  <% @venue.sections.each do |section| %>
+       <li><a href="#"><%= section.section %></a></li>
+      <% end%>
+  	  </ul>
+      <%= f.text_field :min_covers %>
+      <%= f.text_field :max_covers %>
+      <%= f.text_field :booking_order %>
+    </div>
 
-<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
-        <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
-</div>
-<% end %>
-</div>
+    <div class="modal-footer">
+     <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form- clear">Cancel</button>
+      <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
+    </div>
+   </div>
+  <% end %>
+ </div>
 </div>

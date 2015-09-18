@@ -94,4 +94,3 @@ class TablesController < VenueLayoutController
       params.require(:table).permit(:tab, :section, :min_covers, :max_covers, :booking_order)
     end
 end
-

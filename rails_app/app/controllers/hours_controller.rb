@@ -74,4 +74,3 @@ class HoursController < VenueLayoutController
       params.require(:hour).permit(:day, :open_time, :close_time, :interval, :covers_per_interval)
     end
 end
-

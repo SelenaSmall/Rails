@@ -1,39 +1,39 @@
 <div class="modal-dialog reorder-modal-form">
-<div class="modal-content">
-	<div class="modal-header">
-        <h4 class="modal-title">All Covers</h4>
-</div>
- <div class="bordered-box">
+ <div class="modal-content">
+	 <div class="modal-header">
+   <h4 class="modal-title">All Covers</h4>
+  </div>
+  <div class="bordered-box">
 
-<table class="table">
-  <thead>
-    <tr>
+   <table class="table">
+    <thead>
+     <tr>
       <th>Day</th>
       <th>Opening Time</th>
       <th>Closing Time</th>
       <th>Interval</th>
       <th>Covers per Interval</th>
       <th colspan="3"></th>
-    </tr>
-  </thead>
+     </tr>
+    </thead>
 
-  <tbody>
-    <% @hours.each do |hour| %>
+    <tbody>
+     <% @hours.each do |hour| %>
       <tr>
-        <td><%= hour.day %></td>
-        <td><%= hour.open_time %></td>
-        <td><%= hour.close_time %></td>
-        <td><%= hour.interval %></td>
-        <td><%= hour.covers_per_interval %></td>
-        <td>
-            <%= link_to edit_venue_hour_path(@venue, hour), 
+       <td><%= hour.day %></td>
+       <td><%= hour.open_time %></td>
+       <td><%= hour.close_time %></td>
+       <td><%= hour.interval %></td>
+       <td><%= hour.covers_per_interval %></td>
+       <td><%= link_to edit_venue_hour_path(@venue, hour), 
             remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit
           <%end%>
-          </td>
-          <td><%= link_to 'Delete', [@venue, hour], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+       </td>
+       <td><%= link_to 'Delete', [@venue, hour], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
 </div>

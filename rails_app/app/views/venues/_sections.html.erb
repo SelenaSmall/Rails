@@ -1,34 +1,31 @@
 <div class="bordered-box">
-
-<table class="table" >
+ <table class="table" >
   <thead>
-    <tr>
-      <th>Section</th>
-      <th>First tab</th>
-      <th>Last tab</th>
-      <th>Bookable</th>
-     </tr>
+   <tr>
+    <th>Section</th>
+    <th>First tab</th>
+    <th>Last tab</th>
+    <th>Bookable</th>
+   </tr>
   </thead>
-    <tbody>
-      <% @venue.sections.each do |section| %>
-      <tr>
-        <div id="sections"></div>
-          <td><%= section.section %></td>
-        <td><%= section.first_num %></td>
-        <td><%= section.last_num %></td>
-        <td><%= section.bookable %></td> 
-      </tr>
-    <% end %>
+  <tbody>
+   <% @venue.sections.each do |section| %>
+    <tr>
+     <div id="sections"></div>
+     <td><%= section.section %></td>
+     <td><%= section.first_num %></td>
+     <td><%= section.last_num %></td>
+     <td><%= section.bookable %></td> 
+    </tr>
+   <% end %>
   </tbody>
-</table>
+ </table>
 
-<%= link_to new_venue_section_path(@venue), 
+ <%= link_to new_venue_section_path(@venue), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
-<%end%>
+ <%end%>
 
-
-<%= link_to venue_sections_path(@venue, @sections), 
+ <%= link_to venue_sections_path(@venue, @sections), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit All
-<%end%>
-
+ <%end%>
 </div>

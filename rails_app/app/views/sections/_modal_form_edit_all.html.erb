@@ -1,37 +1,37 @@
 <div class="modal-dialog reorder-modal-form">
-<div class="modal-content">
-	<div class="modal-header">
-        <h4 class="modal-title">All Sections</h4>
-</div>
- <div class="bordered-box">
-
-<table class="table">
-  <thead>
-    <tr>
+ <div class="modal-content">
+	 <div class="modal-header">
+   <h4 class="modal-title">All Sections</h4>
+  </div>
+  
+  <div class="bordered-box">
+   <table class="table">
+    <thead>
+     <tr>
       <th>Section</th>
       <th>First tab</th>
       <th>Last tab</th>
       <th>Bookable</th>
       <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sections.each do |section| %>
+     </tr>
+    </thead>
+    <tbody>
+     <% @sections.each do |section| %>
       <tr>
-        <td><%= section.section %></td>
-        <td><%= section.first_num %></td>
-        <td><%= section.last_num %></td>
-        <td><%= section.bookable %></td>
-        <td>
-            <%= link_to edit_venue_section_path(@venue, section), 
-            remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit
-          <%end%>
-          </td>
-          <td><%= link_to 'Delete', [@venue, section], method: :delete, data: { confirm: 'Are you sure?' }%> </td>
+       <td><%= section.section %></td>
+       <td><%= section.first_num %></td>
+       <td><%= section.last_num %></td>
+       <td><%= section.bookable %></td>
+       <td>
+        <%= link_to edit_venue_section_path(@venue, section), 
+          remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit
+        <%end%>
+       </td>
+       <td><%= link_to 'Delete', [@venue, section], method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+     <% end %>
+    </tbody>
+   </table>
+  </div>
+ </div>
 </div>

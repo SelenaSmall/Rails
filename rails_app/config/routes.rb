@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   root 'organisations#index'
 
-  get 'org/:id' => 'organisations#show', as: 'organisation'
-  resources :organisations, only: [:new, :edit, :update, :destroy] 
+#  get 'org/:id' => 'organisations#show', as: 'organisation'
+  resources :organisations#, only: [:new, :edit, :update, :destroy] 
 
   get 'org/:id/venues/' => 'venues#index', as: 'organisations_venues' 
-  get 'org/:id/venues/new' => 'venues#new', as: 'organisations_venue_new'
+#  get 'org/:id/venues/new' => 'venues#new', as: 'organisations_venue_new'
 
   get 'venue/:id' => 'venues#show', as: 'venue' 
+  get 'venue/new' => 'venues#new', as: 'new_venue'
 
   get 'venue/:slug/grid' => 'tables#grid', as: 'grid'
   get 'venue/:slug/plan' => 'tables#plan', as: 'plan'

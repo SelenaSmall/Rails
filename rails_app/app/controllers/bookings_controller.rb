@@ -70,4 +70,3 @@ class BookingsController < VenueLayoutController
       params.require(:booking).permit(:name, :phone, :email, :start_time, :tab_name)
     end
 end
-

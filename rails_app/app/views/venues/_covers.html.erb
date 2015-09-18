@@ -1,31 +1,29 @@
 <div class="bordered-box">
-
-<table class="table" >
+ <table class="table" >
   <thead>
-    <tr>
-      <th>Covers</th>
-      <th>Group</th>
-      <th>Turn Time</th>
-     </tr>
+   <tr>
+    <th>Covers</th>
+    <th>Group</th>
+    <th>Turn Time</th>
+   </tr>
   </thead>
-    <tbody>
-      <% @venue.covers.each do |cover| %>
-      <tr>
-        <div id="covers"></div>
-          <td><%= cover.covers %></td>
-          <td><%= cover.covers_group %></td>
-          <td><%= cover.turn_time %></td>
-      </tr>
-    <% end %>
+  <tbody>
+   <% @venue.covers.each do |cover| %>
+    <tr>
+     <div id="covers"></div>
+     <td><%= cover.covers %></td>
+     <td><%= cover.covers_group %></td>
+     <td><%= cover.turn_time %></td>
+    </tr>
+   <% end %>
   </tbody>
-</table>
+ </table>
 
-<%= link_to new_venue_cover_path(@venue), 
+ <%= link_to new_venue_cover_path(@venue), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> New
-<%end%>
+ <%end%>
 
-<%= link_to venue_covers_path(@venue, @covers), 
+ <%= link_to venue_covers_path(@venue, @covers), 
   remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit All
-<%end%>
-
+ <%end%>
 </div>

@@ -1,40 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <body>
+ <center>
 
-<h1><center><%= @organisation.name %></center></h1>
+  <h1><%= @organisation.name %></h1>
 
-<p><center><strong>PH </strong><%= @organisation.phone %></center></p>
+  <p><strong>PH </strong><%= @organisation.phone %></p>
+  <p><strong>ADDRESS </strong><%= @organisation.address %></p>
+  <p><strong>EMAIL </strong><%= @organisation.email %></p>
 
-<p><center><strong>ADDRESS </strong><%= @organisation.address %></center></p>
+  <p><class="btn-group" role="group" aria-label="...">
+   <% @organisation.venues.each do |venue| %>
+    <div>
+     <button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, venue_path(venue) %>
+     </button>
+   <% end %>
+    </div>
+  <p>
 
-<p><center><strong>EMAIL </strong><%= @organisation.email %></center></p>
-
-<p><center><class="btn-group" role="group" aria-label="...">
-      <% @organisation.venues.each do |venue| %>
-        <div><button type="button" class="btn btn-default navbar-btn"><%= link_to venue.name, venue_path(venue) %></button>
-          <% end %>
-        </div>
-    </center><p>
-<br>
-
-<div>
-  <center>
+  <br>
+  <div>
+   <center>
     <%= link_to 'All Organisations', root_path %> |
     <%= link_to edit_organisation_path(@organisation), 
       remote: true, id: "new-item-link", class: "btn btn-sm btn-default round" do %> Edit Organisation Details
-    <%end%> |
+      <%end%> |
 
+   <%= link_to 'All Venues', organisations_venues_path(@organisation, @venues) %>
+  </div>
 
-    <%= link_to 'All Venues', organisations_venues_path(@organisation, @venues) %>
-  
-  </center>
-</div>
+  <!-- Modal form / New Channel Group -->
+  <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
 
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='new-venue-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
-
+  <div class="modal fade" id='new-venue-modal-form' role="dialog"></div>
+  <!-- Modal form / New Channel Group -->
+ </center>
 </body>

@@ -1,34 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <h1>ORGANISATIONS</h1>
-
 <table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>Number of Tabs</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <thead>
+  <tr>
+   <th>Name</th>
+   <th>Phone</th>
+   <th>Address</th>
+   <th>Email</th>
+   <th>Number of Tabs</th>
+   <th colspan="3"></th>
+  </tr>
+ </thead>
 
-  <tbody>
-    <% @organisations.each do |organisation| %>
-      <tr>
-        <td><%= organisation.name %></td>
-        <td><%= organisation.phone %></td>
-        <td><%= organisation.address %></td>
-        <td><%= organisation.email %></td>
-        <td><%= organisation.number_of_tabs %></td>
-        <td><%= link_to 'Details', organisation_path(organisation) %></td>
-        <td><%= link_to 'Delete', @organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+ <tbody>
+  <% @organisations.each do |organisation| %>
+   <tr>
+    <td><%= organisation.name %></td>
+    <td><%= organisation.phone %></td>
+    <td><%= organisation.address %></td>
+    <td><%= organisation.email %></td>
+    <td><%= organisation.number_of_tabs %></td>
+    <td><%= link_to 'Details', organisation_path(organisation) %></td>
+    <td><%= link_to 'Delete', @organisation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   </tr>
+  <% end %>
+ </tbody>
 </table>
 
 <br>
-
 <%= link_to 'New Organisation', new_organisation_path %>

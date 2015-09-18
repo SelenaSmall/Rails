@@ -1,22 +1,22 @@
 <div class="modal-dialog reorder-modal-form">
-<div class="modal-content">
-	<%= bootstrap_form_for([@organisation, @venue, hour], remote: true) do |f| %>
-<div class="modal-header">
-        <h4 class="modal-title">Edit Hour</h4>
-</div>
+ <div class="modal-content">
+  <%= bootstrap_form_for([@organisation, @venue, hour], remote: true) do |f| %>
+   <div class="modal-header">
+    <h4 class="modal-title">Edit Hour</h4>
+   </div>
 
-<div class="modal-body">
-   <%= f.text_field :day %>
-   <%= f.text_field :open_time %>
-   <%= f.text_field :close_time %>
-   <%= f.text_field :interval %>
-   <%= f.text_field :covers_per_interval %>
-</div>
+   <div class="modal-body">
+    <%= f.text_field :day %>
+    <%= f.text_field :open_time %>
+    <%= f.text_field :close_time %>
+    <%= f.text_field :interval %>
+    <%= f.text_field :covers_per_interval %>
+   </div>
 
-<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
-        <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
-</div>
-<% end %>
-</div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" data-behaviour="form-clear">Cancel</button>
+     <%= f.submit class: "btn btn-primary", data: { trigger: 'loading' } %>
+   </div>
+  <% end %>
+ </div>
 </div>

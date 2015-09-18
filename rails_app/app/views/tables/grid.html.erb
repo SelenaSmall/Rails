@@ -1,47 +1,33 @@
 <p id="notice"><%= notice %></p>
-
 <body>
-<div class="main-container">
-
-<h1><center>Grid View</center></h1>
-
-<!--this is not actually what I want to do. I need to find a way to access the opening info for 1 specific day and venue-->
+ <div class="main-container">
+  <h1><center>Grid View</center></h1>
+   
+   <!--this is not actually what I want to do. I need to find a way to access the opening info for 1 specific day and venue-->
   <table class="table">
-    <thead>
-      <tr>
-        <th>Tab#</th>
-      <th>
-        <% @venue.hours.each do |hour| %>
-            <%= hour.open_time %>
-        <% end %>    
-      </th>   
-      </tr>  
-    </thead>
-
-    <tbody>
-        
-        <% @venue.tables.each do |table| %>
-
-          <tr>
-            <td>
-              <%= table.tab %>
-            </td>
-
-            <td>
-              New Booking
-            </td>
-
-          </tr>
-        <%end%> 
-    </tbody>
+   <thead>
+    <tr>
+     <th>Tab#</th>
+     <th>
+      <% @venue.hours.each do |hour| %>
+       <%= hour.open_time %>
+      <% end %>    
+     </th>   
+    </tr>  
+   </thead>
+   <tbody>
+    <% @venue.tables.each do |table| %>
+     <tr>
+      <td><%= table.tab %></td>
+      <td>New Booking</td>
+     </tr>
+    <%end%> 
+   </tbody>
   </table>
-
-
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
-<div class="modal fade" id='booking-details-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
-
-</div>
+  
+  <!-- Modal form / New Channel Group -->
+  <div class="modal fade" id='new-booking-modal-form' role="dialog"></div>
+  <div class="modal fade" id='booking-details-modal-form' role="dialog"></div>
+  <!-- Modal form / New Channel Group -->
+ </div>
 </body>
-
