@@ -5,9 +5,11 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  timeout: 5000
+  username: selenasmall
+  password:
 
 #development:
 #  <<: *default
@@ -15,12 +17,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
   database: reservations
-  pool: 5
-  username: selenasmall
-  password:
   #socket: temp/mysql.sock  
 
 # Warning: The database defined as "test" will be erased and
@@ -28,8 +25,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: reservations_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: reservations_prod
