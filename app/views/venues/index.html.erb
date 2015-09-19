@@ -21,12 +21,12 @@
     <td><%= venue.phone %></td>
     <td><%= venue.email %></td>
     <td><%= venue.address %></td>
-    <td><%= link_to 'Details', [@organisation, venue] %></td>
-    <td><%= link_to 'Delete', [@organisation, venue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Details', venue %></td>
+    <td><%= link_to 'Delete', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
    </tr>
   <% end %>
  </tbody>
 </table>
 
-<%= link_to 'new', new_venue_path %>
+<%= link_to 'new', new_organisation_venue_path(@organisation)%>
 <%= link_to 'Back to Organisations', root_path %>

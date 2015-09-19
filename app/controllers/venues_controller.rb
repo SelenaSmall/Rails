@@ -1,13 +1,13 @@
 class VenuesController < VenueLayoutController
-  before_action :set_organisation, only: [:create, :new]
-  before_action :set_venue, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_organisation, only: [:create, :new, :index]
+  before_action :set_venue, only: [:show, :edit, :update, :destroy]
   before_action :set_grid
   before_action :set_plan
   before_action :set_runsheet
 
   def index
-  #  @organisation = Organisation.friendly.find params[:slug]
-    @venues = Venue.all
+  #  @organisation = Organisation.friendly.find params[:id]
+    @venues = @organisation.venues
   end
 
   def bookings
@@ -23,12 +23,12 @@ class VenuesController < VenueLayoutController
   end
 
   def customers
-    @venue = Venue.friendly.find params[:slug]
+    @venue = Venue.friendly.find params[:id]
     @customers = @venue.customers.all
   end
 
   def new
-    @organisation = Organisation.friendly.find params[:slug]
+  #  @organisation = Organisation.friendly.find params[:id]
     @venue = @organisation.venues.build
   end
 
@@ -40,7 +40,7 @@ class VenuesController < VenueLayoutController
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to [@organisation, @venue], notice: 'venue was successfully created.' }
+        format.html { redirect_to @organisation, notice: 'venue was successfully created.' }
         format.json { render :show, status: :created, location: @venue }
         format.js {redirect_via_turbolinks_to [@venue.organisation, @venue]}
       else
