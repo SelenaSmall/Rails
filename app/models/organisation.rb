@@ -9,4 +9,5 @@ class Organisation < ActiveRecord::Base
 	has_many :reports
 
 	validates :name, uniqueness: true
+
 end
