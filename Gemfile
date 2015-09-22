@@ -6,6 +6,8 @@ gem 'rails', '4.2.3'
 
 gem 'devise'
 
+gem "pundit"
+
 gem 'pg'
 
 gem 'friendly_id'
