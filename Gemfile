@@ -4,6 +4,8 @@ ruby "2.2.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
+gem 'devise'
+
 gem 'pg'
 
 gem 'friendly_id'

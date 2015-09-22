@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :models
   root 'organisations#index'
 
 #  get 'org/:id' => 'organisations#show', as: 'organisation'
