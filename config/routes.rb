@@ -18,14 +18,12 @@ Rails.application.routes.draw do
   
   resources :venues, only: [:edit, :update, :destroy] do
     resources :users, shallow: true
-    resources :customers, shallow: true, except: [:destroy]
-
-    resources :bookings, except: [:index]
 
     resources :covers, except: [:show]
     resources :hours, except: [:show]
     resources :sections, except: [:show]
     resources :tables, except: [:show]
+    resources :bookings, except: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
