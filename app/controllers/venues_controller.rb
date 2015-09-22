@@ -6,7 +6,6 @@ class VenuesController < VenueLayoutController
   before_action :set_runsheet
 
   def index
-  #  @organisation = Organisation.friendly.find params[:id]
     @venues = @organisation.venues
   end
 
@@ -28,7 +27,6 @@ class VenuesController < VenueLayoutController
   end
 
   def new
-  #  @organisation = Organisation.friendly.find params[:id]
     @venue = @organisation.venues.build
   end
 
@@ -52,7 +50,6 @@ class VenuesController < VenueLayoutController
   end
 
   def update
-    #binding.pry
     respond_to do |format|
       if @venue.update(venue_params)
         format.html { redirect_to [@organisation, @venue], notice: 'venue was successfully updated.' }
