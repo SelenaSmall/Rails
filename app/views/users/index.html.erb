@@ -1,32 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <body>
-<h1><center>USERS</center></h1>
-<p>This page will show all users assoiated with the organisation. They can be searched, ordered, viewed. List will ideally be linked to FB or other social media with profile pics/links/etc</p>
+ <h1><center>USERS</center></h1>
+ 
 
 <!-- Users Search -->
-<div class="row">
-<div class="col-md-8"></div>
-<div class="col-md-3">
-<form class="form" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search Users">
+ <div class="row">
+  <div class="col-md-8">
+   <p>This page will show all users. They can be searched, ordered, viewed. List will ideally be linked to FB or other social media with profile pics/links/etc</p>
   </div>
-</div>
-  <button type="submit" class="btn btn-default">Search</button>
-</form>
-<!-- Users Search -->
+  <div class="col-md-3">
+   <form class="form" role="search">
+    <div class="form-group">
+     <input type="text" class="form-control" placeholder="Search Users">
+    </div>
+    <button type="submit" class="btn btn-default">Search</button>
+   </form>
+  </div>
+ </div>
+ <!-- Users Search -->
 
-<table class="table center">
+ <table class="table center">
   <thead>
     <tr>
       <th>User Name</th>
       <th>Password</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Facebook</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,25 +34,19 @@
       <tr>
         <td><%= user.user_name %></td>
         <td><%= user.password %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.facebook %></td>
         <td><%= link_to 'Details', [user]%></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Delete', [user], method: :delete, data: { confirm: 'Are you sure?' } %></td>        
       </tr>
     <% end %>
   </tbody>
-</table>
+ </table>
 
-<%= link_to 'New', new_user_path %>
+ <%= link_to 'New', new_user_path %>
 
-<!-- Modal form / New Channel Group -->
-<div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
-
-<div class="modal fade" id='opening-hours-modal-form' role="dialog"></div>
-<!-- Modal form / New Channel Group -->
+ <!-- Modal form / New Channel Group
+ <div class="modal fade" id='venue-details-modal-form' role="dialog"></div>
+ <div class="modal fade" id='opening-hours-modal-form' role="dialog"></div>
+ Modal form / New Channel Group -->
 
 </body>

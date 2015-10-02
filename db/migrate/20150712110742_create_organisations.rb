@@ -91,15 +91,8 @@ class CreateOrganisations < ActiveRecord::Migration
     end
 
     create_table :users do |t|
-      t.belongs_to :organisation, index: true
-      t.belongs_to :venue, index: true
       t.string :user_name, null: false, limit: 100
       t.string :password, null: false, limit: 100
-      t.string :first_name, null: false, limit: 100
-      t.string :last_name, null: false, limit: 100
-      t.string :email, null: false, limit: 100
-      t.string :phone, null: false, limit: 100
-      t.string :facebook, null: false, limit: 100
 
       t.timestamps null: false
     end

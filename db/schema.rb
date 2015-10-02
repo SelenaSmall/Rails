@@ -16,6 +16,24 @@ ActiveRecord::Schema.define(version: 20150922121741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admin", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admin", ["email"], name: "index_admin_on_email", unique: true, using: :btree
+  add_index "admin", ["reset_password_token"], name: "index_admin_on_reset_password_token", unique: true, using: :btree
+
   create_table "bookings", force: :cascade do |t|
     t.integer  "organisation_id"
     t.integer  "venue_id"
@@ -90,24 +108,6 @@ ActiveRecord::Schema.define(version: 20150922121741) do
 
   add_index "hours", ["venue_id"], name: "index_hours_on_venue_id", using: :btree
 
-  create_table "models", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
-
-  add_index "models", ["email"], name: "index_models_on_email", unique: true, using: :btree
-  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
-
   create_table "organisations", force: :cascade do |t|
     t.string   "name",           limit: 128, null: false
     t.string   "phone",          limit: 12,  null: false
@@ -149,21 +149,11 @@ ActiveRecord::Schema.define(version: 20150922121741) do
   add_index "tables", ["venue_id"], name: "index_tables_on_venue_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.integer  "organisation_id"
-    t.integer  "venue_id"
-    t.string   "user_name",       limit: 100, null: false
-    t.string   "password",        limit: 100, null: false
-    t.string   "first_name",      limit: 100, null: false
-    t.string   "last_name",       limit: 100, null: false
-    t.string   "email",           limit: 100, null: false
-    t.string   "phone",           limit: 100, null: false
-    t.string   "facebook",        limit: 100, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "user_name",  limit: 100, null: false
+    t.string   "password",   limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
-
-  add_index "users", ["organisation_id"], name: "index_users_on_organisation_id", using: :btree
-  add_index "users", ["venue_id"], name: "index_users_on_venue_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.integer  "organisation_id"
