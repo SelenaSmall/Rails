@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :models
   root 'organisations#index'
+  resources :users
+    #devise_for :users
 
 #  get 'org/:id' => 'organisations#show', as: 'organisation'
   resources :organisations do #, only: [:new, :edit, :update, :destroy]
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   get 'venue/:slug/runsheet' => 'tables#runsheet', as: 'runsheet'
   
   resources :venues, only: [:edit, :update, :destroy] do
-    resources :users, shallow: true
 
     resources :covers, except: [:show]
     resources :hours, except: [:show]
