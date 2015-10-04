@@ -13,8 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
       redirect_to users_path, :notice => "User updated."
@@ -31,7 +30,8 @@ class UsersController < ApplicationController
   end
 
   private
-    def secure_params
+
+  def secure_params
     params.require(:user).permit(:role)
   end
 

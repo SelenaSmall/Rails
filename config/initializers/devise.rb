@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '5f5a3a6e77ccdfb82a7cca980701db99b9894a6bce7324e34b048087a1f63159f2b4a23a229959cc90483dd1a0233a77be8848a5713409b36b3e995c7738e714'
+  # config.secret_key = 'f347e051078c00a8bc67b5f2e6f6848b6f1af24d367362fa14f88cb9a0e28c8960f732d0ba6296bd18812b9978d0cb8e0eac2cc7f611f0fcae3a7c672700f161'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -64,7 +64,7 @@ Devise.setup do |config|
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
-  config.http_authenticatable_on_xhr = true
+  # config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
   # config.http_authentication_realm = 'Application'
@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'a1bdc0f3df3de8695b3b5c1b57d22177e36c66c35f8977625f84632de06248b3bd9c59ba49df0dbb427b64a6bf42362e3e9f642256320e38e3e937dde15357bf'
+  # config.pepper = '21330a1ce9e6fd980c75acbc84880639ef0d01f6355b5382f7ca446f8f00ade690cafdb38135d9574ebe9668cb2afcb8cb83ca9e573074b8338aa8c297c3a525'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

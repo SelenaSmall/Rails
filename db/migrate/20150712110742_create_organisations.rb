@@ -90,12 +90,12 @@ class CreateOrganisations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :users do |t|
-      t.string :user_name#, null: false, limit: 100
-      t.string :password#, null: false, limit: 100
+#    create_table :users do |t|
+#      t.string :user_name#, null: false, limit: 100
+#      t.string :password#, null: false, limit: 100
 
-      t.timestamps null: false
-    end
+#      t.timestamps null: false
+#    end
 
       create_table :grids do |t|
       t.belongs_to :venue, index: true

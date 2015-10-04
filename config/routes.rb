@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  root to: 'visitors#index'
   devise_for :users
-  root 'organisations#index'
   resources :users
-  resources :admin do
-    devise_for :admin, module: "admin"
-   #devise_for :users, controllers: { users: "users/index" }    
-  end
+
+  #root 'organisations#index'
+  
 
 #  get 'org/:id' => 'organisations#show', as: 'organisation'
   resources :organisations do #, only: [:new, :edit, :update, :destroy]
