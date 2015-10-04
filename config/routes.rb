@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  root to: 'organisations#index'
+
+#  get 'visitors/index'  
+  
   devise_for :users
   resources :users
-
-  #root 'organisations#index'
-  
 
 #  get 'org/:id' => 'organisations#show', as: 'organisation'
   resources :organisations do #, only: [:new, :edit, :update, :destroy]
