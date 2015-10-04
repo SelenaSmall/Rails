@@ -91,8 +91,8 @@ class CreateOrganisations < ActiveRecord::Migration
     end
 
     create_table :users do |t|
-      t.string :user_name, null: false, limit: 100
-      t.string :password, null: false, limit: 100
+      t.string :user_name#, null: false, limit: 100
+      t.string :password#, null: false, limit: 100
 
       t.timestamps null: false
     end
