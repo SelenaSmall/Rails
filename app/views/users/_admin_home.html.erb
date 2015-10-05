@@ -1,11 +1,10 @@
-<% if user_signed_in? %>
-  <% if current_user.try(:admin?) %>
-   <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
-    <button type="button" class="btn btn-default"><%= link_to 'Users', users_path %></button>
-    <button type="button" class="btn btn-default"><%= link_to 'Organisations', organisations_path %>
-    </button>
-    <button type="button" class="btn btn-default"><%= link_to 'Edit account', edit_user_registration_path %>
-    </button>
+<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
 
-  <% end %>
-<% end %>
+<button type="button" class="btn btn-default"><%= link_to 'Users', users_path %>
+</button>
+
+<button type="button" class="btn btn-default"><%= link_to 'Organisations', organisations_path %>
+</button>
+
+<button type="button" class="btn btn-default"><%= link_to 'Edit account', edit_user_registration_path %>
+</button>

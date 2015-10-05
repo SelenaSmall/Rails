@@ -1,7 +1,12 @@
-<center>
-<h3>RESERVATIONS APP</h3>
- <body>
-   <%= render 'users/admin_home' %>
- </body>
-
-</center>
+<% if user_signed_in? %>
+ <% if current_user.try(:admin?) %>
+  <center>
+   <h3>RESERVATIONS APP</h3>
+   <body>
+     <%= render 'users/admin_home' %>
+   </body>
+  </center>
+  <% else %>
+  <%= render 'visitors/home' %>
+ <% end %>
+<% end %>
