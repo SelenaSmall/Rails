@@ -1,10 +1,1 @@
-<% if user_signed_in? %>
-  <button type="button" class="btn btn-default"><%= link_to 'Sign in', new_user_session_path %></button>
-  <button type="button" class="btn btn-default"><%= link_to 'Sign up', new_user_registration_path %></button>
-<% end %>
-
-<% if user_signed_in? %>
-  <% if current_user.try(:admin?) %>
-    <button type="button" class="btn btn-default"><%= link_to 'Users', users_path %></button>
-  <% end %>
-<% end %>
+HOME

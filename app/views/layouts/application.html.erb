@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
  </head>
 
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+   <ul class="nav navbar-nav navbar-right">  
+   	<button type="button" class="btn btn-default"><%= link_to 'Sign In', new_user_session_path, :method=>'create' %>
+    </button>
+    <button type="button" class="btn btn-default"><%= link_to 'Sign up', new_user_registration_path %>
+    </button>
+   	<button type="button" class="btn btn-default"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+   	</button>
+   </ul>
+  </div><!-- /.container-fluid -->
+ </nav>
+
  <body class="application">
   </div>
    <%= yield %>
