@@ -1,12 +1,15 @@
 class OrganisationsController < OrganisationLayoutController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
+#  authorize @organisation
 
   def index
     @organisations = Organisation.all
+#    authorize @organisation
   end
 
   def bookings
     @organisations = Organisation.all
+#    authorize @organisation
   end
 
   def show
