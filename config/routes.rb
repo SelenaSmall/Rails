@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'users#home' 
+  root to: 'visitors#index'  
+
+  get 'users/home' 
 
   get 'users/admin_home'
  
