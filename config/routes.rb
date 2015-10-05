@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-#  root to: 'organisations#index'
-
-  root to: 'visitors#index' 
+  root to: 'users#home' 
   get 'organisations/index' 
   
   devise_for :users

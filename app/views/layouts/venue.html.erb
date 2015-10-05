@@ -16,7 +16,7 @@
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENU <span class="caret"></span></a>
        <ul class="dropdown-menu">
         <li><%= link_to  @venue.name, venue_path(@venue)%></li>
-        <li><%= link_to 'Users' %></li>
+        <li><%= link_to 'Staff' %></li>
         <li role="separator" class="divider"></li>
        </ul>
       </li>
@@ -37,6 +37,7 @@
 
       <ul class="nav navbar-nav navbar-right">      
        <button type="button" class="btn btn-default"><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %>
+      <button type="button" class="btn btn-default"><%= link_to 'Edit account', edit_user_registration_path %></button>
        </button>
       </ul>
     </div><!-- /.navbar-collapse -->
