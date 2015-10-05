@@ -10,9 +10,11 @@ class ApplicationController < ActionController::Base
  	if current_user.admin?
  		request.env['omniauth.origin'] || stored_location_for(user) || organisations_path
  	else
- 		request.env['omniauth.origin'] || stored_location_for(user) || root_path
+ 		request.env['omniauth.origin'] || stored_location_for(user) || visitors_home_path
  	end
  end
+
+
 
 #  before_action :authenticate_user!
 

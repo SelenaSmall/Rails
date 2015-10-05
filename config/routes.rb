@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'visitors#index'  
 
   get 'users/admin_home'
+  get 'visitors/home'
  
   get 'organisations/index' 
   
