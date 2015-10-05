@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root to: 'visitors#index'  
 
-  get 'users/home' 
-
   get 'users/admin_home'
  
   get 'organisations/index' 
